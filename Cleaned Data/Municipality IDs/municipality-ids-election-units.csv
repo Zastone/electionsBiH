@@ -1,142 +1,566 @@
-municipality_ID,kanton_ID,president_bih_election_unit_ID,parliament_rs_election_unit_ID,president_rs_election_ID,parliament_fbih_election_unit_id,parliament_bih_election_unit_ID,municipality_name
-001,201,701,,,401,511,Velika Kladusa
-002,201,701,,,401,511,Cazin
-003,201,701,,,401,511,Bihac
-004,201,701,,,401,511,Bosanska Krupa
-005,201,701,,,401,511,Buzim
-006,,703,301,600,,521,Krupa Na Uni
-007,,703,301,600,,521,Novi Grad
-008,,703,301,600,,521,Kozarska Dubica
-009,,703,301,600,,521,Prijedor
-010,,703,301,600,,521,Gradiska
-011,,703,301,600,,521,Laktasi
-012,,703,301,600,,521,Srbac
-013,,703,301,600,,521,Prnjavor
-014,,703,303,600,,522,Derventa
-016,,703,303,600,,522,Brod
-017,202,701,,,402,515,Odzak
-018,,703,303,600,,522,Vukosavlje
-020,202,701,,,402,515,Domaljevac-samac
-021,,703,304,600,,522,Samac
-022,202,701,,,402,515,Orasje
-023,,703,304,600,,522,Donji Zabar
-024,,703,303,600,,522,Modrica
-025,203,701,,,402,515,Gradacac
-026,,703,304,600,,522,Pelagicevo
-029,,703,304,600,,522,Bijeljina
-030,201,701,,,401,511,Bosanski Petrovac
-031,,703,302,600,,521,Petrovac
-032,201,701,,,401,511,Sanski Most
-033,,703,301,600,,521,Ostra Luka
-034,,703,302,600,,521,Banja Luka
-035,,703,302,600,,521,Celinac
-036,203,701,,,402,515,Doboj Istok
-037,204,701,,,405,514,Doboj Jug
-038,,703,303,600,,522,Doboj
-039,204,701,,,405,514,Tesanj
-042,204,701,,,405,514,Maglaj
-044,203,701,,,402,515,Gracanica
-045,,703,303,600,,522,Petrovo
-047,203,701,,,403,515,Lukavac
-049,203,701,,,403,515,Srebrenik
-050,203,701,,,403,515,Tuzla
-052,203,701,,,403,515,Celic
-054,,703,304,600,,522,Lopare
-055,203,701,,,404,515,Teocak
-056,,703,304,600,,522,Ugljevik
-057,210,701,,,412,511,Drvar
-058,,703,302,600,,521,Istocni Drvar
-059,201,701,,,401,511,Kljuc
-061,,703,302,600,,521,Ribnik
-064,,703,302,600,,521,Mrkonjic Grad
-065,206,701,,,408,514,Jajce
-066,,703,302,600,,521,Jezero
-067,206,701,,,408,514,Dobretici
-068,,703,302,600,,521,Knezevo
-070,,703,302,600,,521,Kotor Varos
-074,,703,303,600,,522,Teslic
-075,204,701,,,405,514,Zepce
-077,204,701,,,405,514,Zavidovici
-078,203,701,,,404,515,Banovici
-079,203,701,,,404,515,Zivinice
-080,203,701,,,404,515,Kalesija
-081,,703,305,600,,523,Osmaci
-082,203,701,,,404,515,Sapna
-083,,703,305,600,,523,Zvornik
-084,210,701,,,412,511,Bosansko Grahovo
-085,210,701,,,412,511,Glamoc
-088,,703,302,600,,521,Sipovo
-089,206,701,,,408,514,Donji Vakuf
-091,206,701,,,408,514,Travnik
-093,204,701,,,405,514,Zenica
-094,204,701,,,406,514,Kakanj
-095,204,701,,,406,514,Vares
-096,204,701,,,406,514,Olovo
-098,203,701,,,404,515,Kladanj
-101,,703,305,600,,523,Sekovici
-103,,703,305,600,,523,Vlasenica
-104,,703,305,600,,523,Bratunac
-105,,703,305,600,,523,Srebrenica
-106,210,701,,,412,511,Livno
-107,210,701,,,412,511,Kupres (fbih)
-108,,703,302,600,,521,Kupres (rs)
-109,206,701,,,408,514,Bugojno
-110,206,701,,,408,514,Gornji Vakuf - Uskoplje
-111,206,701,,,408,514,Novi Travnik
-112,206,701,,,408,514,Vitez
-113,206,701,,,408,514,Busovaca
-114,206,701,,,408,514,Fojnica
-115,206,701,,,408,514,Kiseljak
-116,204,701,,,406,514,Visoko
-117,204,701,,,406,514,Breza
-118,209,701,,,411,513,Ilijas
-121,,703,305,600,,523,Sokolac
-123,,703,305,600,,523,Han Pijesak
-124,210,701,,,412,511,Tomislavgrad
-125,207,701,,,409,512,Prozor-rama
-126,207,701,,,409,512,Jablanica
-127,207,701,,,409,512,Konjic
-129,206,701,,,408,514,Kresevo
-130,209,701,,,407,513,Hadzici
-131,209,701,,,407,513,Ilidza
-132,,703,305,600,,523,Istocna Ilidza
-133,209,701,,,407,513,Novi Grad Sarajevo
-135,209,701,,,411,513,Vogosca
-136,209,701,,,411,513,Centar Sarajevo
-137,209,701,,,411,513,Stari Grad Sarajevo
-138,,703,305,600,,523,Istocni Stari Grad
-139,209,701,,,411,513,Novo Srajevo
-140,,703,305,600,,523,Istocno Novo Srajevo
-141,209,701,,,407,513,Trnovo (fbih)
-142,,703,305,600,,523,Trnovo (rs)
-143,205,701,,,407,513,Pale (fbih)
-144,,703,305,600,,523,Pale (rs)
-146,,703,305,600,,523,Rogatica
-147,,703,306,600,,523,Visegrad
-148,208,701,,,410,512,Posusje
-149,208,701,,,410,512,Grude
-150,208,701,,,410,512,Siroki Brijeg
-158,,703,306,600,,523,Istocni Mostar
-161,,703,306,600,,523,Nevesinje
-163,,703,306,600,,523,Kalinovik
-164,,703,306,600,,523,Gacko
-165,205,701,,,407,513,Foca (fbih)
-166,,703,306,600,,523,Foca (rs)
-167,205,701,,,407,513,Gorazde
-168,,703,306,600,,523,Novo Gorazde
-169,,703,306,600,,523,Cajnice
-170,,703,306,600,,523,Rudo
-171,208,701,,,410,512,Ljubuski
-172,207,701,,,409,512,Citluk
-173,207,701,,,409,512,Capljina
-174,207,701,,,409,512,Neum
-176,207,701,,,409,512,Stolac
-177,,703,306,600,,523,Berkovici
-179,,703,306,600,,523,Ljubinje
-180,,703,306,600,,523,Bileca
-181,207,701,,,409,512,Ravno
-182,,703,306,600,,523,Trebinje
-183,204,701,,,405,514,Usora
-184,,703,301,600,,521,Kostajnica
-185,,703,305,600,,523,Milici
-200,,701,304,600,402,515,Brcko Distrikt Bih
+municipality_ID,municipality_name,election_type,election_unit_id
+001,Velika Kladusa,kanton,201
+001,Velika Kladusa,president_bih,701
+001,Velika Kladusa,parliament_fbih,401
+001,Velika Kladusa,parliament_bih,511
+002,Cazin,kanton,201
+002,Cazin,president_bih,701
+002,Cazin,parliament_fbih,401
+002,Cazin,parliament_bih,511
+003,Bihac,kanton,201
+003,Bihac,president_bih,701
+003,Bihac,parliament_fbih,401
+003,Bihac,parliament_bih,511
+004,Bosanska Krupa,kanton,201
+004,Bosanska Krupa,president_bih,701
+004,Bosanska Krupa,parliament_fbih,401
+004,Bosanska Krupa,parliament_bih,511
+005,Buzim,kanton,201
+005,Buzim,president_bih,701
+005,Buzim,parliament_fbih,401
+005,Buzim,parliament_bih,511
+006,Krupa Na Uni,president_bih,703
+006,Krupa Na Uni,parliament_rs,301
+006,Krupa Na Uni,president_rs_election,600
+006,Krupa Na Uni,parliament_bih,521
+007,Novi Grad,president_bih,703
+007,Novi Grad,parliament_rs,301
+007,Novi Grad,president_rs_election,600
+007,Novi Grad,parliament_bih,521
+008,Kozarska Dubica,president_bih,703
+008,Kozarska Dubica,parliament_rs,301
+008,Kozarska Dubica,president_rs_election,600
+008,Kozarska Dubica,parliament_bih,521
+009,Prijedor,president_bih,703
+009,Prijedor,parliament_rs,301
+009,Prijedor,president_rs_election,600
+009,Prijedor,parliament_bih,521
+010,Gradiska,president_bih,703
+010,Gradiska,parliament_rs,301
+010,Gradiska,president_rs_election,600
+010,Gradiska,parliament_bih,521
+011,Laktasi,president_bih,703
+011,Laktasi,parliament_rs,301
+011,Laktasi,president_rs_election,600
+011,Laktasi,parliament_bih,521
+012,Srbac,president_bih,703
+012,Srbac,parliament_rs,301
+012,Srbac,president_rs_election,600
+012,Srbac,parliament_bih,521
+013,Prnjavor,president_bih,703
+013,Prnjavor,parliament_rs,301
+013,Prnjavor,president_rs_election,600
+013,Prnjavor,parliament_bih,521
+014,Derventa,president_bih,703
+014,Derventa,parliament_rs,303
+014,Derventa,president_rs_election,600
+014,Derventa,parliament_bih,522
+016,Brod,president_bih,703
+016,Brod,parliament_rs,303
+016,Brod,president_rs_election,600
+016,Brod,parliament_bih,522
+017,Odzak,kanton,202
+017,Odzak,president_bih,701
+017,Odzak,parliament_fbih,402
+017,Odzak,parliament_bih,515
+018,Vukosavlje,president_bih,703
+018,Vukosavlje,parliament_rs,303
+018,Vukosavlje,president_rs_election,600
+018,Vukosavlje,parliament_bih,522
+020,Domaljevac-samac,kanton,202
+020,Domaljevac-samac,president_bih,701
+020,Domaljevac-samac,parliament_fbih,402
+020,Domaljevac-samac,parliament_bih,515
+021,Samac,president_bih,703
+021,Samac,parliament_rs,304
+021,Samac,president_rs_election,600
+021,Samac,parliament_bih,522
+022,Orasje,kanton,202
+022,Orasje,president_bih,701
+022,Orasje,parliament_fbih,402
+022,Orasje,parliament_bih,515
+023,Donji Zabar,president_bih,703
+023,Donji Zabar,parliament_rs,304
+023,Donji Zabar,president_rs_election,600
+023,Donji Zabar,parliament_bih,522
+024,Modrica,president_bih,703
+024,Modrica,parliament_rs,303
+024,Modrica,president_rs_election,600
+024,Modrica,parliament_bih,522
+025,Gradacac,kanton,203
+025,Gradacac,president_bih,701
+025,Gradacac,parliament_fbih,402
+025,Gradacac,parliament_bih,515
+026,Pelagicevo,president_bih,703
+026,Pelagicevo,parliament_rs,304
+026,Pelagicevo,president_rs_election,600
+026,Pelagicevo,parliament_bih,522
+029,Bijeljina,president_bih,703
+029,Bijeljina,parliament_rs,304
+029,Bijeljina,president_rs_election,600
+029,Bijeljina,parliament_bih,522
+030,Bosanski Petrovac,kanton,201
+030,Bosanski Petrovac,president_bih,701
+030,Bosanski Petrovac,parliament_fbih,401
+030,Bosanski Petrovac,parliament_bih,511
+031,Petrovac,president_bih,703
+031,Petrovac,parliament_rs,302
+031,Petrovac,president_rs_election,600
+031,Petrovac,parliament_bih,521
+032,Sanski Most,kanton,201
+032,Sanski Most,president_bih,701
+032,Sanski Most,parliament_fbih,401
+032,Sanski Most,parliament_bih,511
+033,Ostra Luka,president_bih,703
+033,Ostra Luka,parliament_rs,301
+033,Ostra Luka,president_rs_election,600
+033,Ostra Luka,parliament_bih,521
+034,Banja Luka,president_bih,703
+034,Banja Luka,parliament_rs,302
+034,Banja Luka,president_rs_election,600
+034,Banja Luka,parliament_bih,521
+035,Celinac,president_bih,703
+035,Celinac,parliament_rs,302
+035,Celinac,president_rs_election,600
+035,Celinac,parliament_bih,521
+036,Doboj Istok,kanton,203
+036,Doboj Istok,president_bih,701
+036,Doboj Istok,parliament_fbih,402
+036,Doboj Istok,parliament_bih,515
+037,Doboj Jug,kanton,204
+037,Doboj Jug,president_bih,701
+037,Doboj Jug,parliament_fbih,405
+037,Doboj Jug,parliament_bih,514
+038,Doboj,president_bih,703
+038,Doboj,parliament_rs,303
+038,Doboj,president_rs_election,600
+038,Doboj,parliament_bih,522
+039,Tesanj,kanton,204
+039,Tesanj,president_bih,701
+039,Tesanj,parliament_fbih,405
+039,Tesanj,parliament_bih,514
+042,Maglaj,kanton,204
+042,Maglaj,president_bih,701
+042,Maglaj,parliament_fbih,405
+042,Maglaj,parliament_bih,514
+044,Gracanica,kanton,203
+044,Gracanica,president_bih,701
+044,Gracanica,parliament_fbih,402
+044,Gracanica,parliament_bih,515
+045,Petrovo,president_bih,703
+045,Petrovo,parliament_rs,303
+045,Petrovo,president_rs_election,600
+045,Petrovo,parliament_bih,522
+047,Lukavac,kanton,203
+047,Lukavac,president_bih,701
+047,Lukavac,parliament_fbih,403
+047,Lukavac,parliament_bih,515
+049,Srebrenik,kanton,203
+049,Srebrenik,president_bih,701
+049,Srebrenik,parliament_fbih,403
+049,Srebrenik,parliament_bih,515
+050,Tuzla,kanton,203
+050,Tuzla,president_bih,701
+050,Tuzla,parliament_fbih,403
+050,Tuzla,parliament_bih,515
+052,Celic,kanton,203
+052,Celic,president_bih,701
+052,Celic,parliament_fbih,403
+052,Celic,parliament_bih,515
+054,Lopare,president_bih,703
+054,Lopare,parliament_rs,304
+054,Lopare,president_rs_election,600
+054,Lopare,parliament_bih,522
+055,Teocak,kanton,203
+055,Teocak,president_bih,701
+055,Teocak,parliament_fbih,404
+055,Teocak,parliament_bih,515
+056,Ugljevik,president_bih,703
+056,Ugljevik,parliament_rs,304
+056,Ugljevik,president_rs_election,600
+056,Ugljevik,parliament_bih,522
+057,Drvar,kanton,210
+057,Drvar,president_bih,701
+057,Drvar,parliament_fbih,412
+057,Drvar,parliament_bih,511
+058,Istocni Drvar,president_bih,703
+058,Istocni Drvar,parliament_rs,302
+058,Istocni Drvar,president_rs_election,600
+058,Istocni Drvar,parliament_bih,521
+059,Kljuc,kanton,201
+059,Kljuc,president_bih,701
+059,Kljuc,parliament_fbih,401
+059,Kljuc,parliament_bih,511
+061,Ribnik,president_bih,703
+061,Ribnik,parliament_rs,302
+061,Ribnik,president_rs_election,600
+061,Ribnik,parliament_bih,521
+064,Mrkonjic Grad,president_bih,703
+064,Mrkonjic Grad,parliament_rs,302
+064,Mrkonjic Grad,president_rs_election,600
+064,Mrkonjic Grad,parliament_bih,521
+065,Jajce,kanton,206
+065,Jajce,president_bih,701
+065,Jajce,parliament_fbih,408
+065,Jajce,parliament_bih,514
+066,Jezero,president_bih,703
+066,Jezero,parliament_rs,302
+066,Jezero,president_rs_election,600
+066,Jezero,parliament_bih,521
+067,Dobretici,kanton,206
+067,Dobretici,president_bih,701
+067,Dobretici,parliament_fbih,408
+067,Dobretici,parliament_bih,514
+068,Knezevo,president_bih,703
+068,Knezevo,parliament_rs,302
+068,Knezevo,president_rs_election,600
+068,Knezevo,parliament_bih,521
+070,Kotor Varos,president_bih,703
+070,Kotor Varos,parliament_rs,302
+070,Kotor Varos,president_rs_election,600
+070,Kotor Varos,parliament_bih,521
+074,Teslic,president_bih,703
+074,Teslic,parliament_rs,303
+074,Teslic,president_rs_election,600
+074,Teslic,parliament_bih,522
+075,Zepce,kanton,204
+075,Zepce,president_bih,701
+075,Zepce,parliament_fbih,405
+075,Zepce,parliament_bih,514
+077,Zavidovici,kanton,204
+077,Zavidovici,president_bih,701
+077,Zavidovici,parliament_fbih,405
+077,Zavidovici,parliament_bih,514
+078,Banovici,kanton,203
+078,Banovici,president_bih,701
+078,Banovici,parliament_fbih,404
+078,Banovici,parliament_bih,515
+079,Zivinice,kanton,203
+079,Zivinice,president_bih,701
+079,Zivinice,parliament_fbih,404
+079,Zivinice,parliament_bih,515
+080,Kalesija,kanton,203
+080,Kalesija,president_bih,701
+080,Kalesija,parliament_fbih,404
+080,Kalesija,parliament_bih,515
+081,Osmaci,president_bih,703
+081,Osmaci,parliament_rs,305
+081,Osmaci,president_rs_election,600
+081,Osmaci,parliament_bih,523
+082,Sapna,kanton,203
+082,Sapna,president_bih,701
+082,Sapna,parliament_fbih,404
+082,Sapna,parliament_bih,515
+083,Zvornik,president_bih,703
+083,Zvornik,parliament_rs,305
+083,Zvornik,president_rs_election,600
+083,Zvornik,parliament_bih,523
+084,Bosansko Grahovo,kanton,210
+084,Bosansko Grahovo,president_bih,701
+084,Bosansko Grahovo,parliament_fbih,412
+084,Bosansko Grahovo,parliament_bih,511
+085,Glamoc,kanton,210
+085,Glamoc,president_bih,701
+085,Glamoc,parliament_fbih,412
+085,Glamoc,parliament_bih,511
+088,Sipovo,president_bih,703
+088,Sipovo,parliament_rs,302
+088,Sipovo,president_rs_election,600
+088,Sipovo,parliament_bih,521
+089,Donji Vakuf,kanton,206
+089,Donji Vakuf,president_bih,701
+089,Donji Vakuf,parliament_fbih,408
+089,Donji Vakuf,parliament_bih,514
+091,Travnik,kanton,206
+091,Travnik,president_bih,701
+091,Travnik,parliament_fbih,408
+091,Travnik,parliament_bih,514
+093,Zenica,kanton,204
+093,Zenica,president_bih,701
+093,Zenica,parliament_fbih,405
+093,Zenica,parliament_bih,514
+094,Kakanj,kanton,204
+094,Kakanj,president_bih,701
+094,Kakanj,parliament_fbih,406
+094,Kakanj,parliament_bih,514
+095,Vares,kanton,204
+095,Vares,president_bih,701
+095,Vares,parliament_fbih,406
+095,Vares,parliament_bih,514
+096,Olovo,kanton,204
+096,Olovo,president_bih,701
+096,Olovo,parliament_fbih,406
+096,Olovo,parliament_bih,514
+098,Kladanj,kanton,203
+098,Kladanj,president_bih,701
+098,Kladanj,parliament_fbih,404
+098,Kladanj,parliament_bih,515
+101,Sekovici,president_bih,703
+101,Sekovici,parliament_rs,305
+101,Sekovici,president_rs_election,600
+101,Sekovici,parliament_bih,523
+103,Vlasenica,president_bih,703
+103,Vlasenica,parliament_rs,305
+103,Vlasenica,president_rs_election,600
+103,Vlasenica,parliament_bih,523
+104,Bratunac,president_bih,703
+104,Bratunac,parliament_rs,305
+104,Bratunac,president_rs_election,600
+104,Bratunac,parliament_bih,523
+105,Srebrenica,president_bih,703
+105,Srebrenica,parliament_rs,305
+105,Srebrenica,president_rs_election,600
+105,Srebrenica,parliament_bih,523
+106,Livno,kanton,210
+106,Livno,president_bih,701
+106,Livno,parliament_fbih,412
+106,Livno,parliament_bih,511
+107,Kupres (fbih),kanton,210
+107,Kupres (fbih),president_bih,701
+107,Kupres (fbih),parliament_fbih,412
+107,Kupres (fbih),parliament_bih,511
+108,Kupres (rs),president_bih,703
+108,Kupres (rs),parliament_rs,302
+108,Kupres (rs),president_rs_election,600
+108,Kupres (rs),parliament_bih,521
+109,Bugojno,kanton,206
+109,Bugojno,president_bih,701
+109,Bugojno,parliament_fbih,408
+109,Bugojno,parliament_bih,514
+110,Gornji Vakuf - Uskoplje,kanton,206
+110,Gornji Vakuf - Uskoplje,president_bih,701
+110,Gornji Vakuf - Uskoplje,parliament_fbih,408
+110,Gornji Vakuf - Uskoplje,parliament_bih,514
+111,Novi Travnik,kanton,206
+111,Novi Travnik,president_bih,701
+111,Novi Travnik,parliament_fbih,408
+111,Novi Travnik,parliament_bih,514
+112,Vitez,kanton,206
+112,Vitez,president_bih,701
+112,Vitez,parliament_fbih,408
+112,Vitez,parliament_bih,514
+113,Busovaca,kanton,206
+113,Busovaca,president_bih,701
+113,Busovaca,parliament_fbih,408
+113,Busovaca,parliament_bih,514
+114,Fojnica,kanton,206
+114,Fojnica,president_bih,701
+114,Fojnica,parliament_fbih,408
+114,Fojnica,parliament_bih,514
+115,Kiseljak,kanton,206
+115,Kiseljak,president_bih,701
+115,Kiseljak,parliament_fbih,408
+115,Kiseljak,parliament_bih,514
+116,Visoko,kanton,204
+116,Visoko,president_bih,701
+116,Visoko,parliament_fbih,406
+116,Visoko,parliament_bih,514
+117,Breza,kanton,204
+117,Breza,president_bih,701
+117,Breza,parliament_fbih,406
+117,Breza,parliament_bih,514
+118,Ilijas,kanton,209
+118,Ilijas,president_bih,701
+118,Ilijas,parliament_fbih,411
+118,Ilijas,parliament_bih,513
+121,Sokolac,president_bih,703
+121,Sokolac,parliament_rs,305
+121,Sokolac,president_rs_election,600
+121,Sokolac,parliament_bih,523
+123,Han Pijesak,president_bih,703
+123,Han Pijesak,parliament_rs,305
+123,Han Pijesak,president_rs_election,600
+123,Han Pijesak,parliament_bih,523
+124,Tomislavgrad,kanton,210
+124,Tomislavgrad,president_bih,701
+124,Tomislavgrad,parliament_fbih,412
+124,Tomislavgrad,parliament_bih,511
+125,Prozor-rama,kanton,207
+125,Prozor-rama,president_bih,701
+125,Prozor-rama,parliament_fbih,409
+125,Prozor-rama,parliament_bih,512
+126,Jablanica,kanton,207
+126,Jablanica,president_bih,701
+126,Jablanica,parliament_fbih,409
+126,Jablanica,parliament_bih,512
+127,Konjic,kanton,207
+127,Konjic,president_bih,701
+127,Konjic,parliament_fbih,409
+127,Konjic,parliament_bih,512
+129,Kresevo,kanton,206
+129,Kresevo,president_bih,701
+129,Kresevo,parliament_fbih,408
+129,Kresevo,parliament_bih,514
+130,Hadzici,kanton,209
+130,Hadzici,president_bih,701
+130,Hadzici,parliament_fbih,407
+130,Hadzici,parliament_bih,513
+131,Ilidza,kanton,209
+131,Ilidza,president_bih,701
+131,Ilidza,parliament_fbih,407
+131,Ilidza,parliament_bih,513
+132,Istocna Ilidza,president_bih,703
+132,Istocna Ilidza,parliament_rs,305
+132,Istocna Ilidza,president_rs_election,600
+132,Istocna Ilidza,parliament_bih,523
+133,Novi Grad Sarajevo,kanton,209
+133,Novi Grad Sarajevo,president_bih,701
+133,Novi Grad Sarajevo,parliament_fbih,407
+133,Novi Grad Sarajevo,parliament_bih,513
+135,Vogosca,kanton,209
+135,Vogosca,president_bih,701
+135,Vogosca,parliament_fbih,411
+135,Vogosca,parliament_bih,513
+136,Centar Sarajevo,kanton,209
+136,Centar Sarajevo,president_bih,701
+136,Centar Sarajevo,parliament_fbih,411
+136,Centar Sarajevo,parliament_bih,513
+137,Stari Grad Sarajevo,kanton,209
+137,Stari Grad Sarajevo,president_bih,701
+137,Stari Grad Sarajevo,parliament_fbih,411
+137,Stari Grad Sarajevo,parliament_bih,513
+138,Istocni Stari Grad,president_bih,703
+138,Istocni Stari Grad,parliament_rs,305
+138,Istocni Stari Grad,president_rs_election,600
+138,Istocni Stari Grad,parliament_bih,523
+139,Novo Srajevo,kanton,209
+139,Novo Srajevo,president_bih,701
+139,Novo Srajevo,parliament_fbih,411
+139,Novo Srajevo,parliament_bih,513
+140,Istocno Novo Srajevo,president_bih,703
+140,Istocno Novo Srajevo,parliament_rs,305
+140,Istocno Novo Srajevo,president_rs_election,600
+140,Istocno Novo Srajevo,parliament_bih,523
+141,Trnovo (fbih),kanton,209
+141,Trnovo (fbih),president_bih,701
+141,Trnovo (fbih),parliament_fbih,407
+141,Trnovo (fbih),parliament_bih,513
+142,Trnovo (rs),president_bih,703
+142,Trnovo (rs),parliament_rs,305
+142,Trnovo (rs),president_rs_election,600
+142,Trnovo (rs),parliament_bih,523
+143,Pale (fbih),kanton,205
+143,Pale (fbih),president_bih,701
+143,Pale (fbih),parliament_fbih,407
+143,Pale (fbih),parliament_bih,513
+144,Pale (rs),president_bih,703
+144,Pale (rs),parliament_rs,305
+144,Pale (rs),president_rs_election,600
+144,Pale (rs),parliament_bih,523
+146,Rogatica,president_bih,703
+146,Rogatica,parliament_rs,305
+146,Rogatica,president_rs_election,600
+146,Rogatica,parliament_bih,523
+147,Visegrad,president_bih,703
+147,Visegrad,parliament_rs,306
+147,Visegrad,president_rs_election,600
+147,Visegrad,parliament_bih,523
+148,Posusje,kanton,208
+148,Posusje,president_bih,701
+148,Posusje,parliament_fbih,410
+148,Posusje,parliament_bih,512
+149,Grude,kanton,208
+149,Grude,president_bih,701
+149,Grude,parliament_fbih,410
+149,Grude,parliament_bih,512
+150,Siroki Brijeg,kanton,208
+150,Siroki Brijeg,president_bih,701
+150,Siroki Brijeg,parliament_fbih,410
+150,Siroki Brijeg,parliament_bih,512
+158,Istocni Mostar,president_bih,703
+158,Istocni Mostar,parliament_rs,306
+158,Istocni Mostar,president_rs_election,600
+158,Istocni Mostar,parliament_bih,523
+161,Nevesinje,president_bih,703
+161,Nevesinje,parliament_rs,306
+161,Nevesinje,president_rs_election,600
+161,Nevesinje,parliament_bih,523
+163,Kalinovik,president_bih,703
+163,Kalinovik,parliament_rs,306
+163,Kalinovik,president_rs_election,600
+163,Kalinovik,parliament_bih,523
+164,Gacko,president_bih,703
+164,Gacko,parliament_rs,306
+164,Gacko,president_rs_election,600
+164,Gacko,parliament_bih,523
+165,Foca (fbih),kanton,205
+165,Foca (fbih),president_bih,701
+165,Foca (fbih),parliament_fbih,407
+165,Foca (fbih),parliament_bih,513
+166,Foca (rs),president_bih,703
+166,Foca (rs),parliament_rs,306
+166,Foca (rs),president_rs_election,600
+166,Foca (rs),parliament_bih,523
+167,Gorazde,kanton,205
+167,Gorazde,president_bih,701
+167,Gorazde,parliament_fbih,407
+167,Gorazde,parliament_bih,513
+168,Novo Gorazde,president_bih,703
+168,Novo Gorazde,parliament_rs,306
+168,Novo Gorazde,president_rs_election,600
+168,Novo Gorazde,parliament_bih,523
+169,Cajnice,president_bih,703
+169,Cajnice,parliament_rs,306
+169,Cajnice,president_rs_election,600
+169,Cajnice,parliament_bih,523
+170,Rudo,president_bih,703
+170,Rudo,parliament_rs,306
+170,Rudo,president_rs_election,600
+170,Rudo,parliament_bih,523
+171,Ljubuski,kanton,208
+171,Ljubuski,president_bih,701
+171,Ljubuski,parliament_fbih,410
+171,Ljubuski,parliament_bih,512
+172,Citluk,kanton,207
+172,Citluk,president_bih,701
+172,Citluk,parliament_fbih,409
+172,Citluk,parliament_bih,512
+173,Capljina,kanton,207
+173,Capljina,president_bih,701
+173,Capljina,parliament_fbih,409
+173,Capljina,parliament_bih,512
+174,Neum,kanton,207
+174,Neum,president_bih,701
+174,Neum,parliament_fbih,409
+174,Neum,parliament_bih,512
+176,Stolac,kanton,207
+176,Stolac,president_bih,701
+176,Stolac,parliament_fbih,409
+176,Stolac,parliament_bih,512
+177,Berkovici,president_bih,703
+177,Berkovici,parliament_rs,306
+177,Berkovici,president_rs_election,600
+177,Berkovici,parliament_bih,523
+179,Ljubinje,president_bih,703
+179,Ljubinje,parliament_rs,306
+179,Ljubinje,president_rs_election,600
+179,Ljubinje,parliament_bih,523
+180,Bileca,president_bih,703
+180,Bileca,parliament_rs,306
+180,Bileca,president_rs_election,600
+180,Bileca,parliament_bih,523
+181,Ravno,kanton,207
+181,Ravno,president_bih,701
+181,Ravno,parliament_fbih,409
+181,Ravno,parliament_bih,512
+182,Trebinje,president_bih,703
+182,Trebinje,parliament_rs,306
+182,Trebinje,president_rs_election,600
+182,Trebinje,parliament_bih,523
+183,Usora,kanton,204
+183,Usora,president_bih,701
+183,Usora,parliament_fbih,405
+183,Usora,parliament_bih,514
+184,Kostajnica,president_bih,703
+184,Kostajnica,parliament_rs,301
+184,Kostajnica,president_rs_election,600
+184,Kostajnica,parliament_bih,521
+185,Milici,president_bih,703
+185,Milici,parliament_rs,305
+185,Milici,president_rs_election,600
+185,Milici,parliament_bih,523
+200,Brcko Distrikt Bih,president_bih,701
+200,Brcko Distrikt Bih,parliament_rs,304
+200,Brcko Distrikt Bih,president_rs_election,600
+200,Brcko Distrikt Bih,parliament_fbih,402
+200,Brcko Distrikt Bih,parliament_bih,515
