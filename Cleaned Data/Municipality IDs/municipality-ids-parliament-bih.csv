@@ -1,142 +1,142 @@
-municipality_ID,parliament_bih_election_unit_ID,municipality_name
-001,511,Velika Kladusa
-002,511,Cazin
-003,511,Bihac
-004,511,Bosanska Krupa
-005,511,Buzim
-006,521,Krupa Na Uni
-007,521,Novi Grad
-008,521,Kozarska Dubica
-009,521,Prijedor
-010,521,Gradiska
-011,521,Laktasi
-012,521,Srbac
-013,521,Prnjavor
-014,522,Derventa
-016,522,Brod
-017,515,Odzak
-018,522,Vukosavlje
-020,515,Domaljevac-samac
-021,522,Samac
-022,515,Orasje
-023,522,Donji Zabar
-024,522,Modrica
-025,515,Gradacac
-026,522,Pelagicevo
-029,522,Bijeljina
-030,511,Bosanski Petrovac
-031,521,Petrovac
-032,511,Sanski Most
-033,521,Ostra Luka
-034,521,Banja Luka
-035,521,Celinac
-036,515,Doboj Istok
-037,514,Doboj Jug
-038,522,Doboj
-039,514,Tesanj
-042,514,Maglaj
-044,515,Gracanica
-045,522,Petrovo
-047,515,Lukavac
-049,515,Srebrenik
-050,515,Tuzla
-052,515,Celic
-054,522,Lopare
-055,515,Teocak
-056,522,Ugljevik
-057,511,Drvar
-058,521,Istocni Drvar
-059,511,Kljuc
-061,521,Ribnik
-064,521,Mrkonjic Grad
-065,514,Jajce
-066,521,Jezero
-067,514,Dobretici
-068,521,Knezevo
-070,521,Kotor Varos
-074,522,Teslic
-075,514,Zepce
-077,514,Zavidovici
-078,515,Banovici
-079,515,Zivinice
-080,515,Kalesija
-081,523,Osmaci
-082,515,Sapna
-083,523,Zvornik
-084,511,Bosansko Grahovo
-085,511,Glamoc
-088,521,Sipovo
-089,514,Donji Vakuf
-091,514,Travnik
-093,514,Zenica
-094,514,Kakanj
-095,514,Vares
-096,514,Olovo
-098,515,Kladanj
-101,523,Sekovici
-103,523,Vlasenica
-104,523,Bratunac
-105,523,Srebrenica
-106,511,Livno
-107,511,Kupres (fbih)
-108,521,Kupres (rs)
-109,514,Bugojno
-110,514,Gornji Vakuf - Uskoplje
-111,514,Novi Travnik
-112,514,Vitez
-113,514,Busovaca
-114,514,Fojnica
-115,514,Kiseljak
-116,514,Visoko
-117,514,Breza
-118,513,Ilijas
-121,523,Sokolac
-123,523,Han Pijesak
-124,511,Tomislavgrad
-125,512,Prozor-rama
-126,512,Jablanica
-127,512,Konjic
-129,514,Kresevo
-130,513,Hadzici
-131,513,Ilidza
-132,523,Istocna Ilidza
-133,513,Novi Grad Sarajevo
-135,513,Vogosca
-136,513,Centar Sarajevo
-137,513,Stari Grad Sarajevo
-138,523,Istocni Stari Grad
-139,513,Novo Srajevo
-140,523,Istocno Novo Srajevo
-141,513,Trnovo (fbih)
-142,523,Trnovo (rs)
-143,513,Pale (fbih)
-144,523,Pale (rs)
-146,523,Rogatica
-147,523,Visegrad
-148,512,Posusje
-149,512,Grude
-150,512,Siroki Brijeg
-158,523,Istocni Mostar
-161,523,Nevesinje
-163,523,Kalinovik
-164,523,Gacko
-165,513,Foca (fbih)
-166,523,Foca (rs)
-167,513,Gorazde
-168,523,Novo Gorazde
-169,523,Cajnice
-170,523,Rudo
-171,512,Ljubuski
-172,512,Citluk
-173,512,Capljina
-174,512,Neum
-176,512,Stolac
-177,523,Berkovici
-179,523,Ljubinje
-180,523,Bileca
-181,512,Ravno
-182,523,Trebinje
-183,514,Usora
-184,521,Kostajnica
-185,523,Milici
-200,515,Brcko Distrikt Bih
+municipality_ID,parliament_fbih_election_unit_id,parliament_bih_election_unit_ID,municipality_name
+001,401,511,Velika Kladusa
+002,401,511,Cazin
+003,401,511,Bihac
+004,401,511,Bosanska Krupa
+005,401,511,Buzim
+006,,521,Krupa Na Uni
+007,,521,Novi Grad
+008,,521,Kozarska Dubica
+009,,521,Prijedor
+010,,521,Gradiska
+011,,521,Laktasi
+012,,521,Srbac
+013,,521,Prnjavor
+014,,522,Derventa
+016,,522,Brod
+017,402,515,Odzak
+018,,522,Vukosavlje
+020,402,515,Domaljevac-samac
+021,,522,Samac
+022,402,515,Orasje
+023,,522,Donji Zabar
+024,,522,Modrica
+025,402,515,Gradacac
+026,,522,Pelagicevo
+029,,522,Bijeljina
+030,401,511,Bosanski Petrovac
+031,,521,Petrovac
+032,401,511,Sanski Most
+033,,521,Ostra Luka
+034,,521,Banja Luka
+035,,521,Celinac
+036,402,515,Doboj Istok
+037,405,514,Doboj Jug
+038,,522,Doboj
+039,405,514,Tesanj
+042,405,514,Maglaj
+044,402,515,Gracanica
+045,,522,Petrovo
+047,403,515,Lukavac
+049,403,515,Srebrenik
+050,403,515,Tuzla
+052,403,515,Celic
+054,,522,Lopare
+055,404,515,Teocak
+056,,522,Ugljevik
+057,412,511,Drvar
+058,,521,Istocni Drvar
+059,401,511,Kljuc
+061,,521,Ribnik
+064,,521,Mrkonjic Grad
+065,408,514,Jajce
+066,,521,Jezero
+067,408,514,Dobretici
+068,,521,Knezevo
+070,,521,Kotor Varos
+074,,522,Teslic
+075,405,514,Zepce
+077,405,514,Zavidovici
+078,404,515,Banovici
+079,404,515,Zivinice
+080,404,515,Kalesija
+081,,523,Osmaci
+082,404,515,Sapna
+083,,523,Zvornik
+084,412,511,Bosansko Grahovo
+085,412,511,Glamoc
+088,,521,Sipovo
+089,408,514,Donji Vakuf
+091,408,514,Travnik
+093,405,514,Zenica
+094,406,514,Kakanj
+095,406,514,Vares
+096,406,514,Olovo
+098,404,515,Kladanj
+101,,523,Sekovici
+103,,523,Vlasenica
+104,,523,Bratunac
+105,,523,Srebrenica
+106,412,511,Livno
+107,412,511,Kupres (fbih)
+108,,521,Kupres (rs)
+109,408,514,Bugojno
+110,408,514,Gornji Vakuf - Uskoplje
+111,408,514,Novi Travnik
+112,408,514,Vitez
+113,408,514,Busovaca
+114,408,514,Fojnica
+115,408,514,Kiseljak
+116,406,514,Visoko
+117,406,514,Breza
+118,411,513,Ilijas
+121,,523,Sokolac
+123,,523,Han Pijesak
+124,412,511,Tomislavgrad
+125,409,512,Prozor-rama
+126,409,512,Jablanica
+127,409,512,Konjic
+129,408,514,Kresevo
+130,407,513,Hadzici
+131,407,513,Ilidza
+132,,523,Istocna Ilidza
+133,407,513,Novi Grad Sarajevo
+135,411,513,Vogosca
+136,411,513,Centar Sarajevo
+137,411,513,Stari Grad Sarajevo
+138,,523,Istocni Stari Grad
+139,411,513,Novo Srajevo
+140,,523,Istocno Novo Srajevo
+141,407,513,Trnovo (fbih)
+142,,523,Trnovo (rs)
+143,407,513,Pale (fbih)
+144,,523,Pale (rs)
+146,,523,Rogatica
+147,,523,Visegrad
+148,410,512,Posusje
+149,410,512,Grude
+150,410,512,Siroki Brijeg
+158,,523,Istocni Mostar
+161,,523,Nevesinje
+163,,523,Kalinovik
+164,,523,Gacko
+165,407,513,Foca (fbih)
+166,,523,Foca (rs)
+167,407,513,Gorazde
+168,,523,Novo Gorazde
+169,,523,Cajnice
+170,,523,Rudo
+171,410,512,Ljubuski
+172,409,512,Citluk
+173,409,512,Capljina
+174,409,512,Neum
+176,409,512,Stolac
+177,,523,Berkovici
+179,,523,Ljubinje
+180,,523,Bileca
+181,409,512,Ravno
+182,,523,Trebinje
+183,405,514,Usora
+184,,521,Kostajnica
+185,,523,Milici
+200,402,515,Brcko Distrikt Bih
