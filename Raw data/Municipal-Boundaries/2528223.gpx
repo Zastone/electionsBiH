@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="OSM Route Manager" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<!-- All data by OpenStreetMap, licensed under cc-by-sa-2.0 (http://creativecommons.org/licenses/by-sa/2.0/). -->
+	<rte>
+		<name>Opština Kupres (RS)</name>
+		<src>OpenStreetMap.org</src>
+		<rtept lat="44.0883897" lon="17.077832" />
+		<rtept lat="44.0923068" lon="17.0709135" />
+		<rtept lat="44.0979234" lon="17.0778986" />
+		<rtept lat="44.0987971" lon="17.0791151" />
+		<rtept lat="44.1005444" lon="17.0811427" />
+		<rtept lat="44.1008356" lon="17.0823592" />
+		<rtept lat="44.1025828" lon="17.0876309" />
+		<rtept lat="44.102874" lon="17.0904694" />
+		<rtept lat="44.1020004" lon="17.093308" />
+		<rtept lat="44.1017092" lon="17.0977687" />
+		<rtept lat="44.101418" lon="17.1022293" />
+		<rtept lat="44.1017092" lon="17.1050679" />
+		<rtept lat="44.1037475" lon="17.109123" />
+		<rtept lat="44.1037475" lon="17.111556" />
+		<rtept lat="44.1054946" lon="17.1139891" />
+		<rtept lat="44.1069505" lon="17.1160167" />
+		<rtept lat="44.107824" lon="17.1188552" />
+		<rtept lat="44.1084064" lon="17.1229104" />
+		<rtept lat="44.109571" lon="17.1253434" />
+		<rtept lat="44.1081152" lon="17.1285875" />
+		<rtept lat="44.107824" lon="17.1318316" />
+		<rtept lat="44.1075329" lon="17.1350757" />
+		<rtept lat="44.1069505" lon="17.1362922" />
+		<rtept lat="44.1052035" lon="17.1379143" />
+		<rtept lat="44.1022916" lon="17.1423749" />
+		<rtept lat="44.101418" lon="17.145619" />
+		<rtept lat="44.1002531" lon="17.1488631" />
+		<rtept lat="44.1022916" lon="17.1500796" />
+		<rtept lat="44.1043299" lon="17.1549458" />
+		<rtept lat="44.1049123" lon="17.1557568" />
+		<rtept lat="44.1022916" lon="17.1614339" />
+		<rtept lat="44.1008356" lon="17.1634615" />
+		<rtept lat="44.0993795" lon="17.1667056" />
+		<rtept lat="44.1002531" lon="17.1687331" />
+		<rtept lat="44.1022916" lon="17.1715717" />
+		<rtept lat="44.1040387" lon="17.1756268" />
+		<rtept lat="44.1043299" lon="17.1788709" />
+		<rtept lat="44.1054946" lon="17.1808985" />
+		<rtept lat="44.1066594" lon="17.182926" />
+		<rtept lat="44.1063682" lon="17.1865757" />
+		<rtept lat="44.1052035" lon="17.1881977" />
+		<rtept lat="44.1034563" lon="17.1914418" />
+		<rtept lat="44.1020004" lon="17.1946859" />
+		<rtept lat="44.1002531" lon="17.1967134" />
+		<rtept lat="44.0979234" lon="17.1999575" />
+		<rtept lat="44.0964673" lon="17.2032016" />
+		<rtept lat="44.0947199" lon="17.2064457" />
+		<rtept lat="44.0929725" lon="17.2096898" />
+		<rtept lat="44.0891862" lon="17.2117174" />
+		<rtept lat="44.0871474" lon="17.2149614" />
+		<rtept lat="44.0868561" lon="17.2202331" />
+		<rtept lat="44.085691" lon="17.2242882" />
+		<rtept lat="44.0853997" lon="17.2279378" />
+		<rtept lat="44.0842346" lon="17.2307764" />
+		<rtept lat="44.083652" lon="17.233615" />
+		<rtept lat="44.0801564" lon="17.2421307" />
+		<rtept lat="44.0795738" lon="17.2453748" />
+		<rtept lat="44.0795738" lon="17.2514575" />
+		<rtept lat="44.0801564" lon="17.252674" />
+		<rtept lat="44.0807672" lon="17.2591154" />
+		<rtept lat="44.0738455" lon="17.2643635" />
+		<rtept lat="44.0722519" lon="17.2517442" />
+		<rtept lat="44.0715509" lon="17.246552" />
+		<rtept lat="44.0711486" lon="17.2433909" />
+		<rtept lat="44.0706721" lon="17.2400385" />
+		<rtept lat="44.0701375" lon="17.2354493" />
+		<rtept lat="44.0694628" lon="17.2304997" />
+		<rtept lat="44.068188" lon="17.2216602" />
+		<rtept lat="44.0674623" lon="17.2156105" />
+		<rtept lat="44.0663323" lon="17.2063271" />
+		<rtept lat="44.0660732" lon="17.2034683" />
+		<rtept lat="44.0645778" lon="17.1895368" />
+		<rtept lat="44.06248" lon="17.1710329" />
+		<rtept lat="44.0633782" lon="17.1632494" />
+		<rtept lat="44.0637642" lon="17.1603826" />
+		<rtept lat="44.0638752" lon="17.1567473" />
+		<rtept lat="44.0639856" lon="17.1529055" />
+		<rtept lat="44.0650303" lon="17.1452637" />
+		<rtept lat="44.066335" lon="17.1392749" />
+		<rtept lat="44.0681943" lon="17.1325481" />
+		<rtept lat="44.0726583" lon="17.1202653" />
+		<rtept lat="44.0765646" lon="17.107253" />
+		<rtept lat="44.0790475" lon="17.0997468" />
+		<rtept lat="44.0824297" lon="17.0896259" />
+		<rtept lat="44.0845174" lon="17.0844322" />
+		<rtept lat="44.0883897" lon="17.077832" />
+	</rte>
+</gpx>
