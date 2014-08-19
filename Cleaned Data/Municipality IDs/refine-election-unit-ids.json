@@ -1,0 +1,125 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column File using expression grel:value.split(\" \")[0]",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "File",
+    "expression": "grel:value.split(\" \")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column File to parliament_bih_election_unit_id",
+    "oldColumnName": "File",
+    "newColumnName": "parliament_bih_election_unit_id"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Biračko mjesto: using expression grel:value.substring(0,3)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Biračko mjesto:",
+    "expression": "grel:value.substring(0,3)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Biračko mjesto: to municipality_ID",
+    "oldColumnName": "Biračko mjesto:",
+    "newColumnName": "municipality_ID"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "parliament_bih_election_unit_id",
+      "municipality_ID"
+    ]
+  },
+  {
+    "op": "core/blank-down",
+    "description": "Blank down cells in column municipality_ID",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "municipality_ID"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "municipality_ID",
+          "omitBlank": false,
+          "columnName": "municipality_ID",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "municipality_ID",
+          "omitBlank": false,
+          "columnName": "municipality_ID",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ]
+        },
+        {
+          "invert": false,
+          "expression": "grel:value.match(/([0-9]{3})/)[0]",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "municipality_ID",
+          "omitBlank": false,
+          "columnName": "municipality_ID",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "row-based"
+    }
+  }
+]
