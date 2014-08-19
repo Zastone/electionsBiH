@@ -1,0 +1,17 @@
+# Standard
+desktop.ini
+*~
+*.sw?
+.DS_Store
+target
+
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea
+
+# Python
+*.pyc
+*.pyo

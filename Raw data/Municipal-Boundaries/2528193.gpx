@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="OSM Route Manager" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<!-- All data by OpenStreetMap, licensed under cc-by-sa-2.0 (http://creativecommons.org/licenses/by-sa/2.0/). -->
+	<rte>
+		<name>Opština Istočni Mostar</name>
+		<src>OpenStreetMap.org</src>
+		<rtept lat="43.4648431" lon="18.0336668" />
+		<rtept lat="43.4498437" lon="17.9985596" />
+		<rtept lat="43.4421545" lon="17.9969032" />
+		<rtept lat="43.4307784" lon="17.9920107" />
+		<rtept lat="43.4275364" lon="17.9899561" />
+		<rtept lat="43.4231103" lon="17.985572" />
+		<rtept lat="43.40986" lon="17.969276" />
+		<rtept lat="43.394124" lon="17.9664517" />
+		<rtept lat="43.3846129" lon="17.9663424" />
+		<rtept lat="43.3753453" lon="17.9709777" />
+		<rtept lat="43.3695665" lon="17.9776546" />
+		<rtept lat="43.3661961" lon="17.9842213" />
+		<rtept lat="43.3559788" lon="18.0118772" />
+		<rtept lat="43.3532276" lon="18.0128607" />
+		<rtept lat="43.3532175" lon="18.0128659" />
+		<rtept lat="43.3469273" lon="18.0144292" />
+		<rtept lat="43.3470284" lon="18.0179306" />
+		<rtept lat="43.3535587" lon="18.0201757" />
+		<rtept lat="43.3555993" lon="18.0224208" />
+		<rtept lat="43.3564155" lon="18.0224208" />
+		<rtept lat="43.3613125" lon="18.0263497" />
+		<rtept lat="43.3633528" lon="18.0297173" />
+		<rtept lat="43.3653931" lon="18.0353301" />
+		<rtept lat="43.3674332" lon="18.0403816" />
+		<rtept lat="43.3686573" lon="18.0437492" />
+		<rtept lat="43.3731454" lon="18.0454331" />
+		<rtept lat="43.3800808" lon="18.0454331" />
+		<rtept lat="43.3804887" lon="18.0459943" />
+		<rtept lat="43.3825284" lon="18.0476782" />
+		<rtept lat="43.3898706" lon="18.0499233" />
+		<rtept lat="43.3955806" lon="18.0538522" />
+		<rtept lat="43.3988433" lon="18.055536" />
+		<rtept lat="43.4033291" lon="18.0589037" />
+		<rtept lat="43.4078146" lon="18.0589037" />
+		<rtept lat="43.411892" lon="18.0572199" />
+		<rtept lat="43.4159691" lon="18.0566586" />
+		<rtept lat="43.4167845" lon="18.0566586" />
+		<rtept lat="43.420046" lon="18.0544135" />
+		<rtept lat="43.422492" lon="18.0527296" />
+		<rtept lat="43.4253455" lon="18.0504845" />
+		<rtept lat="43.4306446" lon="18.0504845" />
+		<rtept lat="43.4330902" lon="18.049362" />
+		<rtept lat="43.4343129" lon="18.0476782" />
+		<rtept lat="43.4355356" lon="18.0454331" />
+		<rtept lat="43.4367583" lon="18.0448718" />
+		<rtept lat="43.4387961" lon="18.043188" />
+		<rtept lat="43.4412413" lon="18.0415041" />
+		<rtept lat="43.4436865" lon="18.0420654" />
+		<rtept lat="43.444909" lon="18.0443105" />
+		<rtept lat="43.446539" lon="18.0459943" />
+		<rtept lat="43.4485764" lon="18.049362" />
+		<rtept lat="43.4506138" lon="18.0532909" />
+		<rtept lat="43.4538735" lon="18.0532909" />
+		<rtept lat="43.453466" lon="18.0448718" />
+		<rtept lat="43.4506138" lon="18.0403816" />
+		<rtept lat="43.4530586" lon="18.039259" />
+		<rtept lat="43.4538735" lon="18.0386978" />
+		<rtept lat="43.4546884" lon="18.0386978" />
+		<rtept lat="43.4567255" lon="18.0370139" />
+		<rtept lat="43.4587626" lon="18.0358914" />
+		<rtept lat="43.461207" lon="18.0347688" />
+		<rtept lat="43.4648431" lon="18.0336668" />
+	</rte>
+</gpx>
