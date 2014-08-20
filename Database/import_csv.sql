@@ -2,13 +2,15 @@ use elections;
 
 -- quick test
 truncate table muni;
-load data infile '/data_in/muni2.csv' INTO TABLE muni
+
+load data infile '/data_in/m/municipality ids.csv'
+INTO TABLE muni
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
 
 -- municipalities - handle nulls in CSVs 
 truncate table municipalities;
-load data infile '/data_in/municipality-ids-election-units-pivot.csv' INTO TABLE muni_temp
+load data infile '/data_in/m/municipality-ids-election-units-pivot.csv' INTO TABLE muni_temp
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
 
