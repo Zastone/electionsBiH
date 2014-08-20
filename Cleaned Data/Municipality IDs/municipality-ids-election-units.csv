@@ -21,43 +21,43 @@ municipality_ID,municipality_name,election_type,election_unit_id
 005,Buzim,parliament_bih,511
 006,Krupa Na Uni,president_bih,703
 006,Krupa Na Uni,parliament_rs,301
-006,Krupa Na Uni,president_rs_election,600
+006,Krupa Na Uni,president_rs,600
 006,Krupa Na Uni,parliament_bih,521
 007,Novi Grad,president_bih,703
 007,Novi Grad,parliament_rs,301
-007,Novi Grad,president_rs_election,600
+007,Novi Grad,president_rs,600
 007,Novi Grad,parliament_bih,521
 008,Kozarska Dubica,president_bih,703
 008,Kozarska Dubica,parliament_rs,301
-008,Kozarska Dubica,president_rs_election,600
+008,Kozarska Dubica,president_rs,600
 008,Kozarska Dubica,parliament_bih,521
 009,Prijedor,president_bih,703
 009,Prijedor,parliament_rs,301
-009,Prijedor,president_rs_election,600
+009,Prijedor,president_rs,600
 009,Prijedor,parliament_bih,521
 010,Gradiska,president_bih,703
 010,Gradiska,parliament_rs,301
-010,Gradiska,president_rs_election,600
+010,Gradiska,president_rs,600
 010,Gradiska,parliament_bih,521
 011,Laktasi,president_bih,703
 011,Laktasi,parliament_rs,301
-011,Laktasi,president_rs_election,600
+011,Laktasi,president_rs,600
 011,Laktasi,parliament_bih,521
 012,Srbac,president_bih,703
 012,Srbac,parliament_rs,301
-012,Srbac,president_rs_election,600
+012,Srbac,president_rs,600
 012,Srbac,parliament_bih,521
 013,Prnjavor,president_bih,703
 013,Prnjavor,parliament_rs,301
-013,Prnjavor,president_rs_election,600
+013,Prnjavor,president_rs,600
 013,Prnjavor,parliament_bih,521
 014,Derventa,president_bih,703
 014,Derventa,parliament_rs,303
-014,Derventa,president_rs_election,600
+014,Derventa,president_rs,600
 014,Derventa,parliament_bih,522
 016,Brod,president_bih,703
 016,Brod,parliament_rs,303
-016,Brod,president_rs_election,600
+016,Brod,president_rs,600
 016,Brod,parliament_bih,522
 017,Odzak,kanton,202
 017,Odzak,president_bih,701
@@ -65,7 +65,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 017,Odzak,parliament_bih,515
 018,Vukosavlje,president_bih,703
 018,Vukosavlje,parliament_rs,303
-018,Vukosavlje,president_rs_election,600
+018,Vukosavlje,president_rs,600
 018,Vukosavlje,parliament_bih,522
 020,Domaljevac-samac,kanton,202
 020,Domaljevac-samac,president_bih,701
@@ -73,7 +73,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 020,Domaljevac-samac,parliament_bih,515
 021,Samac,president_bih,703
 021,Samac,parliament_rs,304
-021,Samac,president_rs_election,600
+021,Samac,president_rs,600
 021,Samac,parliament_bih,522
 022,Orasje,kanton,202
 022,Orasje,president_bih,701
@@ -81,11 +81,11 @@ municipality_ID,municipality_name,election_type,election_unit_id
 022,Orasje,parliament_bih,515
 023,Donji Zabar,president_bih,703
 023,Donji Zabar,parliament_rs,304
-023,Donji Zabar,president_rs_election,600
+023,Donji Zabar,president_rs,600
 023,Donji Zabar,parliament_bih,522
 024,Modrica,president_bih,703
 024,Modrica,parliament_rs,303
-024,Modrica,president_rs_election,600
+024,Modrica,president_rs,600
 024,Modrica,parliament_bih,522
 025,Gradacac,kanton,203
 025,Gradacac,president_bih,701
@@ -93,11 +93,11 @@ municipality_ID,municipality_name,election_type,election_unit_id
 025,Gradacac,parliament_bih,515
 026,Pelagicevo,president_bih,703
 026,Pelagicevo,parliament_rs,304
-026,Pelagicevo,president_rs_election,600
+026,Pelagicevo,president_rs,600
 026,Pelagicevo,parliament_bih,522
 029,Bijeljina,president_bih,703
 029,Bijeljina,parliament_rs,304
-029,Bijeljina,president_rs_election,600
+029,Bijeljina,president_rs,600
 029,Bijeljina,parliament_bih,522
 030,Bosanski Petrovac,kanton,201
 030,Bosanski Petrovac,president_bih,701
@@ -105,7 +105,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 030,Bosanski Petrovac,parliament_bih,511
 031,Petrovac,president_bih,703
 031,Petrovac,parliament_rs,302
-031,Petrovac,president_rs_election,600
+031,Petrovac,president_rs,600
 031,Petrovac,parliament_bih,521
 032,Sanski Most,kanton,201
 032,Sanski Most,president_bih,701
@@ -113,15 +113,15 @@ municipality_ID,municipality_name,election_type,election_unit_id
 032,Sanski Most,parliament_bih,511
 033,Ostra Luka,president_bih,703
 033,Ostra Luka,parliament_rs,301
-033,Ostra Luka,president_rs_election,600
+033,Ostra Luka,president_rs,600
 033,Ostra Luka,parliament_bih,521
 034,Banja Luka,president_bih,703
 034,Banja Luka,parliament_rs,302
-034,Banja Luka,president_rs_election,600
+034,Banja Luka,president_rs,600
 034,Banja Luka,parliament_bih,521
 035,Celinac,president_bih,703
 035,Celinac,parliament_rs,302
-035,Celinac,president_rs_election,600
+035,Celinac,president_rs,600
 035,Celinac,parliament_bih,521
 036,Doboj Istok,kanton,203
 036,Doboj Istok,president_bih,701
@@ -133,7 +133,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 037,Doboj Jug,parliament_bih,514
 038,Doboj,president_bih,703
 038,Doboj,parliament_rs,303
-038,Doboj,president_rs_election,600
+038,Doboj,president_rs,600
 038,Doboj,parliament_bih,522
 039,Tesanj,kanton,204
 039,Tesanj,president_bih,701
@@ -149,7 +149,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 044,Gracanica,parliament_bih,515
 045,Petrovo,president_bih,703
 045,Petrovo,parliament_rs,303
-045,Petrovo,president_rs_election,600
+045,Petrovo,president_rs,600
 045,Petrovo,parliament_bih,522
 047,Lukavac,kanton,203
 047,Lukavac,president_bih,701
@@ -169,7 +169,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 052,Celic,parliament_bih,515
 054,Lopare,president_bih,703
 054,Lopare,parliament_rs,304
-054,Lopare,president_rs_election,600
+054,Lopare,president_rs,600
 054,Lopare,parliament_bih,522
 055,Teocak,kanton,203
 055,Teocak,president_bih,701
@@ -177,7 +177,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 055,Teocak,parliament_bih,515
 056,Ugljevik,president_bih,703
 056,Ugljevik,parliament_rs,304
-056,Ugljevik,president_rs_election,600
+056,Ugljevik,president_rs,600
 056,Ugljevik,parliament_bih,522
 057,Drvar,kanton,210
 057,Drvar,president_bih,701
@@ -185,7 +185,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 057,Drvar,parliament_bih,511
 058,Istocni Drvar,president_bih,703
 058,Istocni Drvar,parliament_rs,302
-058,Istocni Drvar,president_rs_election,600
+058,Istocni Drvar,president_rs,600
 058,Istocni Drvar,parliament_bih,521
 059,Kljuc,kanton,201
 059,Kljuc,president_bih,701
@@ -193,11 +193,11 @@ municipality_ID,municipality_name,election_type,election_unit_id
 059,Kljuc,parliament_bih,511
 061,Ribnik,president_bih,703
 061,Ribnik,parliament_rs,302
-061,Ribnik,president_rs_election,600
+061,Ribnik,president_rs,600
 061,Ribnik,parliament_bih,521
 064,Mrkonjic Grad,president_bih,703
 064,Mrkonjic Grad,parliament_rs,302
-064,Mrkonjic Grad,president_rs_election,600
+064,Mrkonjic Grad,president_rs,600
 064,Mrkonjic Grad,parliament_bih,521
 065,Jajce,kanton,206
 065,Jajce,president_bih,701
@@ -205,7 +205,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 065,Jajce,parliament_bih,514
 066,Jezero,president_bih,703
 066,Jezero,parliament_rs,302
-066,Jezero,president_rs_election,600
+066,Jezero,president_rs,600
 066,Jezero,parliament_bih,521
 067,Dobretici,kanton,206
 067,Dobretici,president_bih,701
@@ -213,15 +213,15 @@ municipality_ID,municipality_name,election_type,election_unit_id
 067,Dobretici,parliament_bih,514
 068,Knezevo,president_bih,703
 068,Knezevo,parliament_rs,302
-068,Knezevo,president_rs_election,600
+068,Knezevo,president_rs,600
 068,Knezevo,parliament_bih,521
 070,Kotor Varos,president_bih,703
 070,Kotor Varos,parliament_rs,302
-070,Kotor Varos,president_rs_election,600
+070,Kotor Varos,president_rs,600
 070,Kotor Varos,parliament_bih,521
 074,Teslic,president_bih,703
 074,Teslic,parliament_rs,303
-074,Teslic,president_rs_election,600
+074,Teslic,president_rs,600
 074,Teslic,parliament_bih,522
 075,Zepce,kanton,204
 075,Zepce,president_bih,701
@@ -245,7 +245,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 080,Kalesija,parliament_bih,515
 081,Osmaci,president_bih,703
 081,Osmaci,parliament_rs,305
-081,Osmaci,president_rs_election,600
+081,Osmaci,president_rs,600
 081,Osmaci,parliament_bih,523
 082,Sapna,kanton,203
 082,Sapna,president_bih,701
@@ -253,7 +253,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 082,Sapna,parliament_bih,515
 083,Zvornik,president_bih,703
 083,Zvornik,parliament_rs,305
-083,Zvornik,president_rs_election,600
+083,Zvornik,president_rs,600
 083,Zvornik,parliament_bih,523
 084,Bosansko Grahovo,kanton,210
 084,Bosansko Grahovo,president_bih,701
@@ -265,7 +265,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 085,Glamoc,parliament_bih,511
 088,Sipovo,president_bih,703
 088,Sipovo,parliament_rs,302
-088,Sipovo,president_rs_election,600
+088,Sipovo,president_rs,600
 088,Sipovo,parliament_bih,521
 089,Donji Vakuf,kanton,206
 089,Donji Vakuf,president_bih,701
@@ -297,19 +297,19 @@ municipality_ID,municipality_name,election_type,election_unit_id
 098,Kladanj,parliament_bih,515
 101,Sekovici,president_bih,703
 101,Sekovici,parliament_rs,305
-101,Sekovici,president_rs_election,600
+101,Sekovici,president_rs,600
 101,Sekovici,parliament_bih,523
 103,Vlasenica,president_bih,703
 103,Vlasenica,parliament_rs,305
-103,Vlasenica,president_rs_election,600
+103,Vlasenica,president_rs,600
 103,Vlasenica,parliament_bih,523
 104,Bratunac,president_bih,703
 104,Bratunac,parliament_rs,305
-104,Bratunac,president_rs_election,600
+104,Bratunac,president_rs,600
 104,Bratunac,parliament_bih,523
 105,Srebrenica,president_bih,703
 105,Srebrenica,parliament_rs,305
-105,Srebrenica,president_rs_election,600
+105,Srebrenica,president_rs,600
 105,Srebrenica,parliament_bih,523
 106,Livno,kanton,210
 106,Livno,president_bih,701
@@ -321,7 +321,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 107,Kupres (fbih),parliament_bih,511
 108,Kupres (rs),president_bih,703
 108,Kupres (rs),parliament_rs,302
-108,Kupres (rs),president_rs_election,600
+108,Kupres (rs),president_rs,600
 108,Kupres (rs),parliament_bih,521
 109,Bugojno,kanton,206
 109,Bugojno,president_bih,701
@@ -365,11 +365,11 @@ municipality_ID,municipality_name,election_type,election_unit_id
 118,Ilijas,parliament_bih,513
 121,Sokolac,president_bih,703
 121,Sokolac,parliament_rs,305
-121,Sokolac,president_rs_election,600
+121,Sokolac,president_rs,600
 121,Sokolac,parliament_bih,523
 123,Han Pijesak,president_bih,703
 123,Han Pijesak,parliament_rs,305
-123,Han Pijesak,president_rs_election,600
+123,Han Pijesak,president_rs,600
 123,Han Pijesak,parliament_bih,523
 124,Tomislavgrad,kanton,210
 124,Tomislavgrad,president_bih,701
@@ -401,7 +401,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 131,Ilidza,parliament_bih,513
 132,Istocna Ilidza,president_bih,703
 132,Istocna Ilidza,parliament_rs,305
-132,Istocna Ilidza,president_rs_election,600
+132,Istocna Ilidza,president_rs,600
 132,Istocna Ilidza,parliament_bih,523
 133,Novi Grad Sarajevo,kanton,209
 133,Novi Grad Sarajevo,president_bih,701
@@ -421,7 +421,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 137,Stari Grad Sarajevo,parliament_bih,513
 138,Istocni Stari Grad,president_bih,703
 138,Istocni Stari Grad,parliament_rs,305
-138,Istocni Stari Grad,president_rs_election,600
+138,Istocni Stari Grad,president_rs,600
 138,Istocni Stari Grad,parliament_bih,523
 139,Novo Srajevo,kanton,209
 139,Novo Srajevo,president_bih,701
@@ -429,7 +429,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 139,Novo Srajevo,parliament_bih,513
 140,Istocno Novo Srajevo,president_bih,703
 140,Istocno Novo Srajevo,parliament_rs,305
-140,Istocno Novo Srajevo,president_rs_election,600
+140,Istocno Novo Srajevo,president_rs,600
 140,Istocno Novo Srajevo,parliament_bih,523
 141,Trnovo (fbih),kanton,209
 141,Trnovo (fbih),president_bih,701
@@ -437,7 +437,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 141,Trnovo (fbih),parliament_bih,513
 142,Trnovo (rs),president_bih,703
 142,Trnovo (rs),parliament_rs,305
-142,Trnovo (rs),president_rs_election,600
+142,Trnovo (rs),president_rs,600
 142,Trnovo (rs),parliament_bih,523
 143,Pale (fbih),kanton,205
 143,Pale (fbih),president_bih,701
@@ -445,15 +445,15 @@ municipality_ID,municipality_name,election_type,election_unit_id
 143,Pale (fbih),parliament_bih,513
 144,Pale (rs),president_bih,703
 144,Pale (rs),parliament_rs,305
-144,Pale (rs),president_rs_election,600
+144,Pale (rs),president_rs,600
 144,Pale (rs),parliament_bih,523
 146,Rogatica,president_bih,703
 146,Rogatica,parliament_rs,305
-146,Rogatica,president_rs_election,600
+146,Rogatica,president_rs,600
 146,Rogatica,parliament_bih,523
 147,Visegrad,president_bih,703
 147,Visegrad,parliament_rs,306
-147,Visegrad,president_rs_election,600
+147,Visegrad,president_rs,600
 147,Visegrad,parliament_bih,523
 148,Posusje,kanton,208
 148,Posusje,president_bih,701
@@ -469,19 +469,19 @@ municipality_ID,municipality_name,election_type,election_unit_id
 150,Siroki Brijeg,parliament_bih,512
 158,Istocni Mostar,president_bih,703
 158,Istocni Mostar,parliament_rs,306
-158,Istocni Mostar,president_rs_election,600
+158,Istocni Mostar,president_rs,600
 158,Istocni Mostar,parliament_bih,523
 161,Nevesinje,president_bih,703
 161,Nevesinje,parliament_rs,306
-161,Nevesinje,president_rs_election,600
+161,Nevesinje,president_rs,600
 161,Nevesinje,parliament_bih,523
 163,Kalinovik,president_bih,703
 163,Kalinovik,parliament_rs,306
-163,Kalinovik,president_rs_election,600
+163,Kalinovik,president_rs,600
 163,Kalinovik,parliament_bih,523
 164,Gacko,president_bih,703
 164,Gacko,parliament_rs,306
-164,Gacko,president_rs_election,600
+164,Gacko,president_rs,600
 164,Gacko,parliament_bih,523
 165,Foca (fbih),kanton,205
 165,Foca (fbih),president_bih,701
@@ -489,7 +489,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 165,Foca (fbih),parliament_bih,513
 166,Foca (rs),president_bih,703
 166,Foca (rs),parliament_rs,306
-166,Foca (rs),president_rs_election,600
+166,Foca (rs),president_rs,600
 166,Foca (rs),parliament_bih,523
 167,Gorazde,kanton,205
 167,Gorazde,president_bih,701
@@ -497,15 +497,15 @@ municipality_ID,municipality_name,election_type,election_unit_id
 167,Gorazde,parliament_bih,513
 168,Novo Gorazde,president_bih,703
 168,Novo Gorazde,parliament_rs,306
-168,Novo Gorazde,president_rs_election,600
+168,Novo Gorazde,president_rs,600
 168,Novo Gorazde,parliament_bih,523
 169,Cajnice,president_bih,703
 169,Cajnice,parliament_rs,306
-169,Cajnice,president_rs_election,600
+169,Cajnice,president_rs,600
 169,Cajnice,parliament_bih,523
 170,Rudo,president_bih,703
 170,Rudo,parliament_rs,306
-170,Rudo,president_rs_election,600
+170,Rudo,president_rs,600
 170,Rudo,parliament_bih,523
 171,Ljubuski,kanton,208
 171,Ljubuski,president_bih,701
@@ -529,15 +529,15 @@ municipality_ID,municipality_name,election_type,election_unit_id
 176,Stolac,parliament_bih,512
 177,Berkovici,president_bih,703
 177,Berkovici,parliament_rs,306
-177,Berkovici,president_rs_election,600
+177,Berkovici,president_rs,600
 177,Berkovici,parliament_bih,523
 179,Ljubinje,president_bih,703
 179,Ljubinje,parliament_rs,306
-179,Ljubinje,president_rs_election,600
+179,Ljubinje,president_rs,600
 179,Ljubinje,parliament_bih,523
 180,Bileca,president_bih,703
 180,Bileca,parliament_rs,306
-180,Bileca,president_rs_election,600
+180,Bileca,president_rs,600
 180,Bileca,parliament_bih,523
 181,Ravno,kanton,207
 181,Ravno,president_bih,701
@@ -545,7 +545,7 @@ municipality_ID,municipality_name,election_type,election_unit_id
 181,Ravno,parliament_bih,512
 182,Trebinje,president_bih,703
 182,Trebinje,parliament_rs,306
-182,Trebinje,president_rs_election,600
+182,Trebinje,president_rs,600
 182,Trebinje,parliament_bih,523
 183,Usora,kanton,204
 183,Usora,president_bih,701
@@ -553,14 +553,14 @@ municipality_ID,municipality_name,election_type,election_unit_id
 183,Usora,parliament_bih,514
 184,Kostajnica,president_bih,703
 184,Kostajnica,parliament_rs,301
-184,Kostajnica,president_rs_election,600
+184,Kostajnica,president_rs,600
 184,Kostajnica,parliament_bih,521
 185,Milici,president_bih,703
 185,Milici,parliament_rs,305
-185,Milici,president_rs_election,600
+185,Milici,president_rs,600
 185,Milici,parliament_bih,523
 200,Brcko Distrikt Bih,president_bih,701
 200,Brcko Distrikt Bih,parliament_rs,304
-200,Brcko Distrikt Bih,president_rs_election,600
+200,Brcko Distrikt Bih,president_rs,600
 200,Brcko Distrikt Bih,parliament_fbih,402
 200,Brcko Distrikt Bih,parliament_bih,515
