@@ -1,0 +1,30 @@
+#%RAML 0.8
+---
+title: BiH elections API
+baseUri: http://api.tbd.zastone.ba/{version}
+version: v1
+
+/municipalities:
+  get:
+    description: Retrieves (optionally filtered) municipality meta-data
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              "municipalities":
+              [
+                {
+                  "id": 1,
+                  "name": "Velika Kladusa",
+                  "kanton": 201,
+                  "parliment_bih": 341,
+                  "parliment_fbih": 451,
+                  "parliment_rs": 123,
+                  "parliment_bih": 234,
+                  "president_rs_election": 345
+                }
+              ]
+/candidates:
+/seats:
+/results:
