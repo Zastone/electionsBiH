@@ -15,3 +15,6 @@ target
 # Python
 *.pyc
 *.pyo
+
+# Excel temporary files
+~$*.xlsx
