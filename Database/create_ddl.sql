@@ -1,6 +1,11 @@
+-- SQL Script that generates structure for Elections project
+
+--drop database if exists `elections`;
 create database elections;
 
 use elections;
+
+drop table if exists `municipalities`;
 
 create table municipalities (
 	municipality_id int,
@@ -13,6 +18,8 @@ create table municipalities (
 	president_rs_election int,
 	PRIMARY KEY (municipality_id)
 	);
+
+drop table if exists `muni`;
 
 create table muni (
 	municipality_id int,
