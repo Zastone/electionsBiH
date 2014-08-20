@@ -1,0 +1,25 @@
+election_type,Title,Description,Language
+kanton,Kanton,kantonalni izbori (samo za Federaciju BiH),bs
+kanton,Kanton,kantonalni izbori (samo za Federaciju BiH),hr
+kanton,Кантон,кантонални избори (само за Федерацију БиХ),sr
+kanton,Canton,Cantonal elections (only for Federation BiH),en
+parliament_bih,Predstavnički dom BiH,Izbori za poslanike/ce u Predstavničkom domu BiH,bs
+parliament_bih,Zastupnički dom BiH,Izbori za zastupnike/ce u Zastupničkom domu BiH,hr
+parliament_bih,Представнички дом БиХ,Избои за посланике/це у Представничком дому државе БиХ,sr
+parliament_bih,House of Reperesentatives BiH,Elections for representatives at the Lower house of the State Parliament,en
+parliament_fbih,Predstavnički dom FBiH,Izbori za poslanike/ce u Predstavničkom domu entiteta FBiH,bs
+parliament_fbih,Zastupnički dom FBiH,Izbori za zastupnike/ce u Predstavničkom domu entiteta FBiH,hr
+parliament_fbih,Представнички дом ФБиХ,Избори за посланике/це у Представничком дому енртитета Федерација Босне и Херцеговине,sr
+parliament_fbih,House of Reperesentatives FBiH,Elections for representatives at the Lower house of the Entity Federation of BiH Parliament,en
+parliament_rs,Narodna skupština RS,Narodna skupština entiteta Republika Srpska,bs
+parliament_rs,Narodna skupština RS,Narodna skupština entiteta Republika Srpska,hr
+parliament_rs,Народна скупштина РС,Избори за посланике/це у Народној скупштини ентитета Република Српска,sr
+parliament_rs,National Assembly of the Republic of Srpska,National Assembly of the entity Republika Srpska,en
+president_bih,Član predsjedništva BiH,"Izbor za člana predsjedništva BiH iz reda bošnjačkog, hrvatskog i srpskog naroda",bs
+president_bih,Član predsjedništva BiH,"Izbor za člana predsjedništva BiH iz reda bošnjačkog, hrvatskog i srpskog naroda",hr
+president_bih,Члан предсједништва БиХ,"Избор за члана предсједништва БиХ из реда бошњачког, хрватског или српског народа",sr
+president_bih,Member of the Presidency of BiH,"Elections for the member of the presedency representing Bosniacs, Croats or Serbs",en
+president_rs,Predsjednik entiteta RS,Izbori za predsjednika entitata Republika Srpska,bs
+president_rs,Predsjednik entiteta RS,Izbori za predsjednika entitata Republika Srpska,hr
+president_rs,Предсједник ентитета Република Српска,Избори за предсједника ентитета Република Српска,sr
+president_rs,President of Entity RS,Elections for the president of the Entity Republika Srpska,en
