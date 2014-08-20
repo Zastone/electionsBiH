@@ -113,11 +113,53 @@
     "id": 1,
     "name": "Velika Kladusa",
     "kanton": 201,
-    "parliment_bih": 341,
-    "parliment_fbih": 451,
-    "parliment_rs": 123,
-    "parliment_bih": 234,
-    "president_rs_election": 345
+    "parliament_bih": 341,
+    "parliament_fbih": 451,
+    "parliament_rs": 123,
+    "president_bih": 234,
+    "president_rs": 345
   }
 ]
-</code></pre></small></p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_candidates class=panel-title>/candidates</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__candidates><span class=parent></span>/candidates</a> <span class=methods></span></h4></div><div id=panel__candidates class="panel-collapse collapse"><div class=panel-body><div class=list-group></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_seats class=panel-title>/seats</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__seats><span class=parent></span>/seats</a> <span class=methods></span></h4></div><div id=panel__seats class="panel-collapse collapse"><div class=panel-body><div class=list-group></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_results class=panel-title>/results</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__results><span class=parent></span>/results</a> <span class=methods></span></h4></div><div id=panel__results class="panel-collapse collapse"><div class=panel-body><div class=list-group></div></div></div></div></div></div></div></div><div class=col-md-3><div id=sidebar class="hidden-print affix" role=complementary><ul class="nav nav-pills nav-stacked"><li><a href=#_municipalities>/municipalities</a></li><li><a href=#_candidates>/candidates</a></li><li><a href=#_seats>/seats</a></li><li><a href=#_results>/results</a></li></ul></div></div></div></div></body></html>
+</code></pre></small></p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_results__election_type___year_ class=panel-title>/results/{election_type}/{year}</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__results__election_type___year_><span class=parent></span>/results/{election_type}/{year}</a> <span class=methods><a href=# data-toggle=modal data-target=#_results__election_type___year__get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__results__election_type___year_ class="panel-collapse collapse"><div class=panel-body><div class=list-group><a href=# data-toggle=modal data-target=#_results__election_type___year__get class=list-group-item><span class="badge badge_get">get</span><div class=method_description></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_results__election_type___year__get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent></span>/results/{election_type}/{year}</h4></div><div class=modal-body><div class="alert alert-info"></div><ul class="nav nav-tabs"><li class=active><a href=#_results__election_type___year__get_request data-toggle=tab>Request</a></li><li><a href=#_results__election_type___year__get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_results__election_type___year__get_request><h3>URI Parameters</h3><ul><li><strong>election_type</strong>: <em>required (string)</em><p>Election type</p></li><li><strong>year</strong>: <em>required (integer)</em><p>Valid election type</p></li></ul></div><div class=tab-pane id=_results__election_type___year__get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><p>Election results for given election type and year</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>"request": {
+  "election_type": "parl_bih",
+  "year": 2010
+},
+"results_per_municipality": [
+  {
+    "name": "Foo",
+    "id": "123",
+    "electoral_unit_id": "511",
+    "results": [{
+      "party_name": "Bar",
+      "votes": 5
+    }]
+  }
+]
+</code></pre></small></p><h2>HTTP status code <a href=http://httpstatus.es/404 target=_blank>404</a></h2><p>Missing election data</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_mandates__election_type___year_ class=panel-title>/mandates/{election_type}/{year}</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__mandates__election_type___year_><span class=parent></span>/mandates/{election_type}/{year}</a> <span class=methods><a href=# data-toggle=modal data-target=#_mandates__election_type___year__get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__mandates__election_type___year_ class="panel-collapse collapse"><div class=panel-body><div class=list-group><a href=# data-toggle=modal data-target=#_mandates__election_type___year__get class=list-group-item><span class="badge badge_get">get</span><div class=method_description></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_mandates__election_type___year__get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent></span>/mandates/{election_type}/{year}</h4></div><div class=modal-body><div class="alert alert-info"></div><ul class="nav nav-tabs"><li class=active><a href=#_mandates__election_type___year__get_request data-toggle=tab>Request</a></li><li><a href=#_mandates__election_type___year__get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_mandates__election_type___year__get_request><h3>URI Parameters</h3><ul><li><strong>election_type</strong>: <em>required (string)</em><p>Election type</p></li><li><strong>year</strong>: <em>required (integer)</em><p>Valid election type</p></li></ul></div><div class=tab-pane id=_mandates__election_type___year__get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>"request": {
+  "election_type": "parl_bih",
+  "year": 2010
+},
+"results_per_electoral_unit": [
+  {
+    "electoral_unit_name": "Foo", /* Optional */
+    "electoral_unit_id": "511",
+    "mandates": [
+      {
+        "party_name": "Bar",
+        "seats": 8
+      }
+    ]
+  }
+],
+  {
+    "electoral_unit_name": "Compensatory",
+    "electoral_unit_id": "599",
+    "mandates": [
+      {
+        "party_name": "Bar",
+        "seats": 10
+      }
+    ]
+  }
+]
+</code></pre></small></p></div></div></div></div></div></div></div></div></div></div></div><div class=col-md-3><div id=sidebar class="hidden-print affix" role=complementary><ul class="nav nav-pills nav-stacked"><li><a href=#_municipalities>/municipalities</a></li><li><a href=#_results__election_type___year_>/results/{election_type}/{year}</a></li><li><a href=#_mandates__election_type___year_>/mandates/{election_type}/{year}</a></li></ul></div></div></div></div></body></html>
