@@ -7,11 +7,13 @@ Electionsbih.Views = Electionsbih.Views || {};
 
     Electionsbih.Views.ResultsDisplay = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/results-display.ejs'],
+        template: _.template( $('#results-template').html() ),
 
         tagName: 'div',
 
-        id: '',
+        id: 'results-display',
+
+        el: '#results-display',
 
         className: '',
 
@@ -19,10 +21,11 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         initialize: function () {
           //  this.listenTo(this.model, 'change', this.render);
+          this.render();
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.html(this.template());
         }
 
     });

@@ -67,10 +67,20 @@
         </ul>
         </script>
 
-        <script type="text/template" id="party-name-template">
+        <script type="text/template" id="results-template">
+            <h1><%= translate("Results") %></h1>
+            <h2><%= translate("total seats") %></h2>
+            <h2><%= translate("seats by party") %></h2>
+            <h2><%= translate("votes (%)") %></h2>
+            <a class="btn btn-primary" href="">Download Data</a>
         </script>
 
-        <script type="text/template" id="results-template">
+        <script type="text/template" id="party-name-template">
+            <ul class="">
+                <% _.each(parties, function(party) { %>
+                    <li><a><%= party.abbreviation %></a></li>
+                <%    } %>
+            </ul>
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
