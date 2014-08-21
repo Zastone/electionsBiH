@@ -7,11 +7,13 @@ Electionsbih.Views = Electionsbih.Views || {};
 
     Electionsbih.Views.PartySelect = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/party-select.ejs'],
+        template: _.template( $("#party-select-template").html() ),
 
         tagName: 'div',
 
-        id: '',
+        id: 'party-select',
+
+        el: '#party-select',
 
         className: '',
 
@@ -19,10 +21,14 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         initialize: function () {
         //    this.listenTo(this.model, 'change', this.render);
+              this.render();
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.html(this.template({parties: [{abbreviation: "FOO",
+            "name":"Friends of Ood"},
+            {abbreviation: "UPBIH", name: "Unicorn Party Bosnia I Herzegovina"
+            } ]}));
         }
 
     });

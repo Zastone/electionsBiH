@@ -75,11 +75,12 @@
             <a class="btn btn-primary" href="">Download Data</a>
         </script>
 
-        <script type="text/template" id="party-name-template">
+        <script type="text/template" id="party-select-template">
+            <h1><%= translate("Parties") %></h1>
             <ul class="">
                 <% _.each(parties, function(party) { %>
                     <li><a><%= party.abbreviation %></a></li>
-                <%    } %>
+                <%    }) %>
             </ul>
         </script>
 

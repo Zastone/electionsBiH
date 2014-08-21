@@ -75,6 +75,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 //className: 'toggle-election'
             });
 
+        Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay();    
+        
+        Electionsbih.partySelect = new Electionsbih.Views.PartySelect();
 
         //Electionsbih.mapView.load();
         init = true;
