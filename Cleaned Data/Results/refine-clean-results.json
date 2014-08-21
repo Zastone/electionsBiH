@@ -1,0 +1,92 @@
+[
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Ukupno za biračko mjesto:",
+    "columnName": "Ukupno za biračko mjesto:"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Biračko mjesto: to polling_station_ID",
+    "oldColumnName": "Biračko mjesto:",
+    "newColumnName": "polling_station_ID"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column municipality_ID at index 2 based on column polling_station_ID using expression grel:value.substring(0,3)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "municipality_ID",
+    "columnInsertIndex": 2,
+    "baseColumnName": "polling_station_ID",
+    "expression": "grel:value.substring(0,3)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column File to election_unit_ID",
+    "oldColumnName": "File",
+    "newColumnName": "election_unit_ID"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column election_type at index 1 based on column election_unit_ID using expression grel:value.replace(/[0-9]/,\"\").replace(\"#Sheet\",\"\").replace(\".xls\",\"\").toLowercase().strip().replace(/[^a-z]/,\"_\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "election_type",
+    "columnInsertIndex": 1,
+    "baseColumnName": "election_unit_ID",
+    "expression": "grel:value.replace(/[0-9]/,\"\").replace(\"#Sheet\",\"\").replace(\".xls\",\"\").toLowercase().strip().replace(/[^a-z]/,\"_\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column year at index 2 based on column election_type using expression grel:2010",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "year",
+    "columnInsertIndex": 2,
+    "baseColumnName": "election_type",
+    "expression": "grel:2010",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column election_unit_ID using expression grel:value.split(\" \")[0]",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "election_unit_ID",
+    "expression": "grel:value.split(\" \")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "grel:match(value[0],/([0-9])/).length()==1",
+          "selectError": true,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "municipality_ID",
+          "omitBlank": false,
+          "columnName": "municipality_ID",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "row-based"
+    }
+  }
+]
