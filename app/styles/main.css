@@ -55,4 +55,6 @@ body {
     background: #333;
     }
 
-
+.party-select li:hover {
+    background: #EEE;
+    }
