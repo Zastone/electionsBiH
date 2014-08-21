@@ -11,7 +11,9 @@ Electionsbih.Views = Electionsbih.Views || {};
         events: {'click a': 'select'},
         initialize: function (options) {
             this.options = options.options[0];
-            this.selected = this.options[0].display;
+            this.selected = _.find(this.options, function (x) {
+              return x.val == options.options[1]['lang']
+            }).display;
             this.render();
         },
 
