@@ -10,12 +10,13 @@ import com.softwaremill.thegarden.json4s.serializers.UnderscorizeFieldNamesSeria
 import org.json4s.DefaultFormats
 import org.json4s.ext.{EnumNameSerializer, JodaTimeSerializers}
 import spray.httpx.Json4sJacksonSupport
+import spray.httpx.encoding.{Deflate, NoEncoding, Gzip}
 import spray.routing.HttpService
 
 
 trait ElectionsService extends HttpService with Json4sJacksonSupport {
 
-  protected val municipalityRepo : MunicipalitiesRepo
+  protected val municipalityRepo: MunicipalitiesRepo
 
   implicit def json4sJacksonFormats = new DefaultFormats {
     override protected def dateFormatter =
@@ -23,6 +24,8 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport {
   } ++ JodaTimeSerializers.all +
     UnderscorizeFieldNamesSerializer +
     new EnumNameSerializer(ElectionTypes)
+
+  protected def apiCompressResponse = compressResponse(Gzip, Deflate, NoEncoding)
 
   protected def municipalitiesRoute = path("municipalities") {
     get {
@@ -34,8 +37,20 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport {
 
   protected def resultsRoute = path("results" / Segment / IntNumber) { (electionTypeStr, year) =>
     get {
-      complete {
-        ResultsResponse.Example
+      apiCompressResponse {
+        complete {
+          ResultsResponse.Example
+        }
+      }
+    }
+  }
+
+  protected def mandatesRoute = path("mandates" / Segment / IntNumber) { (electionTypeStr, year) =>
+    get {
+      apiCompressResponse {
+        complete {
+          "1"
+        }
       }
     }
   }
