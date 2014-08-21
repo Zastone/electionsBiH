@@ -1,3 +1,20 @@
+# Feđa Kulenović <fedjak@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-21 16:44+0200\n"
+"PO-Revision-Date: 2014-08-21 16:44+0200\n"
+"Last-Translator: Feđa Kulenović <fedjak@gmail.com>\n"
+"Language-Team: Feđa Kulenović\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Virtaal 0.7.1\n"
+
 #: ../../index.html
 msgid "parliament_fbih"
 msgstr "Представнички дом ФБиХ"
@@ -20,7 +37,7 @@ msgstr "Избори за посланике/це у Народној скупш
 
 #: ../../index.html
 msgid "parliament_bih_description"
-msgstr "Избои за посланике/це у Представничком дому државе БиХ"
+msgstr "Избори за посланике/це у Представничком дому државе БиХ"
 
 #: ../../index.html
 msgid "parliament_rs"
@@ -48,25 +65,24 @@ msgstr "Кантон"
 
 #: ../../index.html
 msgid "Results"
-msgstr ""
+msgstr "Резултати"
 
 #: ../../index.html
 msgid "total seats"
-msgstr ""
+msgstr "укупно мјеста"
 
 #: ../../index.html
 msgid "seats by party"
-msgstr ""
+msgstr "мјеста по партији"
 
 #: ../../index.html
 msgid "votes (%)"
-msgstr ""
+msgstr "гласови (%)"
 
 #: ../../index.html
 msgid "Download Data"
-msgstr ""
+msgstr "Преузмите податке"
 
 #: ../../index.html
 msgid "Parties"
-msgstr ""
-
+msgstr "Партије"
