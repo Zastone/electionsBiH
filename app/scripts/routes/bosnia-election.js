@@ -98,28 +98,33 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             //Electionsbih.markerView.setFilter({lang: 'en', year: 2010, type: 'parliament_bih'});
             //Electionsbih.markerview.load();
 
-            //this.navigate('en/2010/parliament_bih', {trigger: false});
+            this.navigate('en/2010/parliament_bih', {trigger: false});
 
         },
 
         newfilter: function(lang, year, type) {
-            if (!init) bootstrap();
-            if (_.map(years, function(t) { return t.val }).indexOf(year) !== -1 &&
-                _.map(electionTypes, function(t) { return t.val }).indexOf(type) !== -1 &&
-                _.map(language, function(t) { return t.val }).indexOf(lang) !== -1) {
+            if (_.contains(_.pluck(years, 'val'),Number(year)) &&
+                _.contains(_.pluck(electionType, 'val'),type) &&
+                _.contains(_.pluck(language, 'val'),lang)) {
                 //Electionsbih.markerView.setFilter({type: type, year: year});
                 this.navigate(lang + '/' + year + '/' + type, {trigger: false});
                 state['lang'] = lang;
                 state['year'] = year;
                 state['type'] = type;
+                if (!init) bootstrap();
+                Electionsbih.electionSelect.render()
+                Electionsbih.yearSelect.render()
             }
             else {
-                Electionsbih.markerView.setFilter({lang: 'en', type: 'parliament_bih', year: 2010});
+                //Electionsbih.markerView.setFilter({lang: 'en', type: 'parliament_bih', year: 2010});
                 this.navigate('en/2010/parliament_bih', {trigger: false});
                 state['year'] = 2010;
                 state['type'] = 'parliament_bih';
                 state['lang'] = 'en';
-            } */
+                if (!init) bootstrap();
+                Electionsbih.electionSelect.render()
+                Electionsbih.yearSelect.render()
+            }
 
             //Electionsbih.markerView.load();
 
