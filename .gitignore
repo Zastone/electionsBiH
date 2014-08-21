@@ -24,3 +24,12 @@ Database/create_db.sql
 
 # Pid files
 *.pid
+
+# Front-end
+node_modules
+dist
+test/temp
+.sass-cache
+app/bower_components
+.tmp
+test/bower_components/
