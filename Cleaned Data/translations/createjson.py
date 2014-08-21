@@ -19,8 +19,8 @@ def create_translation(l):
             }
             }
     for i in d:
-        data['messages'][i['election_type']]=i['Title']
-        data['messages']["%s_description"%i['election_type']]=i['Description']
+        data['messages'][i['election_type']]=[None, i['Title']]
+        data['messages']["%s_description"%i['election_type']]=[None, i['Description']]
     return json.dumps(data)
     
 if __name__=="__main__":
