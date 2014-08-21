@@ -3,7 +3,7 @@ package ba.zastone.elections.infrastructure
 import akka.actor.{Props, ActorSystem}
 import ba.zastone.elections.config.ElectionsConfig
 import ba.zastone.elections.repos.MunicipalitiesRepo
-import ba.zastone.elections.sql.SQLDatabase
+import ba.zastone.elections.db.SQLDatabase
 import ba.zastone.elections.web.ElectionsWebService
 import com.softwaremill.macwire.Macwire
 import com.softwaremill.thegarden.lawn.shutdownables._

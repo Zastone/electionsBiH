@@ -1,4 +1,4 @@
-package ba.zastone.elections.sql
+package ba.zastone.elections.db
 
 import java.sql.Time
 import javax.sql.DataSource

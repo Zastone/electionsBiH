@@ -1,7 +1,7 @@
 package ba.zastone.elections.repos
 
 import ba.zastone.elections.config.ElectionsConfig
-import ba.zastone.elections.sql.SQLDatabase
+import ba.zastone.elections.db.SQLDatabase
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, Suite}
 
 
