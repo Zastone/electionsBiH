@@ -48,7 +48,7 @@ object Dependencies {
 
   val gardenVersion = "0.0.20-SNAPSHOT"
   val garden = "com.softwaremill.thegarden" %% "shrubs" % gardenVersion % "test" ::
-    List("garden-spray", "lawn").map("com.softwaremill.thegarden" %% _ % gardenVersion)
+    List("garden-spray", "lawn", "garden-json4s").map("com.softwaremill.thegarden" %% _ % gardenVersion)
 
   val akkaVersion = "2.3.5"
   val akkaActors = "com.typesafe.akka" %% "akka-actor" % akkaVersion
