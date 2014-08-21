@@ -29,9 +29,11 @@ Electionsbih.Views = Electionsbih.Views || {};
         select: function(e) {
             e.preventDefault();
             e = e.toElement;
+            console.log(e)
             this.$selected.text(e.innerHTML);
+            console.log(e.innerHTML)
             this.$dropdown.toggleClass('open');
-  
+            console.log(e.className)
             Electionsbih.router.setLang(e.className);
             return false;
         }

@@ -137,8 +137,10 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
         setLang: function(language) {
             state['lang'] = language;
-            this.navigate(state['lang'] +'/' + state['year'] + '/' + state['type'], {trigger: true});
-            translate = createTranslation();
+            translate = createTranslation(language);
+            this.navigate(state['lang'] +'/' + state['year'] + '/' + state['type'], {trigger: false});
+
+
         },
 
     });
