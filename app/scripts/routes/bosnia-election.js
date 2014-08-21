@@ -33,24 +33,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 val: 2014
             }
         ],
-        electionType = [
-            {
-                display: 'BiH Parliament',
-                val: 'parliament_bih'
-            },
-            {
-                display: 'FBiH Parliament',
-                val: 'parliament_fbih'
-            },
-            {
-                display: 'RS Parliament',
-                val: 'parliament_rs'
-            },
-            {
-                display: 'Kanton Parliament',
-                val: 'kanton'
-            }
-        ],
+        electionType = _.map(['parliament_bih','parliament_fbih','parliament_rs','kanton'],
+            function(x) { return {"val": x, "display": translate(x)} })
+        ,
         state = {
             year: '',
             type: '',
