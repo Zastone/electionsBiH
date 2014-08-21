@@ -112,8 +112,6 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 state['year'] = year;
                 state['type'] = type;
                 if (!init) bootstrap();
-                Electionsbih.electionSelect.render()
-                Electionsbih.yearSelect.render()
             }
             else {
                 //Electionsbih.markerView.setFilter({lang: 'en', type: 'parliament_bih', year: 2010});
@@ -122,10 +120,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 state['type'] = 'parliament_bih';
                 state['lang'] = 'en';
                 if (!init) bootstrap();
-                Electionsbih.electionSelect.render()
-                Electionsbih.yearSelect.render()
             }
-
+            Electionsbih.electionSelect.render();
+            Electionsbih.yearSelect.render();
             //Electionsbih.markerView.load();
 
         },
