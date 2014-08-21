@@ -1,0 +1,72 @@
+#: ../../index.html
+msgid "president_rs"
+msgstr "Predsjednik entiteta RS"
+
+#: ../../index.html
+msgid "kanton"
+msgstr "Kanton"
+
+#: ../../index.html
+msgid "parliament_rs_description"
+msgstr "Narodna skupština entiteta Republika Srpska"
+
+#: ../../index.html
+msgid "parliament_fbih_description"
+msgstr "Izbori za poslanike/ce u Predstavničkom domu entiteta FBiH"
+
+#: ../../index.html
+msgid "parliament_bih_description"
+msgstr "Izbori za poslanike/ce u Predstavničkom domu BiH"
+
+#: ../../index.html
+msgid "parliament_bih"
+msgstr "Predstavnički dom BiH"
+
+#: ../../index.html
+msgid "president_rs_description"
+msgstr "Izbori za predsjednika entitata Republika Srpska"
+
+#: ../../index.html
+msgid "kanton_description"
+msgstr "kantonalni izbori (samo za Federaciju BiH)"
+
+#: ../../index.html
+msgid "parliament_fbih"
+msgstr "Predstavnički dom FBiH"
+
+#: ../../index.html
+msgid "parliament_rs"
+msgstr "Narodna skupština RS"
+
+#: ../../index.html
+msgid "president_bih_description"
+msgstr "Izbor za člana predsjedništva BiH iz reda bošnjačkog, hrvatskog i srpskog naroda"
+
+#: ../../index.html
+msgid "president_bih"
+msgstr "Član predsjedništva BiH"
+
+#: ../../index.html
+msgid "Results"
+msgstr ""
+
+#: ../../index.html
+msgid "total seats"
+msgstr ""
+
+#: ../../index.html
+msgid "seats by party"
+msgstr ""
+
+#: ../../index.html
+msgid "votes (%)"
+msgstr ""
+
+#: ../../index.html
+msgid "Download Data"
+msgstr ""
+
+#: ../../index.html
+msgid "Parties"
+msgstr ""
+
