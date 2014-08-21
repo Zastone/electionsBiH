@@ -6,7 +6,8 @@
     "lodash": "~2.4.1",
     "backbone": "~1.1.0",
     "modernizr": "~2.7.1",
-    "d3": "3.4.11"
+    "d3": "3.4.11",
+    "jed": "0.5.4"
   },
   "devDependencies": {}
 }
