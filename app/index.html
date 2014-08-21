@@ -96,7 +96,9 @@
             <h1><%= translate("Parties") %></h1>
             <ul class="party-select">
                 <% _.each(parties, function(party) { %>
-                    <li><a><%= party.abbreviation %></a></li>
+                    <a><li class="active">
+                    <span class="indicator"></span>
+                    <%= party.abbreviation %></li></a>
                 <%    }) %>
             </ul>
         </script>

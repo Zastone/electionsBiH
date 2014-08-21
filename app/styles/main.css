@@ -24,4 +24,35 @@ body {
     }
 .row h1, .row h2 {
     border-bottom: 1px solid #333;
+    margin-top: 5px;
     }
+.party-select {
+    list-style: none;
+    padding: 0;
+    }
+
+.party-select li {
+    border: 1px solid #333;
+    border-radius: 2px;
+    width: 100%;
+    margin-bottom: 2px;
+    }
+
+.party-select a {
+    color: #333;
+    text-decoration: none;
+    }
+
+.party-select .indicator {
+    display: inline-block;
+    width: 10px;
+    border-right: 1px solid #333;
+    height: 2em;
+    vertical-align: middle;
+    }
+
+.party-select li.active .indicator{
+    background: #333;
+    }
+
+
