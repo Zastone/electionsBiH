@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 import ba.zastone.elections.model.{Municipality, Municipalities}
+import ba.zastone.elections.repos.MunicipalitiesRepo
 import org.json4s.{FieldSerializer, DefaultFormats}
 import org.json4s.ext.JodaTimeSerializers
 import spray.httpx.Json4sJacksonSupport
@@ -11,6 +12,8 @@ import spray.routing.HttpService
 
 
 trait ElectionsService extends HttpService with Json4sJacksonSupport {
+
+  protected val municipalityRepo : MunicipalitiesRepo
 
   implicit def json4sJacksonFormats = new DefaultFormats {
     override protected def dateFormatter =
@@ -23,7 +26,7 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport {
   protected def municipalitiesRoute = path("municipalities") {
     get {
       complete {
-        Municipalities.Example
+        municipalityRepo.municipalities()
       }
     }
   }

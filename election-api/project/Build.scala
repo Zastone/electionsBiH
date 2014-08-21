@@ -56,13 +56,12 @@ object Dependencies {
   val akkaSlf4j = "com.typesafe.akka" %% "akka-slf4j" % akkaVersion
   val akka = Seq(akkaActors, akkaSlf4j, akkaTestKit)
 
-
-  val h2 = "com.h2database" % "h2" % "1.3.175"
+  val mysqlDriver = "mysql" % "mysql-connector-java" % "5.1.32"
   val c3p0 = "com.mchange" % "c3p0" % "0.9.5-pre6"
 
   val slick = "com.typesafe.slick" %% "slick" % "2.1.0"
 
-  val dbStack = Seq(h2, c3p0, slick)
+  val dbStack = Seq(mysqlDriver, c3p0, slick)
 
   val scalaTest = "org.scalatest" % "scalatest_2.11" % "2.2.0" % "test"
   val mockito = "org.mockito" % "mockito-all" % "1.9.5" % "test"

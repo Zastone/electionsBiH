@@ -1,7 +1,7 @@
 -- SQL Script that generates structure for Elections project
 
 -- drop database if exists `elections`;
-create database elections;
+-- create database elections;
 
 use elections;
 

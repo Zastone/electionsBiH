@@ -18,3 +18,6 @@ target
 
 # Excel temporary files
 ~$*.xlsx
+
+# Database scripts built files
+Database/create_db.sql
