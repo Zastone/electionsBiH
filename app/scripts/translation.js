@@ -3,7 +3,7 @@ var translate= function() { var lang=window.location.hash.replace("#","").split(
         return function(str) {
             if (!j) {
                 $.ajax("data/translations/messages-"+lang+".json",{async: false}).done(function(d) {
-                        j=new Jed({locale_data: d}); });
+                        j=new Jed({locale_data: {messages: d}}); });
                 //NOP
                 }
             return j.gettext(str);
