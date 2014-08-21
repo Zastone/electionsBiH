@@ -7,7 +7,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
     var defaultMap = '',
         init = false,
-        language = [
+        languages = [
             {
                 display: 'English',
                 val: 'en'
@@ -75,8 +75,13 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 //className: 'toggle-election'
             });
 
-        Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay();    
-        
+        Electionsbih.languageSelect = new Electionsbih.Views.LanguageSelect({
+                el: '#toggle-language',
+                options: [languages,state]
+        });
+
+        Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay();
+
         Electionsbih.partySelect = new Electionsbih.Views.PartySelect();
 
         //Electionsbih.mapView.load();
@@ -108,7 +113,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
         newfilter: function(lang, year, type) {
             if (_.contains(_.pluck(years, 'val'),Number(year)) &&
                 _.contains(_.pluck(electionType, 'val'),type) &&
-                _.contains(_.pluck(language, 'val'),lang)) {
+                _.contains(_.pluck(languages, 'val'),lang)) {
                 //Electionsbih.markerView.setFilter({type: type, year: year});
                 this.navigate(lang + '/' + year + '/' + type, {trigger: false});
                 state['lang'] = lang;
@@ -129,6 +134,13 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             //Electionsbih.markerView.load();
 
         },
+
+        setLang: function(language) {
+            state['lang'] = language;
+            this.navigate(state['lang'] +'/' + state['year'] + '/' + state['type'], {trigger: true});
+            translate = createTranslation();
+        },
+
     });
 
 })();
