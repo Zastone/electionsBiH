@@ -3,6 +3,11 @@ body {
 }
 
 .map {
+    height: 500px;
+    }
+/*
+
+.map {
     position: absolute;
     top: 15%;
     left: 15%;
@@ -44,4 +49,5 @@ body {
   left: 85%;
   height: 85%;
   width: 15%;
-}
+} 
+*/
