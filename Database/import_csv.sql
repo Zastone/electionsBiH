@@ -28,13 +28,13 @@ select  *
 from muni_temp mt;
 
 truncate table parliament_seats;
-load data infile '/data_in/parliament-seats-by-election-unit.csv' INTO TABLE parliament_seats
+load data infile '/data_in/m/parliament-seats-by-election-unit.csv' INTO TABLE parliament_seats
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
 
 -- results
 
 truncate table results;
-load data infile '/data_in/General-Election-Results-2010.csv' INTO TABLE results
+load data infile '/data_in/r/General-Election-Results-2010.csv' INTO TABLE results
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
