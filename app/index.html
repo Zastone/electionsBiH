@@ -8,9 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
         <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -23,18 +23,18 @@
 
         <div class="container">
         <div class="header">
-        Election thingy
+        <h1>Election thingy</h1>
         </div>
         <div id="toggle-election">
         </div>
-        <div id="toggle-year">
+        <div class="border" id="toggle-year">
         </div>
-        <div class="row">
-        <div class="col-md-2" id="party-select">
+        <div class="row border">
+        <div class="col-sm-2" id="party-select">
         </div>
-        <div class="col-md-8 map" id="map">
+        <div class="col-sm-8 map" id="map">
         </div>
-        <div class="col-md-2" id="results-display">
+        <div class="col-sm-2" id="results-display">
         </div>
         </div>
         
@@ -65,6 +65,12 @@
                 </li>
             <% }); %>
         </ul>
+        </script>
+
+        <script type="text/template" id="party-name-template">
+        </script>
+
+        <script type="text/template" id="results-template">
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -5,6 +5,16 @@ body {
 .map {
     height: 500px;
     }
+.border {
+    border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    margin-left: 0;
+    margin-right: 0;
+    }
+.border.row {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DDD;
+    }
 /*
 
 .map {
