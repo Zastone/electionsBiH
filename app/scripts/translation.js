@@ -1,4 +1,4 @@
-var translate= function() { var lang=window.location.hash.replace("#","").split("/")[0] || "en";
+function createTranslation() { var lang=window.location.hash.replace("#","").split("/")[0] || "en";
         var j = null;
         return function(str) {
             if (!j) {
@@ -8,4 +8,6 @@ var translate= function() { var lang=window.location.hash.replace("#","").split(
                 }
             return j.gettext(str);
                 }
-            }();
+            }
+
+var translate= createTranslation();
