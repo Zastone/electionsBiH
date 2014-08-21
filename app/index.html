@@ -59,11 +59,11 @@
         <script type="text/template" id="election-type-template">
         <ul class="nav nav-tabs">
             <% _.each(navs, function(nav) { %>
-            <% var title = nav['display']; %>
+            <% var title = translate(nav); %>
             <% var c = '' %>
-            <% if ( state['type'] == nav['val'] ) { c += ' active'} %>
+            <% if ( state['type'] == nav ) { c += ' active'} %>
             <li class="<%= c %>"><a href="<%= '/#' + state['lang'] + '/' +
-            state['year'] + '/' + nav['val'] %>" ><%= title %></a></li>
+            state['year'] + '/' + nav %>" ><%= title %></a></li>
             <% }); %>
         </ul>
         </script>

@@ -33,8 +33,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 val: 2014
             }
         ],
-        electionType = _.map(['parliament_bih','parliament_fbih','parliament_rs','kanton'],
-            function(x) { return {"val": x, "display": translate(x)} })
+        electionType = ['parliament_bih','parliament_fbih','parliament_rs','kanton']
         ,
         state = {
             year: '',
@@ -131,6 +130,8 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             }
             Electionsbih.electionSelect.render();
             Electionsbih.yearSelect.render();
+            Electionsbih.partySelect.render();
+            Electionsbih.resultsDisplay.render();
             //Electionsbih.markerView.load();
 
         },
@@ -138,7 +139,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
         setLang: function(language) {
             state['lang'] = language;
             translate = createTranslation(language);
-            this.navigate(state['lang'] +'/' + state['year'] + '/' + state['type'], {trigger: false});
+            this.navigate(state['lang'] +'/' + state['year'] + '/' + state['type'], {trigger: true});
 
 
         },
