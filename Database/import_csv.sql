@@ -38,3 +38,10 @@ truncate table results;
 load data infile '/data_in/r/General-Election-Results-2010.csv' INTO TABLE results
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
+
+truncate table muni_for_results;
+load data infile '/data_in/m/municipality-ids-election-units.csv' INTO TABLE muni_for_results
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+IGNORE 1 LINES;
+
+

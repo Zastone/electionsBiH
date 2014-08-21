@@ -5,6 +5,8 @@
 
 use elections;
 
+
+-- pivoted table for municpalities api
 drop table if exists `municipalities`;
 
 create table municipalities (
@@ -32,6 +34,18 @@ create table muni_temp (
   president_rs_election char(4) NULL,
   PRIMARY KEY (municipality_id)
 );
+
+-- non-pivoted table for results api
+
+drop table if exists `muni_for_results`;
+
+create table muni_for_results (
+  municipality_id int,
+  municipality_name char(50),
+  election_type char(30),
+  election_unit_id int,
+  PRIMARY KEY(municipality_id, election_unit_id)
+ );
 
 
 drop table if exists `muni`;
@@ -65,6 +79,11 @@ create table `results` (
   polling_station_id char(12),
   municipality_id int,
   party char(200),
+  party_abbrev char(200),
   vote_count int,
   candidate_name char(200) null
 );
+
+create index idx_res_mun_id on results(municipality_id);
+create index idx_res_year on results(year);
+create index idx_res_party on results(party);
