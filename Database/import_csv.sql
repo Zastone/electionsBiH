@@ -25,5 +25,9 @@ insert into municipalities
 select  *
 from muni_temp mt;
 
+truncate table parliament_seats;
+load data infile '/data_in/parliament-seats-by-election-unit.csv' INTO TABLE parliament_seats
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+IGNORE 1 LINES;
 
 -- TBD
