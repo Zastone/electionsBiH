@@ -111,7 +111,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
         newfilter: function(lang, year, type) {
             if (_.contains(_.pluck(years, 'val'),Number(year)) &&
-                _.contains(_.pluck(electionType, 'val'),type) &&
+                _.contains(electionType,type) &&
                 _.contains(_.pluck(languages, 'val'),lang)) {
                 //Electionsbih.markerView.setFilter({type: type, year: year});
                 this.navigate(lang + '/' + year + '/' + type, {trigger: false});
