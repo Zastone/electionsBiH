@@ -2,6 +2,7 @@
 ---
 title: BiH elections API
 baseUri: http://api.tbd.zastone.ba/{version}
+#baseUri: http://mocksvc.mulesoft.com/mocks/647e2ac6-97f6-443d-bda5-60666be09b9f/mocks/924e741e-61f8-4853-a472-1eec01048a33/{version}
 version: v1
 
 resourceTypes:
@@ -52,21 +53,35 @@ resourceTypes:
         body:
           application/json:
             example: |
+              {
               "request": {
-                "election_type": "parl_bih",
+                "election_type": "parliament_bih",
                 "year": 2010
               },
-              "results_per_municipality": [
+              "municipality_results": [
                 {
-                  "name": "Foo",
-                  "id": "123",
-                  "electoral_unit_id": "511",
-                  "results": [{
-                    "name": "Bar",
-                    "votes": 5
-                  }]
+                  "name": "Velika Kladusa",
+                  "id": 1,
+                  "electoral_units": [
+                    {
+                      "id": "511",
+                      "results": [
+                        {
+                          "name": "Party #1",
+                          "abbreviation": "p1",
+                          "votes": 5
+                        },
+                        {
+                          "name": "Party #2",
+                          "abbreviation": "p2",
+                          "votes": 2
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
+              }
       404:
         description: "Missing election data"
 /mandates/{election_type}/{year}:
@@ -101,7 +116,7 @@ resourceTypes:
                   "electoral_unit_id": "599",
                   "mandates": [
                     {
-                      "name": "Bar",
+                      "party_name": "Bar",
                       "seats": 10
                     }
                   ]
