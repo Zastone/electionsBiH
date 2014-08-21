@@ -58,3 +58,13 @@ body {
 .party-select li:hover {
     background: #EEE;
     }
+ 
+ .header h1 {
+    display: inline-block;
+    }
+
+ #toggle-language {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    }
