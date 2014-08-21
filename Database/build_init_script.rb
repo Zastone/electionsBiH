@@ -8,7 +8,17 @@ ddl = File.read('create_ddl.sql')
 
 etl = File.readlines('import_csv.sql')
 
-etl.map!{ |line| line.gsub('/data_in/m/', File.join(cleaned_data_path, 'Municipality IDs') + '/') }
+etl_placeholder_replacements = [
+    ['/data_in/m/', 'Municipality IDs'],
+    ['/data_in/r/', 'Results']
+]
+
+etl.map! do |line|
+  etl_placeholder_replacements.each do |placeholder, replacement|
+    line.gsub!(placeholder, File.join(cleaned_data_path, replacement) + '/')
+  end
+  line
+end
 
 File.write(File.join(base_path, 'create_db.sql'), ddl + etl.join(''))
 
