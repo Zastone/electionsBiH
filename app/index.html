@@ -72,12 +72,13 @@
             <h2><%= translate("total seats") %></h2>
             <h2><%= translate("seats by party") %></h2>
             <h2><%= translate("votes (%)") %></h2>
-            <a class="btn btn-primary" href="">Download Data</a>
+            <a class="btn btn-primary" href="">
+                <%= translate("Download Data") %></a>
         </script>
 
         <script type="text/template" id="party-select-template">
             <h1><%= translate("Parties") %></h1>
-            <ul class="">
+            <ul class="party-select">
                 <% _.each(parties, function(party) { %>
                     <li><a><%= party.abbreviation %></a></li>
                 <%    }) %>
