@@ -1,11 +1,11 @@
 package ba.zastone.elections.repos
 
-import ba.zastone.elections.model.{Municipalities, Municipality}
 import ba.zastone.elections.db.SQLDatabase
+import ba.zastone.elections.model.{Municipalities, Municipality}
 
 import scala.slick.jdbc.StaticQuery.interpolation
 
-class MunicipalitiesRepo(val database: SQLDatabase) {
+class MunicipalitiesRepo(protected val database: SQLDatabase) {
 
   import database._
 
