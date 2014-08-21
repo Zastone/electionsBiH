@@ -68,3 +68,8 @@ body {
     float: right;
     margin-top: 10px;
     }
+
+#toggle-year {
+    padding-left: 5px;
+    padding-top: 5px;
+    }
