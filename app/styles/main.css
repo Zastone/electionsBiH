@@ -2,7 +2,46 @@ body {
     background: #fafafa;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+.map {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    height: 85%;
+    width: 70%;
+}
+
+.header {
+  position: absolute;
+  height: 5%;
+  width: 100%;
+}
+
+#toggle-year {
+  position: absolute;
+  top: 5%;
+  height: 5%;
+  width: 100%;
+}
+
+#toggle-election {
+  position: absolute;
+  top: 10%;
+  height: 5%;
+  width: 100%;
+}
+
+#party-select {
+  position: absolute;
+  top: 15%;
+  height: 85%;
+  width: 15%;
+}
+
+
+#results-display {
+  position: absolute;
+  top: 15%;
+  left: 85%;
+  height: 85%;
+  width: 15%;
 }

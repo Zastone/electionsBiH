@@ -9,6 +9,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -19,18 +20,17 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
-        <div class="hero-unit">
-          <h1>&apos;Allo, &apos;Allo!</h1>
-          <p>You now have</p>
-          <ul>
-            <li>HTML5 Boilerplate</li>
-            <li>jQuery</li>
-            <li>Backbone.js</li>
-            <li>Underscore.js</li>
-            <li>Modernizr</li>
-
-          </ul>
+        <div class="header">
+        </div>
+        <div id="toggle-year">
+        </div>
+        <div id="toggle-election">
+        </div>
+        <div id="party-select">
+        </div>
+        <div class="map" id="map">
+        </div>
+        <div id="results-display">
         </div>
 
 
@@ -48,7 +48,10 @@
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/d3/d3.min.js"></script>
         <!-- endbuild -->
+
+        <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>
@@ -63,6 +66,7 @@
         <script src="scripts/views/results-display.js"></script>
         <script src="scripts/views/election-select.js"></script>
         <script src="scripts/views/year-select.js"></script>
+        <script src="scripts/views/map-markers.js"></script>
         <!-- endbuild -->
 </body>
 </html>

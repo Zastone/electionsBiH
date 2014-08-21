@@ -8,7 +8,8 @@ window.Electionsbih = {
     Routers: {},
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        Electionsbih.router = new Electionsbih.Routers.BosniaElection();
+        Backbone.history.start();
     }
 };
 
