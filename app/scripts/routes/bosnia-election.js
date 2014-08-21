@@ -14,7 +14,15 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             },
             {
                 display: 'Bosnian',
-                val: 'ba'
+                val: 'bs'
+            },
+            {
+                display: 'Croatian',
+                val: 'hr'
+            },
+            {
+                display: 'Serbian',
+                val: 'sr'
             }
         ],
         years = [
@@ -70,15 +78,15 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
         Electionsbih.yearSelect = new Electionsbih.Views.YearSelect({
                 //id: 'toggle-year',
-                el: '#year-select',
-                options: years,
+                el: '#toggle-year',
+                options: [years,state]
                 //className: 'toggle-year'
             });
 
         Electionsbih.electionSelect = new Electionsbih.Views.ElectionSelect({
                 //id: 'toggle-election',
-                el: '#election-select',
-                options: electionType,
+                el: '#toggle-election',
+                options: [electionType,state]
                 //className: 'toggle-election'
             });
 
@@ -86,9 +94,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
         //Electionsbih.mapView.load();
         init = true;
     }
-    
+
     L.mapbox.accessToken = 'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJnUi1mbkVvIn0.018aLhX0Mb0tdtaT2QNe2Q';
-    Electionsbih.map = L.mapbox.map('map', 'devseed.a29d7560')
+    Electionsbih.map = L.mapbox.map('map', 'devseed.ca125804')
                         .setView([44, 18], 7)
 
     Electionsbih.Routers.BosniaElection = Backbone.Router.extend({
@@ -97,15 +105,16 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             ':language/:year/:election'     : 'newfilter'
         },
         newload: function() {
+            state['year'] = 2010;
+            state['type'] = 'parliament_bih';
+            state['lang'] = 'en';
             bootstrap();
 
             //Electionsbih.markerView.setFilter({lang: 'en', year: 2010, type: 'parliament_bih'});
             //Electionsbih.markerview.load();
 
-            this.navigate('en/2010/parliament_bih', {trigger: false});
-            state['year'] = 2010;
-            state['type'] = 'parliament_bih';
-            state['lang'] = 'en';
+            //this.navigate('en/2010/parliament_bih', {trigger: false});
+
         },
 
         newfilter: function(lang, year, type) {

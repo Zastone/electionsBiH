@@ -6,7 +6,7 @@ Electionsbih.Collections = Electionsbih.Collections || {};
     'use strict';
 
     Electionsbih.Collections.Results = Backbone.Collection.extend({
-
+        url: '',
         model: Electionsbih.Models.Results
 
     });
