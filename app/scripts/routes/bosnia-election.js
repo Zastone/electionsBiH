@@ -119,9 +119,10 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
         newfilter: function(lang, year, type) {
             if (!init) bootstrap();
-            /*if (_.map(years, function(t) { return t.val }).indexOf(year) !== -1 &&
-                _.map(electionTypes, function(t) { return t.val }).indexOf(type) !== -1) {
-                Electionsbih.markerView.setFilter({type: type, year: year});
+            if (_.map(years, function(t) { return t.val }).indexOf(year) !== -1 &&
+                _.map(electionTypes, function(t) { return t.val }).indexOf(type) !== -1 &&
+                _.map(language, function(t) { return t.val }).indexOf(lang) !== -1) {
+                //Electionsbih.markerView.setFilter({type: type, year: year});
                 this.navigate(lang + '/' + year + '/' + type, {trigger: false});
                 state['lang'] = lang;
                 state['year'] = year;
