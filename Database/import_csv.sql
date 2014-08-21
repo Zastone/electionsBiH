@@ -32,4 +32,9 @@ load data infile '/data_in/parliament-seats-by-election-unit.csv' INTO TABLE par
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
 
--- TBD
+-- results
+
+truncate table results;
+load data infile '/data_in/General-Election-Results-2010.csv' INTO TABLE results
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+IGNORE 1 LINES;
