@@ -1,6 +1,7 @@
 package ba.zastone.elections.repos
 
 import ba.zastone.elections.db.SQLDatabase
+import ba.zastone.elections.metrics.Metrics
 import ba.zastone.elections.model.ElectionTypes.ElectionType
 import ba.zastone.elections.model.{MunicipalityResult, ResultsRequest, ResultsResponse}
 
@@ -10,7 +11,10 @@ import scala.slick.jdbc.{GetResult, StaticQuery => Q}
 case class ResultsTuple(party: String, abbrev: String, municipalityId: Int, municipalityName: String,
                         year: Int, electionType: String, electionUnitId: Int, votes: Int)
 
-class ResultsRepo(protected val database: SQLDatabase) {
+class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
+
+  private val queryTimer = metrics.timer("query")
+  private val transformationTimer = metrics.timer("transformation")
 
   import database._
 
@@ -19,8 +23,9 @@ class ResultsRepo(protected val database: SQLDatabase) {
     GetResult(r => ResultsTuple(r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<))
 
   def findAll(electionType: ElectionType, year: Int): List[ResultsTuple] = {
-    val query =
-      sql"""
+    queryTimer.time {
+      val query =
+        sql"""
   SELECT
   r.party, r.party_abbrev, r.municipality_id, m2.municipality_name, r.year,
   m.election_type, m.election_unit_id, sum(r.vote_count) AS count_votes
@@ -34,8 +39,9 @@ class ResultsRepo(protected val database: SQLDatabase) {
   ORDER BY r.party, r.municipality_id;
     """.as[ResultsTuple]
 
-    db.withSession { implicit session =>
-      query.list
+      db.withSession { implicit session =>
+        query.list
+      }
     }
   }
 
@@ -46,15 +52,17 @@ class ResultsRepo(protected val database: SQLDatabase) {
 
     val resultsRequest = ResultsRequest(electionType, year)
 
-    groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(resultsRequest)) {
-      case (response, (municipalityId, resultsList)) =>
-        val municipalityName = resultsList.head.municipalityName
-        val municipalityResults = MunicipalityResult.withoutResults(municipalityId, municipalityName)
+    transformationTimer.time {
+      groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(resultsRequest)) {
+        case (response, (municipalityId, resultsList)) =>
+          val municipalityName = resultsList.head.municipalityName
+          val municipalityResults = MunicipalityResult.withoutResults(municipalityId, municipalityName)
 
-        response.withMunicipalityResults(resultsList.foldLeft(municipalityResults) {
-          case (acc, tuple) =>
-            acc.add(tuple)
-        })
+          response.withMunicipalityResults(resultsList.foldLeft(municipalityResults) {
+            case (acc, tuple) =>
+              acc.add(tuple)
+          })
+      }
     }
   }
 
