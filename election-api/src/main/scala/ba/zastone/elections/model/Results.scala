@@ -3,18 +3,6 @@ package ba.zastone.elections.model
 import ba.zastone.elections.repos.ResultsTuple
 
 
-object ElectionTypes extends Enumeration {
-  type ElectionType = Value
-
-  val Kanton = Value("kanton")
-  val ParlimentBih = Value("parliament_bih")
-  val parliamentFbih = Value("parliament_fbih")
-  val parliamentRs = Value("parliament_rs")
-  val presidentBis = Value("president_bih")
-  val presidentRs = Value("president_rs")
-
-}
-
 case class ResultsResponse(request: ResultsRequest, municipalityResults: List[MunicipalityResult]) {
   def withMunicipalityResults(municipalityResult: MunicipalityResult) = {
     copy(municipalityResults = municipalityResult :: municipalityResults)
