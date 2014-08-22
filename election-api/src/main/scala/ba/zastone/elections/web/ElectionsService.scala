@@ -6,6 +6,7 @@ import java.util.Locale
 import ba.zastone.elections.model.ElectionTypes
 import ba.zastone.elections.repos.{MunicipalitiesRepo, ResultsRepo}
 import com.softwaremill.thegarden.json4s.serializers.UnderscorizeFieldNamesSerializer
+import com.softwaremill.thegarden.spray.directives.CorsSupport
 import com.typesafe.scalalogging.slf4j.LazyLogging
 import org.json4s.DefaultFormats
 import org.json4s.ext.{EnumNameSerializer, JodaTimeSerializers}
@@ -13,8 +14,7 @@ import spray.httpx.Json4sJacksonSupport
 import spray.httpx.encoding.{Deflate, Gzip, NoEncoding}
 import spray.routing.HttpService
 
-
-trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLogging {
+trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLogging with CorsSupport {
 
   protected val municipalityRepo: MunicipalitiesRepo
 
@@ -63,5 +63,8 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
     }
   }
 
-  protected def electionsRoute = municipalitiesRoute ~ resultsRoute
+  protected def electionsRoute = cors {
+    municipalitiesRoute ~ resultsRoute
+  }
+
 }
