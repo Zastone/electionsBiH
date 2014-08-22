@@ -11,6 +11,8 @@ object ElectionsWeb extends App with SimpleRoutingApp with StrictLogging {
   val beans = Beans
   implicit val system = beans.actorSystem
 
+  beans.monitoringActivator.activate()
+
   IO(Http) ! Http.Bind(beans.webHandler, interface = "0.0.0.0", port = beans.config.httpPort)
 
 }
