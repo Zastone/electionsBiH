@@ -8,7 +8,8 @@
     "modernizr": "~2.7.1",
     "d3": "3.4.11",
     "jed": "0.5.4",
-    "bootstrap": "3.2.0"
+    "bootstrap": "3.2.0",
+    "topojson": "1.6.18"
   },
   "devDependencies": {}
 }
