@@ -48,13 +48,12 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             results: new Electionsbih.Collections.Results({options: {year: '', type: ''}})
         };
 
-        /*Electionsbih.mapView = new Electionsbih.Views.Map({
-            el: '#map', id: 'map', map: Electionsbih.map
-        }); */
+        Electionsbih.mapView = new Electionsbih.Views.Map({
+            el: '#map', id: 'map', map: Electionsbih.map, collection: Electionsbih.collections.results
+        });
 
         Electionsbih.markerView = new Electionsbih.Views.MapMarkers({
-            el: '#map', id: 'map', map: Electionsbih.map, collection: Electionsbih.collections.results,
-            //model: new Electionsbih.Models.()
+            el: '#map', id: 'map', map: Electionsbih.map, collection: Electionsbih.collections.results
         });
 
         //Electionsbih.models = {};

@@ -17,7 +17,7 @@ Electionsbih.Views = Electionsbih.Views || {};
             console.log(this.collection)
 
             _.each(this.collection.models, function (x) {
-              make a circle
+            //  make a circle
             });
         }
 
