@@ -1,9 +1,7 @@
 -- SQL Script that generates structure for Elections project
-
--- drop database if exists `elections`;
--- create database elections;
-
-use elections;
+# DROP SCHEMA IF EXISTS `elections` ;
+# CREATE SCHEMA IF NOT EXISTS `elections` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+USE `elections`;
 
 
 -- pivoted table for municpalities api
@@ -19,7 +17,7 @@ create table municipalities (
   president_bih int NULL,
   president_rs_election int NULL,
   PRIMARY KEY (municipality_id)
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 drop table if exists `muni_temp`;
 
@@ -33,7 +31,7 @@ create table muni_temp (
   president_bih char(4) NULL,
   president_rs_election char(4) NULL,
   PRIMARY KEY (municipality_id)
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- non-pivoted table for results api
 
@@ -45,7 +43,7 @@ create table muni_for_results (
   election_type char(30),
   election_unit_id int,
   PRIMARY KEY(municipality_id, election_unit_id)
- );
+ ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 drop table if exists `muni`;
@@ -54,7 +52,7 @@ create table muni (
   municipality_id int,
   municipality_name char(50),
   PRIMARY KEY (municipality_id)
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 drop table if exists `parliament_seats`;
 
@@ -63,7 +61,7 @@ create table `parliament_seats` (
   count_seats int,
   race_name char(50),
   PRIMARY KEY (election_unit_id)
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- select distinct race_name from parliament_seats;
 
@@ -82,8 +80,9 @@ create table `results` (
   party_abbrev char(200),
   vote_count int,
   candidate_name char(200) null
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 create index idx_res_mun_id on results(municipality_id);
 create index idx_res_year on results(year);
 create index idx_res_party on results(party);
+create index idx_res_race on results(race_name);

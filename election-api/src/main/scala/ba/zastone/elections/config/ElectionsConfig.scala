@@ -7,7 +7,7 @@ trait BaseConfig {
   def rootConfig : Config
 }
 
-class ElectionsConfig extends BaseConfig with DBConfig {
+class ElectionsConfig extends BaseConfig with DBConfig with HttpServerConfig {
 
   override def rootConfig = ConfigFactory.load()
 

@@ -68,7 +68,16 @@ object Dependencies {
 
   val testingStack = Seq(scalaTest, mockito)
 
-  val commonDependencies = logging ++ macwire ++ httpStack ++ garden ++ akka ++ dbStack ++ testingStack
+  val metricsVersion = "3.0.1"
+  val metricsCore = "com.codahale.metrics" % "metrics-core" % metricsVersion
+  val metricsGraphite = "com.codahale.metrics" % "metrics-graphite" % metricsVersion
+  // Project page: https://github.com/erikvanoosten/metrics-scala
+  val metricsScala = "nl.grons" %% "metrics-scala" % "3.2.0_a2.3"
+
+  /* We don't report to graphite yet */
+  val metrics = Seq(metricsCore, metricsScala)
+
+  val commonDependencies = logging ++ macwire ++ httpStack ++ garden ++ akka ++ dbStack ++ testingStack ++ metrics
 
 }
 

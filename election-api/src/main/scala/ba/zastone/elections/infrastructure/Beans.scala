@@ -2,7 +2,8 @@ package ba.zastone.elections.infrastructure
 
 import akka.actor.{Props, ActorSystem}
 import ba.zastone.elections.config.ElectionsConfig
-import ba.zastone.elections.repos.MunicipalitiesRepo
+import ba.zastone.elections.metrics.MonitoringActivator
+import ba.zastone.elections.repos.{ResultsRepo, MunicipalitiesRepo}
 import ba.zastone.elections.db.SQLDatabase
 import ba.zastone.elections.web.ElectionsWebService
 import com.softwaremill.macwire.Macwire
@@ -19,9 +20,9 @@ trait InfrastructureModule extends Macwire with ShutdownHandlerModule with Confi
     actorSystem.awaitTermination()
   }
 
-  lazy val database = SQLDatabase.createDb(config) onShutdown { db =>
-    db.close()
-  }
+  lazy val database = SQLDatabase.createDb(config) onShutdown (_.close())
+
+  lazy val monitoringActivator = MonitoringActivator onShutdown (_.deactivate())
 
 }
 
@@ -29,6 +30,7 @@ trait ReposModule extends Macwire with InfrastructureModule {
 
   lazy val municipalitiesRepo = wire[MunicipalitiesRepo]
 
+  lazy val resultsRepo = wire[ResultsRepo]
 }
 
 trait ElectionsModule extends Macwire with ShutdownHandlerModule with InfrastructureModule with ReposModule {

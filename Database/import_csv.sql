@@ -34,8 +34,10 @@ IGNORE 1 LINES;
 
 -- results
 
+
 truncate table results;
 load data infile '/data_in/r/General-Election-Results-2010.csv' INTO TABLE results
+CHARACTER SET UTF8
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
 

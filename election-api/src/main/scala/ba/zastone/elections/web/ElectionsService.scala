@@ -4,19 +4,21 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 import ba.zastone.elections.model.ElectionTypes
-import ba.zastone.elections.model.ResultsResponse
-import ba.zastone.elections.repos.MunicipalitiesRepo
+import ba.zastone.elections.repos.{MunicipalitiesRepo, ResultsRepo}
 import com.softwaremill.thegarden.json4s.serializers.UnderscorizeFieldNamesSerializer
+import com.softwaremill.thegarden.spray.directives.CorsSupport
+import com.typesafe.scalalogging.slf4j.LazyLogging
 import org.json4s.DefaultFormats
 import org.json4s.ext.{EnumNameSerializer, JodaTimeSerializers}
 import spray.httpx.Json4sJacksonSupport
-import spray.httpx.encoding.{Deflate, NoEncoding, Gzip}
+import spray.httpx.encoding.{Deflate, Gzip, NoEncoding}
 import spray.routing.HttpService
 
-
-trait ElectionsService extends HttpService with Json4sJacksonSupport {
+trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLogging with CorsSupport {
 
   protected val municipalityRepo: MunicipalitiesRepo
+
+  protected val resultsRepo: ResultsRepo
 
   implicit def json4sJacksonFormats = new DefaultFormats {
     override protected def dateFormatter =
@@ -29,8 +31,10 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport {
 
   protected def municipalitiesRoute = path("municipalities") {
     get {
-      complete {
-        municipalityRepo.municipalities()
+      logRequest("municipalities") {
+        complete {
+          municipalityRepo.municipalities()
+        }
       }
     }
   }
@@ -38,8 +42,10 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport {
   protected def resultsRoute = path("results" / Segment / IntNumber) { (electionTypeStr, year) =>
     get {
       apiCompressResponse {
-        complete {
-          ResultsResponse.Example
+        logRequest("results") {
+          complete {
+            resultsRepo.results(ElectionTypes.withName(electionTypeStr), year)
+          }
         }
       }
     }
@@ -48,12 +54,17 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport {
   protected def mandatesRoute = path("mandates" / Segment / IntNumber) { (electionTypeStr, year) =>
     get {
       apiCompressResponse {
-        complete {
-          "1"
+        logRequest("mandates") {
+          complete {
+            resultsRepo.results(ElectionTypes.withName(electionTypeStr), year)
+          }
         }
       }
     }
   }
 
-  protected def electionsRoute = municipalitiesRoute ~ resultsRoute
+  protected def electionsRoute = cors {
+    municipalitiesRoute ~ resultsRoute
+  }
+
 }
