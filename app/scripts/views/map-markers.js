@@ -15,10 +15,6 @@ Electionsbih.Views = Electionsbih.Views || {};
         render: function () {
             //this.$el.html(this.template(this.model.toJSON()));
             console.log(this.collection)
-            
-
-            _.each(this.collection.models, function (x) {
-            });
         }
 
     });
