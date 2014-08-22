@@ -7,22 +7,14 @@ Electionsbih.Views = Electionsbih.Views || {};
 
     Electionsbih.Views.MapMarkers = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/map-markers.ejs'],
-
-        tagName: 'div',
-
-        id: '',
-
-        className: '',
-
-        events: {},
-
         initialize: function () {
-        //    this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.collection, 'sync', this.render);
+            this.layers = [];
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            //this.$el.html(this.template(this.model.toJSON()));
+            console.log(this.collection)
         }
 
     });

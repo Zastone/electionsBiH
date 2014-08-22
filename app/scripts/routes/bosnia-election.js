@@ -45,17 +45,17 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
         Electionsbih.collections = {
             mandates: new Electionsbih.Collections.Mandates(),
-            results: new Electionsbih.Collections.Results()
+            results: new Electionsbih.Collections.Results({options: {year: '', type: ''}})
         };
 
         /*Electionsbih.mapView = new Electionsbih.Views.Map({
             el: '#map', id: 'map', map: Electionsbih.map
         }); */
 
-        /* Electionsbih.markerView = new Electionsbih.Views.MapMarkers({
-            el: '#map', id: 'map', map: Electionsbih.map, collection: WHO.collections.results,
+        Electionsbih.markerView = new Electionsbih.Views.MapMarkers({
+            el: '#map', id: 'map', map: Electionsbih.map, collection: Electionsbih.collections.results,
             //model: new Electionsbih.Models.()
-        }); */
+        });
 
         //Electionsbih.models = {};
 
@@ -102,8 +102,8 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             state['lang'] = 'en';
             bootstrap();
 
-            //Electionsbih.markerView.setFilter({lang: 'en', year: 2010, type: 'parliament_bih'});
-            //Electionsbih.markerview.load();
+            Electionsbih.collections.results.options = {year: state['year'], type: state['type']};
+            Electionsbih.collections.results.fetch();
 
             this.navigate('en/2010/parliament_bih', {trigger: false});
 
@@ -113,7 +113,6 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             if (_.contains(_.pluck(years, 'val'),Number(year)) &&
                 _.contains(electionType,type) &&
                 _.contains(_.pluck(languages, 'val'),lang)) {
-                //Electionsbih.markerView.setFilter({type: type, year: year});
                 this.navigate(lang + '/' + year + '/' + type, {trigger: false});
                 state['lang'] = lang;
                 state['year'] = year;
@@ -121,7 +120,6 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 if (!init) bootstrap();
             }
             else {
-                //Electionsbih.markerView.setFilter({lang: 'en', type: 'parliament_bih', year: 2010});
                 this.navigate('en/2010/parliament_bih', {trigger: false});
                 state['year'] = 2010;
                 state['type'] = 'parliament_bih';
@@ -132,7 +130,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             Electionsbih.yearSelect.render();
             Electionsbih.partySelect.render();
             Electionsbih.resultsDisplay.render();
-            //Electionsbih.markerView.load();
+
+            Electionsbih.collections.results.options = {year: state['year'], type: state['type']} ;
+            Electionsbih.collections.results.fetch();
 
         },
 
