@@ -1,6 +1,5 @@
 package ba.zastone.elections.model
 
-import ba.zastone.elections.model.ElectionTypes.ElectionType
 import ba.zastone.elections.repos.ResultsTuple
 
 
@@ -21,8 +20,6 @@ case class ResultsResponse(request: ResultsRequest, municipalityResults: List[Mu
     copy(municipalityResults = municipalityResult :: municipalityResults)
   }
 }
-
-case class ResultsRequest(electionType: ElectionType, year: Int)
 
 case class MunicipalityResult(id: Int, name: String, electoralUnits: Seq[ElectoralUnitResults]) {
 
