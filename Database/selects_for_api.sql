@@ -42,7 +42,7 @@ SELECT
 -- selections for math:  
 -- 1) number of compensatory seats 
 select election_unit_id, count_seats, race_name from parliament_seats 
-where election_unit_id in (300,400,500);
+where election_unit_id in (300,400,501,502);
 
 -- 2) number of votes by electoral unit and party
 SELECT
