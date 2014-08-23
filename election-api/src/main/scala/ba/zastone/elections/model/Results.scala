@@ -30,7 +30,7 @@ case class MunicipalityResult(id: Int, name: String, electoralUnits: Seq[Elector
           electoralUnits :+
             ElectoralUnitResults(
               tuple.electionUnitId,
-              results = Seq(PartyResults(tuple.party, tuple.abbrev, tuple.votes)
+              results = Seq(PartyResult(tuple.party, tuple.abbrev, tuple.votes)
               )
             )
         )
@@ -42,7 +42,8 @@ object MunicipalityResult {
   def withoutResults(id: Int, name: String) = MunicipalityResult(id, name, Nil)
 }
 
-case class ElectoralUnitResults(id: Int, results: Seq[PartyResults]) {
+case class ElectoralUnitResults(id: Int, results: Seq[PartyResult]) {
+
   def add(tuple: ResultsTuple): ElectoralUnitResults = {
     tuple.electionUnitId == this.id match {
       case true => addValidated(tuple)
@@ -52,14 +53,12 @@ case class ElectoralUnitResults(id: Int, results: Seq[PartyResults]) {
 
   def addValidated(tuple: ResultsTuple): ElectoralUnitResults = {
     copy(results =
-      results :+
-        PartyResults(tuple.party, tuple.abbrev, tuple.votes)
+      results :+ PartyResult(tuple.party, tuple.abbrev, tuple.votes)
     )
   }
 
 }
 
-case class PartyResults(name: String, abbreviation: String, votes: Int)
 
 object ResultsResponse {
   def withoutResults(request: ResultsRequest): ResultsResponse = ResultsResponse(request, Nil)
@@ -74,12 +73,12 @@ object ResultsResponse {
           ElectoralUnitResults(
             id = 511,
             results = Seq(
-              PartyResults(
+              PartyResult(
                 name = "Party #1",
                 abbreviation = "p1",
                 votes = 5
               ),
-              PartyResults(
+              PartyResult(
                 name = "Party #2",
                 abbreviation = "p2",
                 votes = 2
