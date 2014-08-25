@@ -35,6 +35,7 @@ case class SQLDatabase(db: scala.slick.jdbc.JdbcBackend.Database,
 }
 
 object SQLDatabase extends LazyLogging {
+
   private def connectionString(config: DBConfig): String = {
     import config._
     s"jdbc:mysql://$dbHost:3306/$dbSchema"

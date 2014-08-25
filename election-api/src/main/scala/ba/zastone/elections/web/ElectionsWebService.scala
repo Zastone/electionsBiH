@@ -2,7 +2,7 @@ package ba.zastone.elections.web
 
 import akka.actor.Actor
 import ba.zastone.elections.infrastructure.Beans
-import ba.zastone.elections.repos.{ResultsRepo, MunicipalitiesRepo}
+import ba.zastone.elections.repos.{MandatesService, ResultsRepo, MunicipalitiesRepo}
 
 
 class ElectionsWebService(beans : Beans) extends Actor with ElectionsService {
@@ -14,4 +14,5 @@ class ElectionsWebService(beans : Beans) extends Actor with ElectionsService {
 
   override protected val resultsRepo: ResultsRepo = beans.resultsRepo
 
+  override protected val mandatesService: MandatesService = beans.mandatesService
 }

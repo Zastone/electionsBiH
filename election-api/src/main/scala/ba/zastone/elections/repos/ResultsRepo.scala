@@ -18,7 +18,7 @@ class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
 
   import database._
 
-  // http://slick.typesafe.com/doc/2.0.0/sql.html#query-statements
+  // http://slick.typesafe.com/doc/2.1.0/sql.html#query-statements
   implicit val getsResultsTuple =
     GetResult(r => ResultsTuple(r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<))
 
