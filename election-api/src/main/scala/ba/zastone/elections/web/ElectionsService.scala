@@ -32,8 +32,8 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
     UnderscorizeFieldNamesSerializer +
     new EnumNameSerializer(ElectionTypes)
 
-  val resultsCache: Cache[ResultsResponse] = LruCache(timeToLive = 10.minutes)
-  val mandatesCache: Cache[MandatesResponse] = LruCache(timeToLive = 10.minutes)
+  val resultsCache: Cache[ResultsResponse] = LruCache(timeToLive = 24.hours)
+  val mandatesCache: Cache[MandatesResponse] = LruCache(timeToLive = 24.hours)
 
   protected def apiCompressResponse = compressResponse(Gzip, Deflate, NoEncoding)
 
