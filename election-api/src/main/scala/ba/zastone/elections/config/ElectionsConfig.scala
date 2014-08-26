@@ -1,5 +1,6 @@
 package ba.zastone.elections.config
 
+import com.softwaremill.thegarden.lawn.config.HttpServerConfig
 import com.typesafe.config.{ConfigFactory, Config}
 
 trait BaseConfig {
