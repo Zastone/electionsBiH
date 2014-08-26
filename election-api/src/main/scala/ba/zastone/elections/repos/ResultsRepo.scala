@@ -3,7 +3,7 @@ package ba.zastone.elections.repos
 import ba.zastone.elections.db.SQLDatabase
 import ba.zastone.elections.metrics.Metrics
 import ba.zastone.elections.model.ElectionTypes.ElectionType
-import ba.zastone.elections.model.{MunicipalityResult, ResultsRequest, ResultsResponse}
+import ba.zastone.elections.model.{MunicipalityResult, Election, ResultsResponse}
 
 import scala.slick.jdbc.StaticQuery.interpolation
 import scala.slick.jdbc.{GetResult, StaticQuery => Q}
@@ -50,7 +50,7 @@ class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
       findAll(electionType, year).groupBy((tuple) => tuple.municipalityId)
 
 
-    val resultsRequest = ResultsRequest(electionType, year)
+    val resultsRequest = Election(electionType, year)
 
     transformationTimer.time {
       groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(resultsRequest)) {

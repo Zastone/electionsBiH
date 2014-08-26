@@ -3,7 +3,7 @@ package ba.zastone.elections.model
 import ba.zastone.elections.repos.ElectedParty
 
 
-case class MandatesResponse(request: ResultsRequest, electoralUnitMandates: List[ElectoralUnitMandates]) {
+case class MandatesResponse(request: Election, electoralUnitMandates: List[ElectoralUnitMandates]) {
 
   def withElectedParties(electedParties: List[ElectedParty]) = {
     copy(electoralUnitMandates =
@@ -17,7 +17,7 @@ case class MandatesResponse(request: ResultsRequest, electoralUnitMandates: List
 }
 
 object MandatesResponse {
-  def fromRequest(request: ResultsRequest) = MandatesResponse(request, Nil)
+  def fromRequest(request: Election) = MandatesResponse(request, Nil)
 }
 
 case class ElectoralUnitMandates(electoralUnitName: Option[String], electoralUnitId: Int, mandates: List[Mandate]) {

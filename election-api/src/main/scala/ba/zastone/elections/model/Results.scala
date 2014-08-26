@@ -3,7 +3,7 @@ package ba.zastone.elections.model
 import ba.zastone.elections.repos.ResultsTuple
 
 
-case class ResultsResponse(request: ResultsRequest, municipalityResults: List[MunicipalityResult]) {
+case class ResultsResponse(request: Election, municipalityResults: List[MunicipalityResult]) {
   def withMunicipalityResults(municipalityResult: MunicipalityResult) = {
     copy(municipalityResults = municipalityResult :: municipalityResults)
   }
@@ -61,10 +61,10 @@ case class ElectoralUnitResults(id: Int, results: Seq[PartyResult]) {
 
 
 object ResultsResponse {
-  def withoutResults(request: ResultsRequest): ResultsResponse = ResultsResponse(request, Nil)
+  def withoutResults(request: Election): ResultsResponse = ResultsResponse(request, Nil)
 
   val Example = ResultsResponse(
-    ResultsRequest(ElectionTypes.ParlimentBih, 2010),
+    Election(ElectionTypes.ParlimentBih, 2010),
     List(
       MunicipalityResult(
         id = 1,

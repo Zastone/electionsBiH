@@ -1,10 +1,10 @@
 package ba.zastone.elections.repos
 
-import ba.zastone.elections.model.{MandatesResponse, PartyResult, ResultsRequest}
+import ba.zastone.elections.model.{MandatesResponse, PartyResult, Election}
 
 class MandatesService(dao: MandatesDao) {
 
-  def mandates(request: ResultsRequest) = {
+  def mandates(request: Election) = {
     val electoralUnitSeatsMap = dao.seatCounts(request).map(s => (s.electionUnitId, s)).toMap
     val results = dao.partyResultsPerElectoralUnit(request)
 

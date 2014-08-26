@@ -2,7 +2,7 @@ package ba.zastone.elections.repos
 
 import ba.zastone.elections.db.SQLDatabase
 import ba.zastone.elections.model.ElectionTypes._
-import ba.zastone.elections.model.{ElectionTypes, PartyResult, ResultsRequest}
+import ba.zastone.elections.model.{Election, ElectionTypes, PartyResult}
 import ba.zastone.elections.repos.BiHEntities.BiHEntity
 
 import scala.slick.jdbc.GetResult
@@ -47,7 +47,7 @@ class MandatesDao(protected val database: SQLDatabase) {
     ElectoralResultsTuple(r.<<, r.<<, r.<<, ElectionUnitId(r.<<), r.<<)
   )
 
-  def seatCounts(request: ResultsRequest): List[ElectoralUnit] = {
+  def seatCounts(request: Election): List[ElectoralUnit] = {
     val query = sql"SELECT race_name, election_unit_id, count_seats FROM parliament_seats".as[ElectoralUnit]
 
     db.withSession { implicit session =>
@@ -55,7 +55,7 @@ class MandatesDao(protected val database: SQLDatabase) {
     }
   }
 
-  def partyResultsPerElectoralUnit(request: ResultsRequest): List[ElectoralResultsTuple] = {
+  def partyResultsPerElectoralUnit(request: Election): List[ElectoralResultsTuple] = {
     val query = sql"""
     SELECT r.party, r.party_abbrev, r.year, m.election_unit_id, sum(r.vote_count) AS count_votes
     FROM results r
