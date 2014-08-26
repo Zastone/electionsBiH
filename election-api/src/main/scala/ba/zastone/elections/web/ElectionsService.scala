@@ -54,7 +54,7 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
           complete {
             val election = Election(ElectionTypes.withName(electionTypeStr), year)
             resultsCache(election) {
-              resultsRepo.results(ElectionTypes.withName(electionTypeStr), year)
+              resultsRepo.results(election)
             }
           }
         }
