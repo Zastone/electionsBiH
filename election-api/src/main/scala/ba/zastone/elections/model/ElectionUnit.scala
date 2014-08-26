@@ -10,7 +10,9 @@ object BiHEntities extends Enumeration {
   type BiHEntity = Value
 }
 
-case class ElectionUnitId(value: Int) extends AnyVal
+case class ElectionUnitId(value: Int) extends AnyVal with Ordered[ElectionUnitId] {
+  override def compare(that: ElectionUnitId) = this.value.compare(that.value)
+}
 
 case class ElectoralUnit(electionType: ElectionType, electionUnitId: ElectionUnitId, seats: Int,
                          auxiliaryEntity: Option[BiHEntity]) {

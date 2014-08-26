@@ -10,7 +10,7 @@ class MandatesService(dao: MandatesDao) {
   def mandates(election: Election) =
     MandatesResponse.fromRequest(election).withElectedParties(electedParties(election))
 
-  def electedParties(election: Election) : List[ElectedParty] = {
+  def electedParties(election: Election): List[ElectedParty] = {
     val electoralUnitSeatsMap = dao.seatCountsByElectionUnitId(election)
     val results = dao.partyResultsPerElectoralUnit(election)
 
@@ -70,12 +70,21 @@ class MandatesComputer(electoralData: List[(ElectoralUnit, List[PartyResult])],
   }
 
   private def assignCompensatoryElectoralUnits(candidatesForCompensatorySeats: List[(ElectoralUnit, List[PartyResult])],
-                                               compensatorySeatsById: Map[ElectionUnitId, ElectoralUnit]) = {
+                                               compensatorySeatsById: Map[ElectionUnitId, ElectoralUnit])
+  : List[(ElectoralUnit, List[PartyResult])] = {
 
-    candidatesForCompensatorySeats.map {
-      case (directElectionUnit, partyResults) =>
-        (partyResults, compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId))
-    }
+
+    candidatesForCompensatorySeats.foldLeft(Map[ElectoralUnit, List[PartyResult]]()) {
+      case (acc, (directElectionUnit, partyResults)) =>
+//        (partyResults, compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId))
+        val compensatoryElectoralUnit = compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId)
+
+        acc.get(compensatoryElectoralUnit) match {
+          case None => acc.updated(compensatoryElectoralUnit, partyResults)
+          case Some(otherPartyResults) =>  acc.updated(compensatoryElectoralUnit, partyResults ++ otherPartyResults)
+        }
+    }.toList
+
   }
 
   def computeMandates() = {
@@ -92,7 +101,7 @@ class MandatesComputer(electoralData: List[(ElectoralUnit, List[PartyResult])],
     val partiesForCompensatorySeats =
       assignCompensatoryElectoralUnits(candidatesForCompensatorySeats, compensatoryElectoralUnits)
 
-    val partiesElectedToCompensatorySeats = partiesForCompensatorySeats.flatMap(d => computeElectedParties _ tupled d)
+    val partiesElectedToCompensatorySeats = partiesForCompensatorySeats.flatMap(d => computeElectedParties _ tupled d.swap)
 
     partiesElectedDirectly ++ partiesElectedToCompensatorySeats
   }

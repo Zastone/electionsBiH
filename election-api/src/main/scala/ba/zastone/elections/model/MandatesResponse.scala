@@ -9,7 +9,7 @@ case class MandatesResponse(request: Election, electoralUnitMandates: List[Elect
     copy(electoralUnitMandates =
       electedParties.groupBy(party => (party.electoralUnitId, party.electoralUnitName)).map {
         case ((electionUnitId, electionUnitName), electedPartiesForElectionUnit) =>
-          ElectoralUnitMandates.fromResults(electionUnitId.value, electionUnitName,
+          ElectoralUnitMandates.fromResults(electionUnitId, electionUnitName,
             electedPartiesForElectionUnit)
       }.toList.sortBy(_.electoralUnitId)
     )
@@ -20,12 +20,13 @@ object MandatesResponse {
   def fromRequest(request: Election) = MandatesResponse(request, Nil)
 }
 
-case class ElectoralUnitMandates(electoralUnitName: Option[String], electoralUnitId: Int, mandates: List[Mandate]) {
+case class ElectoralUnitMandates(electoralUnitName: Option[String], electoralUnitId: ElectionUnitId, mandates: List[Mandate]) {
+  def mandatesSum() = mandates.map(_.seats).sum
 }
 
 object ElectoralUnitMandates {
 
-  def fromResults(electoralUnitId: Int, electoralUnitName: Option[String],
+  def fromResults(electoralUnitId: ElectionUnitId, electoralUnitName: Option[String],
                   electedParties: List[ElectedParty]) = {
     ElectoralUnitMandates(electoralUnitName, electoralUnitId,
       electedParties.groupBy(party => party.partyResult.name).map {
