@@ -3,7 +3,7 @@ package ba.zastone.elections.web
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-import ba.zastone.elections.model.{ResultsRequest, ElectionTypes}
+import ba.zastone.elections.model.{Election, ElectionTypes}
 import ba.zastone.elections.repos.{MandatesService, MunicipalitiesRepo, ResultsRepo}
 import com.softwaremill.thegarden.json4s.serializers.UnderscorizeFieldNamesSerializer
 import com.softwaremill.thegarden.spray.directives.CorsSupport
@@ -20,7 +20,7 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
 
   protected val resultsRepo: ResultsRepo
 
-  protected val mandatesService : MandatesService
+  protected val mandatesService: MandatesService
 
   implicit def json4sJacksonFormats = new DefaultFormats {
     override protected def dateFormatter =
@@ -58,7 +58,7 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
       apiCompressResponse {
         logRequest("mandates") {
           complete {
-            mandatesService.mandates(ResultsRequest(ElectionTypes.withName(electionTypeStr), year))
+            mandatesService.mandates(Election(ElectionTypes.withName(electionTypeStr), year))
           }
         }
       }
@@ -66,7 +66,9 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
   }
 
   protected def electionsRoute = cors {
-    municipalitiesRoute ~ resultsRoute ~ mandatesRoute
+    pathPrefix("v1") {
+      municipalitiesRoute ~ resultsRoute ~ mandatesRoute
+    }
   }
 
 }
