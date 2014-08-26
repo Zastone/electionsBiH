@@ -1,25 +1,25 @@
 package ba.zastone.elections.repos
 
-import ba.zastone.elections.model.{MandatesResponse, PartyResult, Election}
+import ba.zastone.elections.model._
 
 class MandatesService(dao: MandatesDao) {
 
-  def mandates(request: Election) = {
-    val electoralUnitSeatsMap = dao.seatCounts(request).map(s => (s.electionUnitId, s)).toMap
-    val results = dao.partyResultsPerElectoralUnit(request)
+  private def compensatorySeats(election: Election) =
+    dao.seatCountsByElectionUnitId(election).filter { case (_, v) => v.isCompensatory}
+
+  def mandates(election: Election) =
+    MandatesResponse.fromRequest(election).withElectedParties(electedParties(election))
+
+  def electedParties(election: Election) : List[ElectedParty] = {
+    val electoralUnitSeatsMap = dao.seatCountsByElectionUnitId(election)
+    val results = dao.partyResultsPerElectoralUnit(election)
 
     val resultsByElectionUnitId = results.groupBy(_.electionUnitId).toList
 
-    val electoralData = resultsByElectionUnitId.map {
+    new MandatesComputer(resultsByElectionUnitId.map {
       case (electoralUnitId, electoralResultsTuples) =>
         (electoralUnitSeatsMap(electoralUnitId), electoralResultsTuples.map(_.toPartyResults))
-    }
-
-    MandatesResponse.fromRequest(request).withElectedParties(
-      new MandatesComputer(electoralData,
-        electoralUnitSeatsMap.filter { case (_, v) => v.isCompensatory})
-        .computeMandates()
-    )
+    }, compensatorySeats(election)).computeMandates()
   }
 
 }

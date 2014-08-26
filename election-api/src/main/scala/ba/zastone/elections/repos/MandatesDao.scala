@@ -1,32 +1,10 @@
 package ba.zastone.elections.repos
 
 import ba.zastone.elections.db.SQLDatabase
-import ba.zastone.elections.model.ElectionTypes._
-import ba.zastone.elections.model.{Election, ElectionTypes, PartyResult}
-import ba.zastone.elections.repos.BiHEntities.BiHEntity
+import ba.zastone.elections.model._
 
 import scala.slick.jdbc.GetResult
 import scala.slick.jdbc.StaticQuery.interpolation
-
-// TODO remember about the electoral unit name
-
-object BiHEntities extends Enumeration {
-  val FBiH = Value("fbih")
-  val RS = Value("rs")
-
-  type BiHEntity = Value
-}
-
-case class ElectionUnitId(value: Int) extends AnyVal
-
-case class ElectoralUnit(electionType: ElectionType, electionUnitId: ElectionUnitId, seats: Int,
-                              auxiliaryEntity: Option[BiHEntity]) {
-
-  val isCompensatory = electionUnitId.value % 100 == 0
-
-  val compensatoryElectionUnitId = ElectionUnitId(electionUnitId.value / 100 * 100) /* integer math */
-
-}
 
 case class ElectoralResultsTuple(party: String, abbreviation: String,
                                  year: Int, electionUnitId: ElectionUnitId, voteCounts: Int) {
@@ -54,6 +32,9 @@ class MandatesDao(protected val database: SQLDatabase) {
       query.list.filter(_.electionType == request.electionType)
     }
   }
+
+  def seatCountsByElectionUnitId(election: Election) : Map[ElectionUnitId, ElectoralUnit] =
+    seatCounts(election).map(e => (e.electionUnitId, e)).toMap
 
   def partyResultsPerElectoralUnit(request: Election): List[ElectoralResultsTuple] = {
     val query = sql"""
