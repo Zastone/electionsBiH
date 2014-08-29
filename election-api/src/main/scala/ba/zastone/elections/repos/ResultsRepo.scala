@@ -21,7 +21,7 @@ class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
   implicit val getsResultsTuple =
     GetResult(r => ResultsTuple(r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<))
 
-  def findAll(election : Election): List[ResultsTuple] = {
+  def findAll(election: Election): List[ResultsTuple] = {
     queryTimer.time {
       val query =
         sql"""
@@ -44,23 +44,27 @@ class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
     }
   }
 
-  def results(election : Election) = {
-    val groupedByMunicipalityId: Map[Int, List[ResultsTuple]] =
-      findAll(election).groupBy((tuple) => tuple.municipalityId)
+  def results(election: Election) = {
+    val ed = findAll(election)
+    ed match {
+      case Nil => throw new ElectionDataNotFound(election)
+      case allResults: List[ResultsTuple] =>
+        val groupedByMunicipalityId: Map[Int, List[ResultsTuple]] =
+          allResults.groupBy((tuple) => tuple.municipalityId)
 
-    transformationTimer.time {
-      groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(election)) {
-        case (response, (municipalityId, resultsList)) =>
-          val municipalityName = resultsList.head.municipalityName
-          val municipalityResults = MunicipalityResult.withoutResults(municipalityId, municipalityName)
+        transformationTimer.time {
+          groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(election)) {
+            case (response, (municipalityId, resultsList)) =>
+              val municipalityName = resultsList.head.municipalityName
+              val municipalityResults = MunicipalityResult.withoutResults(municipalityId, municipalityName)
 
-          response.withMunicipalityResults(resultsList.foldLeft(municipalityResults) {
-            case (acc, tuple) =>
-              acc.add(tuple)
-          })
-      }
+              response.withMunicipalityResults(resultsList.foldLeft(municipalityResults) {
+                case (acc, tuple) =>
+                  acc.add(tuple)
+              })
+          }
+        }
     }
   }
-
 
 }
