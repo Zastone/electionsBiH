@@ -11,17 +11,20 @@ class MandatesService(dao: MandatesDao) {
     MandatesResponse.fromRequest(election).withElectedParties(electedParties(election))
 
   def electedParties(election: Election): List[ElectedParty] = {
-    val electoralUnitSeatsMap = dao.seatCountsByElectionUnitId(election)
-    val results = dao.partyResultsPerElectoralUnit(election)
+    dao.partyResultsPerElectoralUnit(election) match {
+      case Nil =>
+        throw new ElectionDataNotFound(election)
+      case results =>
+        val electoralUnitSeatsMap = dao.seatCountsByElectionUnitId(election)
 
-    val resultsByElectionUnitId = results.groupBy(_.electionUnitId).toList
+        val resultsByElectionUnitId = results.groupBy(_.electionUnitId).toList
 
-    new MandatesComputer(resultsByElectionUnitId.map {
-      case (electoralUnitId, electoralResultsTuples) =>
-        (electoralUnitSeatsMap(electoralUnitId), electoralResultsTuples.map(_.toPartyResults))
-    }, compensatorySeats(election)).computeMandates()
+        new MandatesComputer(resultsByElectionUnitId.map {
+          case (electoralUnitId, electoralResultsTuples) =>
+            (electoralUnitSeatsMap(electoralUnitId), electoralResultsTuples.map(_.toPartyResults))
+        }, compensatorySeats(election)).computeMandates()
+    }
   }
-
 }
 
 case class VoteFraction(fraction: Float, partyResults: PartyResult)
@@ -53,6 +56,7 @@ class MandatesComputer(electoralData: List[(ElectoralUnit, List[PartyResult])],
   : IndexedSeq[ElectedParty] = {
     val sortedVoteFractions = computeVoteFractions(partyResults, seatData.seats)
     // TODO handle the case of a tie
+    // TODO handle election treshold
     // add a test for it
     val elected = sortedVoteFractions.take(seatData.seats).zipWithIndex
     elected.map { case (voteFraction, index) =>
@@ -76,12 +80,12 @@ class MandatesComputer(electoralData: List[(ElectoralUnit, List[PartyResult])],
 
     candidatesForCompensatorySeats.foldLeft(Map[ElectoralUnit, List[PartyResult]]()) {
       case (acc, (directElectionUnit, partyResults)) =>
-//        (partyResults, compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId))
+        //        (partyResults, compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId))
         val compensatoryElectoralUnit = compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId)
 
         acc.get(compensatoryElectoralUnit) match {
           case None => acc.updated(compensatoryElectoralUnit, partyResults)
-          case Some(otherPartyResults) =>  acc.updated(compensatoryElectoralUnit, partyResults ++ otherPartyResults)
+          case Some(otherPartyResults) => acc.updated(compensatoryElectoralUnit, partyResults ++ otherPartyResults)
         }
     }.toList
 
