@@ -5,11 +5,12 @@ import java.time.Year
 import ba.zastone.elections.model.Election
 import com.typesafe.scalalogging.slf4j.LazyLogging
 
+class ElectionCache[V] extends TwoGenConditionalCache[V](ElectionCache.ElectionDiscriminator)
 
 object ElectionCache extends LazyLogging {
   private def currentYear = Year.now().getValue
 
-  val ElectionDiscriminator = (untypedElection : Any) =>
+  val ElectionDiscriminator = (untypedElection: Any) =>
     untypedElection match {
       case Election(_, year) if year == currentYear => CacheGenerations.ShortLived
       case Election(_, year) if year != currentYear => CacheGenerations.LongLived
@@ -19,6 +20,7 @@ object ElectionCache extends LazyLogging {
           s"toString: ${untypedElection.toString}})")
         CacheGenerations.ShortLived
     }
+
+  def apply[V]() = new ElectionCache[V]()
 }
 
-class ElectionCache[V] extends TwoGenConditionalCache[V](ElectionCache.ElectionDiscriminator)
