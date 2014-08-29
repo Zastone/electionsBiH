@@ -15,9 +15,9 @@ import spray.caching.Cache
 import spray.httpx.Json4sJacksonSupport
 import spray.httpx.encoding.{Deflate, Gzip, NoEncoding}
 import spray.routing.HttpService
+import spray.routing.directives.DetachMagnet
 
 trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLogging with CorsSupport {
-  import scala.concurrent.ExecutionContext.Implicits.global
 
   protected val municipalityRepo: MunicipalitiesRepo
 
@@ -35,11 +35,13 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
   val resultsCache: Cache[ResultsResponse] = ElectionCache()
   val mandatesCache: Cache[MandatesResponse] = ElectionCache()
 
+  import scala.concurrent.ExecutionContext.Implicits.global
+
   protected def apiCompressResponse = compressResponse(Gzip, Deflate, NoEncoding)
 
   protected def municipalitiesRoute = path("municipalities") {
     get {
-      logRequest("municipalities") {
+      detach(new DetachMagnet()) {
         complete {
           municipalityRepo.municipalities()
         }
@@ -49,14 +51,10 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
 
   protected def resultsRoute = path("results" / Segment / IntNumber) { (electionTypeStr, year) =>
     get {
-      apiCompressResponse {
-        logRequest("results") {
-          complete {
-            val election = Election(ElectionTypes.withName(electionTypeStr), year)
-            resultsCache(election) {
-              resultsRepo.results(election)
-            }
-          }
+      complete {
+        val election = Election(ElectionTypes.withName(electionTypeStr), year)
+        resultsCache(election) {
+          resultsRepo.results(election)
         }
       }
     }
@@ -64,23 +62,24 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
 
   protected def mandatesRoute = path("mandates" / Segment / IntNumber) { (electionTypeStr, year) =>
     get {
-      apiCompressResponse {
-        logRequest("mandates") {
-          complete {
-            val election = Election(ElectionTypes.withName(electionTypeStr), year)
-            mandatesCache(election) {
-              mandatesService.mandates(election)
-            }
-          }
+      complete {
+        val election = Election(ElectionTypes.withName(electionTypeStr), year)
+        mandatesCache(election) {
+          mandatesService.mandates(election)
         }
       }
     }
   }
 
-  protected def electionsRoute = cors {
+  protected def electionsRoute =
     pathPrefix("v1") {
-      municipalitiesRoute ~ resultsRoute ~ mandatesRoute
+      cors {
+        apiCompressResponse {
+          logRequest("API") {
+            municipalitiesRoute ~ resultsRoute ~ mandatesRoute
+          }
+        }
+      }
     }
-  }
 
 }
