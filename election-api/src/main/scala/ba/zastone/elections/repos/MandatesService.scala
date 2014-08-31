@@ -1,9 +1,12 @@
 package ba.zastone.elections.repos
 
 import ba.zastone.elections.mandates.{PartyId, PartyElectionResult, PartiesMandatesComputer}
+import ba.zastone.elections.metrics.Metrics
 import ba.zastone.elections.model._
 
-class MandatesService(dao: MandatesDao) {
+class MandatesService(dao: MandatesDao) extends Metrics {
+
+  private val transformationTimer = metrics.timer("transformation")
 
   private def compensatorySeats(election: Election) =
     dao.seatCountsByElectionUnitId(election).filter { case (_, v) => v.isCompensatory}
@@ -12,18 +15,21 @@ class MandatesService(dao: MandatesDao) {
     MandatesResponse.fromRequest(election).withElectedParties(electedParties(election))
 
   def electedParties(election: Election): List[ElectedParty] = {
+
     dao.partyResultsPerElectoralUnit(election) match {
       case Nil =>
         throw new ElectionDataNotFound(election)
       case results =>
         val electoralUnitSeatsMap = dao.seatCountsByElectionUnitId(election)
 
-        val resultsByElectionUnitId = results.groupBy(_.electionUnitId).toList
+        transformationTimer.time {
+          val resultsByElectionUnitId = results.groupBy(_.electionUnitId).toList
 
-        new MandatesComputer(resultsByElectionUnitId.map {
-          case (electoralUnitId, electoralResultsTuples) =>
-            (electoralUnitSeatsMap(electoralUnitId), electoralResultsTuples.map(_.toPartyResults))
-        }, compensatorySeats(election)).computeMandates()
+          new MandatesComputer(resultsByElectionUnitId.map {
+            case (electoralUnitId, electoralResultsTuples) =>
+              (electoralUnitSeatsMap(electoralUnitId), electoralResultsTuples.map(_.toPartyResults))
+          }, compensatorySeats(election)).computeMandates()
+        }
     }
   }
 }
