@@ -1,5 +1,6 @@
 package ba.zastone.elections.repos
 
+import ba.zastone.elections.mandates.{PartyId, PartyElectionResult, PartiesMandatesComputer}
 import ba.zastone.elections.model._
 
 class MandatesService(dao: MandatesDao) {
@@ -27,85 +28,89 @@ class MandatesService(dao: MandatesDao) {
   }
 }
 
-case class VoteFraction(fraction: Float, partyResults: PartyResult)
-
-object VoteFraction {
-  def ofOrder(order: Int, partyResults: PartyResult) = VoteFraction(partyResults.votes / (order * 2 + 1), partyResults)
-}
-
 case class ElectedParty(partyResult: PartyResult, electoralUnitId: ElectionUnitId,
-                        electoralUnitName: Option[String], seatIndex: Int)
+                        electoralUnitName: Option[String])
 
 object ElectedParty {
 
-  def from(electoralUnitSeats: ElectoralUnit, partyResult: PartyResult, index: Int) =
-    ElectedParty(partyResult, electoralUnitSeats.electionUnitId, None, index)
+  def from(electoralUnitSeats: ElectoralUnit, partyResult: PartyResult) =
+    ElectedParty(partyResult, electoralUnitSeats.electionUnitId, None)
 
 }
 
 class MandatesComputer(electoralData: List[(ElectoralUnit, List[PartyResult])],
                        compensatoryElectoralUnits: Map[ElectionUnitId, ElectoralUnit]) {
 
-  private def computeVoteFractions(partyResults: List[PartyResult], availableSeats: Int): IndexedSeq[VoteFraction] = {
-    (0 to availableSeats).flatMap { order =>
-      partyResults.map(VoteFraction(order, _))
-    }.sortBy(-_.fraction)
+  /* There is no need to inject this dependency as [[MandatesComputer]] will never be tested without it. */
+  val partiesMandatesComputer = new PartiesMandatesComputer()
+
+  lazy val partyAbbreviation: Map[String, String] = {
+    for {
+      (_, partyResults) <- electoralData
+      partyResult <- partyResults
+    } yield (partyResult.name, partyResult.abbreviation)
+  }.toMap
+
+  lazy val partyDataLookup: Map[PartyId, (ElectoralUnit, PartyResult)] = electoralData.flatMap {
+    case (electionUnit, partyResultsList) =>
+      partyResultsList.map { partyResults =>
+        (PartyId(electionUnit.electionUnitId, partyResults.name),
+          (electionUnit, partyResults))
+      }
+  }.toMap
+
+  private def buildElectedPartyFrom(electionResult: PartyElectionResult) = {
+    val partyName = electionResult.id.partyName
+    ElectedParty(
+      PartyResult(partyName, partyAbbreviation(partyName), electionResult.votes),
+      electionResult.id.electionUnitId,
+      None
+    )
   }
 
-  private def computeElectedParties(partyResults: List[PartyResult], seatData: ElectoralUnit)
-  : IndexedSeq[ElectedParty] = {
-    val sortedVoteFractions = computeVoteFractions(partyResults, seatData.seats)
-    // TODO handle the case of a tie
-    // TODO handle election treshold
-    // add a test for it
-    val elected = sortedVoteFractions.take(seatData.seats).zipWithIndex
-    elected.map { case (voteFraction, index) =>
-      ElectedParty.from(seatData, voteFraction.partyResults, index)
+  private def availableSeatsInCompensatoryUnit(id: ElectionUnitId): Int = compensatoryElectoralUnits(id).seats
+
+  private def compensatoryElectionUnitOf(partyId: PartyId) = partyDataLookup(partyId)._1.compensatoryElectionUnitId
+
+  private def partyElectionResultsListForCompensatorySeats(notElectedDirectly: List[PartyElectionResult])
+  : Map[ElectionUnitId, List[PartyElectionResult]] = {
+    val withCompensatorySeatIds = notElectedDirectly.map {
+      r => r.electionUnitIdUpdated(compensatoryElectionUnitOf(r.id))
     }
-  }
 
-  private def candidatePartiesForCompensatorySeats(electedParties: IndexedSeq[ElectedParty],
-                                                   partyResults: List[PartyResult],
-                                                   directElectionElectoralUnit: ElectoralUnit)
-  : (ElectoralUnit, List[PartyResult]) = {
-    val electedPartiesResultSet = electedParties.map(_.partyResult).toSet
+    val withSummedResults = withCompensatorySeatIds.foldLeft(Map[PartyId, PartyElectionResult]()) {
+      case (acc, partyResult) =>
+        acc.updated(partyResult.id,
+          acc.get(partyResult.id) match {
+            case None => partyResult
+            case Some(thatPartyResult) => thatPartyResult + partyResult
+          }
+        )
+    }.values.toList
 
-    (directElectionElectoralUnit, partyResults.filterNot(electedPartiesResultSet(_)))
-  }
-
-  private def assignCompensatoryElectoralUnits(candidatesForCompensatorySeats: List[(ElectoralUnit, List[PartyResult])],
-                                               compensatorySeatsById: Map[ElectionUnitId, ElectoralUnit])
-  : List[(ElectoralUnit, List[PartyResult])] = {
-
-
-    candidatesForCompensatorySeats.foldLeft(Map[ElectoralUnit, List[PartyResult]]()) {
-      case (acc, (directElectionUnit, partyResults)) =>
-        //        (partyResults, compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId))
-        val compensatoryElectoralUnit = compensatorySeatsById(directElectionUnit.compensatoryElectionUnitId)
-
-        acc.get(compensatoryElectoralUnit) match {
-          case None => acc.updated(compensatoryElectoralUnit, partyResults)
-          case Some(otherPartyResults) => acc.updated(compensatoryElectoralUnit, partyResults ++ otherPartyResults)
-        }
-    }.toList
+    withSummedResults.groupBy(_.id.electionUnitId)
 
   }
 
   def computeMandates() = {
-    val directElectionData = electoralData.map {
+    val mandateAssignments = electoralData.map {
       case (electionUnit, partyResultsList) =>
-        val electedParties = computeElectedParties(partyResultsList, electionUnit)
-        val candidatesForCompensatorySeats = candidatePartiesForCompensatorySeats(
-          electedParties, partyResultsList, electionUnit)
-        (electedParties, candidatesForCompensatorySeats)
+        val partyElectionResultsList = partyResultsList.map {
+          r => PartyElectionResult(PartyId(electionUnit.electionUnitId, r.name), r.votes)
+        }
+        partiesMandatesComputer.computeMandates(partyElectionResultsList, electionUnit.seats)
     }
-    val partiesElectedDirectly = directElectionData.flatMap(_._1)
-    val candidatesForCompensatorySeats = directElectionData.map(_._2)
 
-    val partiesForCompensatorySeats =
-      assignCompensatoryElectoralUnits(candidatesForCompensatorySeats, compensatoryElectoralUnits)
+    val partiesElectedDirectly = mandateAssignments.flatMap(_.elected).map(buildElectedPartyFrom)
+    val candidatesForCompensatorySeats = mandateAssignments.flatMap(_.notElected)
 
-    val partiesElectedToCompensatorySeats = partiesForCompensatorySeats.flatMap(d => computeElectedParties _ tupled d.swap)
+    val forCompensatorySeats = partyElectionResultsListForCompensatorySeats(candidatesForCompensatorySeats)
+
+    val partiesElectedToCompensatorySeats = forCompensatorySeats.map {
+      case (electionUnitId, partyElectionResults) =>
+        partiesMandatesComputer.computeMandates(partyElectionResults,
+          availableSeatsInCompensatoryUnit(electionUnitId))
+    }.flatMap(_.elected).map(buildElectedPartyFrom)
 
     partiesElectedDirectly ++ partiesElectedToCompensatorySeats
   }
