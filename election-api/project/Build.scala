@@ -47,7 +47,7 @@ object Dependencies {
   ) ++ spray
 
 
-  val gardenVersion = "0.0.20-SNAPSHOT"
+  val gardenVersion = "0.0.20"
   val garden = "com.softwaremill.thegarden" %% "shrubs" % gardenVersion % "test" ::
     List("garden-spray", "lawn", "garden-json4s").map("com.softwaremill.thegarden" %% _ % gardenVersion)
 
