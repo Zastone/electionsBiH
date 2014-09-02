@@ -87,6 +87,7 @@
         <script type="text/template" id="results-template">
             <h1><%= translate("Results") %></h1>
             <h2><%= translate("total seats") %></h2>
+            <h2></h2>
             <h2><%= translate("seats by party") %></h2>
             <h2><%= translate("votes (%)") %></h2>
             <a class="btn btn-primary" target="_new"
@@ -100,7 +101,7 @@
                 <% _.each(parties, function(party) { %>
                     <a><li class="active">
                     <span class="indicator"></span>
-                    <%= party.abbreviation %></li></a>
+                    <%= party %></li></a>
                 <%    }) %>
             </ul>
         </script>

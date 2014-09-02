@@ -15,18 +15,16 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         el: '#results-display',
 
-        className: '',
-
-        events: {},
 
         initialize: function () {
-          //  this.listenTo(this.model, 'change', this.render);
-          this.render();
-
+          this.listenTo(this.collection, 'sync', this.render);
         },
 
         render: function () {
-            this.$el.html(this.template());
+            console.log("Why does this render function get called twice? I guess this sync happens twice? No idea")
+            console.log(this.collection)
+            // maybe do some stuff to the collection first
+            this.$el.html(this.template({results : this.collection}));
         }
 
     });

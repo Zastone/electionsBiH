@@ -44,7 +44,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
     function bootstrap() {
 
         Electionsbih.collections = {
-            mandates: new Electionsbih.Collections.Mandates(),
+            mandates: new Electionsbih.Collections.Mandates({options: {year: '', type: ''}}),
             results: new Electionsbih.Collections.Results({options: {year: '', type: ''}})
         };
 
@@ -56,6 +56,13 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             el: '#map', id: 'map', map: Electionsbih.map, collection: Electionsbih.collections.results
         });
 
+        Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay({
+            collection: Electionsbih.collections.mandates
+        });
+
+        Electionsbih.partySelect = new Electionsbih.Views.PartySelect({
+            collection: Electionsbih.collections.mandates
+        });
         //Electionsbih.models = {};
 
 
@@ -78,10 +85,6 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 options: [languages,state]
         });
 
-        Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay();
-
-        Electionsbih.partySelect = new Electionsbih.Views.PartySelect();
-
         //Electionsbih.mapView.load();
         init = true;
     }
@@ -103,6 +106,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
             Electionsbih.collections.results.options = {year: state['year'], type: state['type']};
             Electionsbih.collections.results.fetch();
+
+            Electionsbih.collections.mandates.options = {year: state['year'], type: state['type']};
+            Electionsbih.collections.mandates.fetch();
 
             this.navigate('en/2010/parliament_bih', {trigger: false});
 
@@ -132,6 +138,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
 
             Electionsbih.collections.results.options = {year: state['year'], type: state['type']} ;
             Electionsbih.collections.results.fetch();
+
+            Electionsbih.collections.mandates.options = {year: state['year'], type: state['type']} ;
+            Electionsbih.collections.mandates.fetch();
 
         },
 
