@@ -40,20 +40,20 @@ Electionsbih.Views = Electionsbih.Views || {};
                 }),"id"),function(d) {return zp(d,3)})};
             });
             // for each electoral unit id, construct a merged geojson by looping though the geojson features and merging those municipalities which match
-            var eu, layer;
+            var eu;
             _.each(municipalities, function(x) {
               //create the merged one
               eu = topojson.merge(that.topojson, _.filter(that.topojson.objects.bosnia.geometries, function(y) {
                 return _.contains(x.municipalities, y.id);
               }));
               //add to map
-              layer = L.geoJson(eu, {
+              var layer = L.geoJson(eu, {
                     style: function(feature) {
                         return {
                             color: '#ccc',
                             fillColor: 'hotpink',
                             opacity: 0.7,
-                            fillOpacity: 0.6,
+                            fillOpacity: 0.5,
                             weight: 1
                         }
                       }

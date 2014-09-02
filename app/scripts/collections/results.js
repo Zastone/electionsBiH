@@ -6,7 +6,7 @@ Electionsbih.Collections = Electionsbih.Collections || {};
     'use strict';
 
     Electionsbih.Collections.Results = Backbone.Collection.extend({
-        urlRoot: 'http://192.168.0.89:8090/results/',
+        urlRoot: 'http://kdp-ztm.epf.p2.tiktalik.com:8090/v1/results/',
         model: Electionsbih.Models.Results,
 
         url: function() {
