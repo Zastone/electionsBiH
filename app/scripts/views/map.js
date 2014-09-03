@@ -25,6 +25,7 @@ Electionsbih.Views = Electionsbih.Views || {};
               _.each(this.layers, function(x) {
               Electionsbih.map.removeLayer(x);
             })}
+            Electionsbih.map.setView([44, 18], 7)
             var electoral_units = _.unique(_.flatten(
                 _.map(this.collection.models, function(d) {
                     return _.pluck(d.get("electoral_units"),"id");
@@ -46,19 +47,45 @@ Electionsbih.Views = Electionsbih.Views || {};
               eu = topojson.merge(that.topojson, _.filter(that.topojson.objects.bosnia.geometries, function(y) {
                 return _.contains(x.municipalities, y.id);
               }));
+              var cn = String(x['electoral_unit'])
               //add to map
               var layer = L.geoJson(eu, {
                     style: function(feature) {
                         return {
+                            className: cn,
                             color: '#ccc',
-                            fillColor: 'hotpink',
                             opacity: 0.7,
-                            fillOpacity: 0.5,
+                            fillColor: 'lightblue',
+                            fillOpacity: 0.4,
                             weight: 1
                         }
                       }
                 }).on({
                   click: function() {
+                    // this.options.style().className
+                    // for sending the classname to someother view or something
+                    //console.log(this.options.style().fillColor)
+                    if (that.layers.length) {
+                      _.each(that.layers, function(x) {
+                        x.setStyle({
+                          color: '#ccc',
+                          weight: 1
+                        });
+                      });
+                    }
+                    if (that.selected == this.options.style().className){
+                      Electionsbih.map.setView([44, 18], 7);
+                      that.selected = 0;
+                      Electionsbih.resultsDisplay.render('country')
+                    }
+                    else {
+                      this.setStyle({
+                        color: '#dc3',
+                        weight: 3
+                      });
+                      that.selected = this.options.style().className;
+                      Electionsbih.resultsDisplay.render(that.selected)
+                    }
                     Electionsbih.map.fitBounds(layer.getBounds());
                   }
                 }).addTo(Electionsbih.map);
