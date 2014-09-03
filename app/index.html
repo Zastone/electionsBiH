@@ -87,9 +87,21 @@
         <script type="text/template" id="results-template">
             <h1><%= translate("Results") %></h1>
             <h2><%= translate("total seats") %></h2>
-            <h2></h2>
+            <% /* logic in the templating */ %>
+            <% var ts = _.reduce(partySeats, function(a, b){ return a + b['seats']; }, 0);%>
+            <h3><%= ts %></h3>
             <h2><%= translate("seats by party") %></h2>
+            <table>
+            <% _.each(partySeats, function(ps){ %>
+            <tr><td><%= ps.name %></td><td><%= ps.seats %> (<%= ps.comp || 0 %>)</td></tr>
+            <% }); %>
+            </table>
             <h2><%= translate("votes (%)") %></h2>
+            <table>
+            <% _.each(partyVotes, function(pv){ %>
+            <tr><td><%= pv.abbreviation %></td><td><%= pv.per %>%</td></tr>
+            <% }); %>
+            </table>
             <a class="btn btn-primary" target="_new"
             href="https://github.com/Zastone/electionsBiH/tree/master/Cleaned%20Data">
                 <%= translate("Download Data") %></a>
@@ -99,11 +111,13 @@
             <h1><%= translate("Parties") %></h1>
             <ul class="party-select">
                 <% _.each(parties, function(party) { %>
-                    <a><li class="active">
+                    <li class="active">
                     <span class="indicator"></span>
-                    <%= party %></li></a>
+                    <%= party %></li>
                 <%    }) %>
             </ul>
+            <button class="btn btn-default sl-all" type="button">Select all</button>
+            <button class="btn btn-default unsl-all" type="button">Unselect all</button>
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

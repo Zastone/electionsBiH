@@ -57,7 +57,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
         });
 
         Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay({
-            collection: Electionsbih.collections.mandates
+            collection: {mandates: Electionsbih.collections.mandates, results: Electionsbih.collections.results}
         });
 
         Electionsbih.partySelect = new Electionsbih.Views.PartySelect({
@@ -133,8 +133,6 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             }
             Electionsbih.electionSelect.render();
             Electionsbih.yearSelect.render();
-            Electionsbih.partySelect.render();
-            Electionsbih.resultsDisplay.render();
 
             Electionsbih.collections.results.options = {year: state['year'], type: state['type']} ;
             Electionsbih.collections.results.fetch();
