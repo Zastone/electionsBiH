@@ -20,7 +20,8 @@ object Election {
   val WithAvailableData = Seq(
     Election(ParlimentBih, 2010),
     Election(ParliamentFbih, 2010),
-    Election(ParliamentRs, 2010)
+    Election(ParliamentRs, 2010),
+    Election(Kanton, 2010)
   )
 
 }
