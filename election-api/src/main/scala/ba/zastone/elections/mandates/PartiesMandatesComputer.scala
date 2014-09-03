@@ -57,23 +57,31 @@ class PartiesMandatesComputer(electionThreshold: ElectionThreshold = ElectionThr
   private def determineElectedObjects(fractions: IndexedSeq[VoteFraction], availableSeats: Int,
                                       electionResult: Seq[PartyElectionResult])
   : PartyMandateAssignment = {
-    val electedByFraction = fractions.take(availableSeats)
-    val lastPartyTiedWith =
-      if (fractions(availableSeats).fraction == electedByFraction.last.fraction)
-        Some(fractions(availableSeats).result)
-      else
-        None
+    availableSeats match {
+      case 0 => PartyMandateAssignment(Nil, electionResult, None)
+      case s if s > 0 =>
+        val electedByFraction = fractions.take(availableSeats)
+        val lastPartyTiedWith =
+          if (fractions(availableSeats).fraction == electedByFraction.last.fraction)
+            Some(fractions(availableSeats).result)
+          else
+            None
 
-    val elected = electedByFraction.map(_.result)
+        val elected = electedByFraction.map(_.result)
 
-    val electedSet = elected.toSet
-    val electedSetWithTiedParty = lastPartyTiedWith.fold(electedSet)(electedSet + _)
+        val electedSet = elected.toSet
+        val electedSetWithTiedParty = lastPartyTiedWith.fold(electedSet)(electedSet + _)
 
-    val notElected = electionResult.filterNot(electedSetWithTiedParty)
+        val notElected = electionResult.filterNot(electedSetWithTiedParty)
 
-    PartyMandateAssignment(elected,
-      notElected,
-      lastPartyTiedWith)
+        PartyMandateAssignment(elected,
+          notElected,
+          lastPartyTiedWith)
+      case _ =>
+        throw new IllegalArgumentException("Illegal number of available seats. Cannot be less than zero. " +
+          s"Was: $availableSeats")
+    }
+
   }
 
   private def partitionByOnElectionThreshold(electionResult: Seq[PartyElectionResult])

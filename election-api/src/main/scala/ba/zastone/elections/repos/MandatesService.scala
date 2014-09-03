@@ -74,7 +74,10 @@ class MandatesComputer(electoralData: List[(ElectoralUnit, List[PartyResult])],
     )
   }
 
-  private def availableSeatsInCompensatoryUnit(id: ElectionUnitId): Int = compensatoryElectoralUnits(id).seats
+  private def availableSeatsInCompensatoryUnit(id: ElectionUnitId): Int = compensatoryElectoralUnits.get(id) match {
+    case Some(electionUnit) => electionUnit.seats
+    case None => 0
+  }
 
   private def compensatoryElectionUnitOf(partyId: PartyId) = partyDataLookup(partyId)._1.compensatoryElectionUnitId
 
