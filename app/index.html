@@ -90,7 +90,7 @@
             <% /* logic in the templating */ %>
             <% var ts = _.reduce(partySeats, function(a, b){ return a + b['seats']; }, 0);%>
             <h3><%= ts %></h3>
-            <table class="table">
+            <table class="table table-condensed">
             <tr><th><%= translate("Party") %></th><th><%= translate("Seats") %></th><th><%= translate("Vote %") %></th></tr>
             <% _.each(partySeats, function(ps){ %>
             <tr><td><%= ps.abbreviation %></td><td><%= ps.seats %> <%= ps.comp %></td><td><%= ps.per %></td></tr>
