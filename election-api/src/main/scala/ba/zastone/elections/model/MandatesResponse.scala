@@ -30,14 +30,12 @@ object ElectoralUnitMandates {
                   electedParties: List[ElectedParty]) = {
     ElectoralUnitMandates(electoralUnitName, electoralUnitId,
       electedParties.groupBy(party => party.partyResult.name).map {
-        case (party, elected) => Mandate(party, elected.size)
+        case (party, elected) => Mandate(party, elected.head.partyResult.abbreviation, elected.size)
       }.toList.sortBy(-_.seats)
     )
   }
 
 }
 
-case class Mandate(name: String, seats: Int) {
-
-}
+case class Mandate(name: String, abbreviation: String, seats: Int)
 
