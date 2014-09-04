@@ -21,3 +21,6 @@ target
 
 # Database scripts built files
 Database/create_db.sql
+
+# Pid files
+*.pid
