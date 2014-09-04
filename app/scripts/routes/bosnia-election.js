@@ -133,7 +133,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             }
             Electionsbih.electionSelect.render();
             Electionsbih.yearSelect.render();
-
+            
             Electionsbih.collections.results.options = {year: state['year'], type: state['type']} ;
             Electionsbih.collections.results.fetch();
 

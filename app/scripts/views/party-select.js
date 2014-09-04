@@ -24,15 +24,25 @@ Electionsbih.Views = Electionsbih.Views || {};
         },
 
         initialize: function () {
-          this.listenTo(this.collection, 'sync', this.render);
+          this.listenTo(this.collection, 'sync', this.render());
         },
 
-        render: function () {
+        render: function (view) {
 
-          var parties = _.unique(_.flatten(_.map(this.collection.models, function(d) {
+          this.view = view || 'country';
+          var that = this;
+          var parties,viewMandates;
+          if (this.view === 'country'){
+            viewMandates = this.collection.models;
+          }
+          else {
+            viewMandates = [_.find(this.collection.models, function(x){
+              return x.get('electoral_unit_id') == that.view;
+            })]
+          }
+          parties = _.unique(_.flatten(_.map(viewMandates, function(d) {
             return _.pluck(d.get("mandates"),"name");
           })));
-
           this.$el.html(this.template({parties: parties}));
 
         },

@@ -19,6 +19,7 @@ Electionsbih.Collections = Electionsbih.Collections || {};
 
         parse: function(response, options)  {
             return response.electoral_unit_mandates;
+
         }
 
     });

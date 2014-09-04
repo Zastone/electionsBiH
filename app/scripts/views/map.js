@@ -77,6 +77,7 @@ Electionsbih.Views = Electionsbih.Views || {};
                       Electionsbih.map.setView([44, 18], 7);
                       that.selected = 0;
                       Electionsbih.resultsDisplay.render('country')
+                      Electionsbih.partySelect.render('country')
                     }
                     else {
                       this.setStyle({
@@ -85,6 +86,7 @@ Electionsbih.Views = Electionsbih.Views || {};
                       });
                       that.selected = this.options.style().className;
                       Electionsbih.resultsDisplay.render(that.selected)
+                      Electionsbih.partySelect.render(that.selected)
                     }
                     Electionsbih.map.fitBounds(layer.getBounds());
                   }
