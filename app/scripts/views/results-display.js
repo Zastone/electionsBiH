@@ -41,11 +41,11 @@ Electionsbih.Views = Electionsbih.Views || {};
             // aggregate the mandates by party
             _.each(viewMandates, function(d) {
               _.each(d.get('mandates'), function (x){
-                if (!partySeats[x['name']]){
-                  partySeats[x['name']] = {name: x['name'], seats: x['seats']};
+                if (!partySeats[x['abbreviation']]){
+                  partySeats[x['abbreviation']] = {name: x['name'], seats: x['seats'], abbreviation: x['abbreviation']};
                 }
                 else {
-                  partySeats[x['name']]['seats'] += x['seats'];
+                  partySeats[x['abbreviation']]['seats'] += x['seats'];
                 }
               });
             });
@@ -58,8 +58,9 @@ Electionsbih.Views = Electionsbih.Views || {};
 
               if (compModel) comps = compModel.get('mandates');
 
+              //store them as strings with parens around them for rendering purposes
               _.each(comps,function(comp){
-                partySeats[comp['name']]['comp'] = comp['seats'];
+                partySeats[comp['abbreviation']]['comp'] = '(' + String(comp['seats']) + ')';
               })
             }
 
@@ -91,11 +92,12 @@ Electionsbih.Views = Electionsbih.Views || {};
               x['per'] = (x['votes']/totalVotes * 100).toFixed(2);
             })
 
-            partyVotes = _.sortBy(partyVotes, function (x){
-              return -x['per'];
+            // join partyVotes to partySeats
+            _.each(partySeats, function(x){
+              x['per'] = partyVotes[x['abbreviation']]['per']
             })
 
-            this.$el.html(this.template({partySeats : partySeats, partyVotes: partyVotes}));
+            this.$el.html(this.template({partySeats : partySeats}));
 
         },
 

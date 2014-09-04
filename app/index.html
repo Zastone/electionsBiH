@@ -35,9 +35,9 @@
         <div class="row border">
         <div class="col-sm-2" id="party-select">
         </div>
-        <div class="col-sm-8 map" id="map">
+        <div class="col-sm-7 map" id="map">
         </div>
-        <div class="col-sm-2" id="results-display">
+        <div class="col-sm-3" id="results-display">
         </div>
         </div>
 
@@ -90,16 +90,10 @@
             <% /* logic in the templating */ %>
             <% var ts = _.reduce(partySeats, function(a, b){ return a + b['seats']; }, 0);%>
             <h3><%= ts %></h3>
-            <h2><%= translate("seats by party") %></h2>
-            <table>
+            <table class="table">
+            <tr><th><%= translate("Party") %></th><th><%= translate("Seats") %></th><th><%= translate("Vote %") %></th></tr>
             <% _.each(partySeats, function(ps){ %>
-            <tr><td><%= ps.name %></td><td><%= ps.seats %> (<%= ps.comp || 0 %>)</td></tr>
-            <% }); %>
-            </table>
-            <h2><%= translate("votes (%)") %></h2>
-            <table>
-            <% _.each(partyVotes, function(pv){ %>
-            <tr><td><%= pv.abbreviation %></td><td><%= pv.per %>%</td></tr>
+            <tr><td><%= ps.abbreviation %></td><td><%= ps.seats %> <%= ps.comp %></td><td><%= ps.per %></td></tr>
             <% }); %>
             </table>
             <a class="btn btn-primary" target="_new"

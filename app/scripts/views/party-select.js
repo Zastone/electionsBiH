@@ -28,7 +28,6 @@ Electionsbih.Views = Electionsbih.Views || {};
         },
 
         render: function (view) {
-
           this.view = view || 'country';
           var that = this;
           var parties,viewMandates;
@@ -41,10 +40,9 @@ Electionsbih.Views = Electionsbih.Views || {};
             })]
           }
           parties = _.unique(_.flatten(_.map(viewMandates, function(d) {
-            return _.pluck(d.get("mandates"),"name");
+            return _.pluck(d.get('mandates'),'abbreviation');
           })));
           this.$el.html(this.template({parties: parties}));
-
         },
 
         partyToggle: function (ev) {
