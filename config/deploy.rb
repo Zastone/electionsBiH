@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:Zastone/electionsBiH.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/mbilas/apps/#{application}"
+set :deploy_to, "/home/mbilas/apps/#{fetch(:application)}"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -22,8 +22,9 @@ set :deploy_to, "/home/mbilas/apps/#{application}"
 # Default value for :pty is false
 # set :pty, true
 
+set :_production_conf, 'prod.conf'
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+set :linked_files, [fetch(:_production_conf)]
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -33,6 +34,20 @@ set :deploy_to, "/home/mbilas/apps/#{application}"
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+namespace :sbt do
+
+  desc 'Run SBT Assembly'
+  task :assembly do
+    on roles(:app) do
+      within "#{release_path}/election-api" do
+        # see https://github.com/capistrano/capistrano/issues/719
+        execute 'sbt', "-Dconfig.file=../#{fetch(:_production_conf)}", 'assembly'
+      end
+    end
+  end
+
+end
 
 namespace :deploy do
 
@@ -46,12 +61,15 @@ namespace :deploy do
 
   after :publishing, :restart
 
+  before :publishing, 'sbt:assembly'
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+      within release_path do
+        execute '/bin/bash', 'bin/stop-app.sh'
+        sleep 2
+        execute '/bin/bash', 'bin/start-app.sh'
+      end
     end
   end
 

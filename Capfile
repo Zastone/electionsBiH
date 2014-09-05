@@ -23,3 +23,12 @@ require 'capistrano/deploy'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+
+# Capistrano-SBT module is another option to support SBT:
+# https://github.com/yyuu/capistrano-sbt
+# https://github.com/yyuu/capistrano-sbt/blob/develop/lib/capistrano-sbt.rb
+
+# https://gist.github.com/Jesus/448d618c83fb0445ebbf
+
+# http://stackoverflow.com/questions/21006875/set-default-stage-with-capistrano-3
+invoke :production
