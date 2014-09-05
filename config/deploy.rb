@@ -66,9 +66,9 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
-        execute '/bin/bash', 'bin/stop-app.sh'
+        execute 'bin/stop-app.sh'
         sleep 2
-        execute '/bin/bash', 'bin/start-app.sh'
+        execute 'bin/start-app.sh'
       end
     end
   end
