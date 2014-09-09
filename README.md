@@ -35,3 +35,4 @@ Workflow:
 6. Run `git subtree push --prefix dist origin gh-pages` to push `dist/` files to `gh-pages` branch.
  
 7. If there are problems pushing to `gh-pages` because your version of dist is behind the remote (not pushing to `build` first, using `git revert`, etc), then run this command to force the push to `gh-pages`: ``git push origin `git subtree split --prefix dist build` :gh-pages --force``
+
