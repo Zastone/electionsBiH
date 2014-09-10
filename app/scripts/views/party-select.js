@@ -24,7 +24,8 @@ Electionsbih.Views = Electionsbih.Views || {};
         },
 
         initialize: function () {
-          this.listenTo(this.collection, 'sync', this.render());
+          this.listenTo(this.collection, 'sync', function() {
+            this.render()});
         },
 
         render: function (view) {
