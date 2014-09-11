@@ -64,7 +64,7 @@
             <% var title = translate(nav); %>
             <% var c = '' %>
             <% if ( state['type'] == nav ) { c += ' active'} %>
-            <li class="<%= c %>"><a href="<%= '/#' + state['lang'] + '/' +
+            <li class="<%= c %>"><a href="<%= '#' + state['lang'] + '/' +
             state['year'] + '/' + nav %>" ><%= title %></a></li>
             <% }); %>
         </ul>
