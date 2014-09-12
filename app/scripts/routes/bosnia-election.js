@@ -90,7 +90,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
     }
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJnUi1mbkVvIn0.018aLhX0Mb0tdtaT2QNe2Q';
-    Electionsbih.map = L.mapbox.map('map', 'devseed.ca125804')
+    Electionsbih.map = L.mapbox.map('map', 'devseed.31eaf6e2')
                         .setView([44, 18], 7)
 
     Electionsbih.Routers.BosniaElection = Backbone.Router.extend({
@@ -133,7 +133,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             }
             Electionsbih.electionSelect.render();
             Electionsbih.yearSelect.render();
-            
+
             Electionsbih.collections.results.options = {year: state['year'], type: state['type']} ;
             Electionsbih.collections.results.fetch();
 
