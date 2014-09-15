@@ -394,7 +394,7 @@
 .map-tooltip .close,
 .mapbox-icon {
   opacity: .75;
-  background-image:url(./images/icons-000000.png);
+  background-image:url(https://api.tiles.mapbox.com/mapbox.js/v2.1.0/images/icons-000000.png);
   background-repeat:no-repeat;
   background-size:26px 260px;
   }
@@ -426,14 +426,14 @@
     .leaflet-popup-close-button,
     .leaflet-control-layers-toggle,
     .mapbox-icon {
-      background-image:url(./images/icons-000000@2x.png);
+      background-image:url(https://api.tiles.mapbox.com/mapbox.js/v2.1.0/images/icons-000000@2x.png);
       }
     .mapbox-button-icon:before,
     .leaflet-container.dark .leaflet-control-zoom-in,
     .leaflet-container.dark .leaflet-control-zoom-out,
     .leaflet-container.dark .leaflet-control-layers-toggle,
     .leaflet-container.dark .mapbox-icon {
-      background-image:url(./images/icons-ffffff@2x.png);
+      background-image:url(https://api.tiles.mapbox.com/mapbox.js/v2.1.0/images/icons-ffffff@2x.png);
       }
 }
 
