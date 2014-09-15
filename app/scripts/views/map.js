@@ -10,12 +10,6 @@ Electionsbih.Views = Electionsbih.Views || {};
         initialize: function () {
             this.listenTo(this.collection, 'sync', this.render);
             this.layers = [];
-            var that = this;
-            $.getJSON("data/maps/bosnia.topojson",function(d) {
-              //that.geojson=topojson.feature(d,d.objects.bosnia);
-              that.topojson = d;
-            })
-
         },
 
         render: function () {
@@ -44,7 +38,7 @@ Electionsbih.Views = Electionsbih.Views || {};
             var eu;
             _.each(municipalities, function(x) {
               //create the merged one
-              eu = topojson.merge(that.topojson, _.filter(that.topojson.objects.bosnia.geometries, function(y) {
+              eu = topojson.merge(Electionsbih.topojson, _.filter(Electionsbih.topojson.objects.bosnia.geometries, function(y) {
                 return _.contains(x.municipalities, y.id);
               }));
               var cn = String(x['electoral_unit'])
@@ -55,7 +49,7 @@ Electionsbih.Views = Electionsbih.Views || {};
                             className: cn,
                             color: '#ccc',
                             opacity: 0.7,
-                            fillColor: 'lightblue',
+                            fillColor: '#555',
                             fillOpacity: 0.4,
                             weight: 1
                         }

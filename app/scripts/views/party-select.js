@@ -43,6 +43,7 @@ Electionsbih.Views = Electionsbih.Views || {};
           parties = _.unique(_.flatten(_.map(viewMandates, function(d) {
             return _.pluck(d.get('mandates'),'abbreviation');
           })));
+
           this.$el.html(this.template({parties: parties}));
         },
 

@@ -53,7 +53,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
         });
 
         Electionsbih.markerView = new Electionsbih.Views.MapMarkers({
-            el: '#map', id: 'map', map: Electionsbih.map, collection: Electionsbih.collections.results
+            el: '#map', id: 'map', collection: {mandates: Electionsbih.collections.mandates, results: Electionsbih.collections.results}
         });
 
         Electionsbih.resultsDisplay = new Electionsbih.Views.ResultsDisplay({
@@ -85,6 +85,9 @@ Electionsbih.Routers = Electionsbih.Routers || {};
                 options: [languages,state]
         });
 
+        $.getJSON("data/maps/bosnia.topojson",function(d) {
+            Electionsbih.topojson = d;
+        })
         //Electionsbih.mapView.load();
         init = true;
     }

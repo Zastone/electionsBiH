@@ -18,7 +18,6 @@ Electionsbih.Collections = Electionsbih.Collections || {};
         },
 
         parse: function(response, options)  {
-            console.log("Help me, I'm trapped in the parse function!");
             return response.municipality_results;
         }
 
