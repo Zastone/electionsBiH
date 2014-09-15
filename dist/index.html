@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link href="https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.css" rel="stylesheet">
-        <link rel="stylesheet" href="styles/f4fd416a.main.css">
+        <link rel="stylesheet" href="styles/f3239623.main.css">
         <script src="scripts/vendor/a52a8685.modernizr.js"></script>
     </head>
     <body>
@@ -97,13 +97,13 @@
 
         <script type="text/template" id="party-select-template">
             <h1><%= translate("Parties") %></h1>
-            <% var color = d3.scale.ordinal().domain(parties).range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]) %>
+            <% var color = d3.scale.ordinal().domain(_.pluck(parties,'abbreviation')).range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]) %>
             <ul class="party-select">
                 <% _.each(parties, function(party) { %>
-                <% var bck = color(party) %>
-                    <li class="active">
+                <% var bck = color(party['abbreviation']) %>
+                    <li class="<%= party['abbreviation'].split(' ').join('_') %>">
                     <span class="indicator" style="background-color:<%= bck %>"></span>
-                    <%= party %></li>
+                    <%= party['abbreviation'] %></li>
                 <%    }) %>
             </ul>
             <button class="btn btn-default sl-all" type="button">Select all</button>
@@ -124,6 +124,6 @@
 
         <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js"></script>
 
-        <script src="scripts/87d21ee2.main.js"></script>
+        <script src="scripts/a3c09096.main.js"></script>
 </body>
 </html>
