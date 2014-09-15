@@ -197,7 +197,7 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        'data/maps/*.topojson',
+                        'data/maps/*.{topojson,geojson}',
                         'data/translations/*.{json,po}',
                         '*.{ico,txt}',
                         '.htaccess',

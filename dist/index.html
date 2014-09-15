@@ -7,8 +7,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <link rel="stylesheet" href="styles/f294e85e.main.css">
+        <link href="https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/48f6904e.main.css">
         <script src="scripts/vendor/a52a8685.modernizr.js"></script>
     </head>
     <body>
@@ -97,10 +97,12 @@
 
         <script type="text/template" id="party-select-template">
             <h1><%= translate("Parties") %></h1>
+            <% var color = d3.scale.ordinal().domain(parties).range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]) %>
             <ul class="party-select">
                 <% _.each(parties, function(party) { %>
+                <% var bck = color(party) %>
                     <li class="active">
-                    <span class="indicator"></span>
+                    <span class="indicator" style="background-color:<%= bck %>"></span>
                     <%= party %></li>
                 <%    }) %>
             </ul>
@@ -122,6 +124,6 @@
 
         <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js"></script>
 
-        <script src="scripts/5f14e080.main.js"></script>
+        <script src="scripts/87d21ee2.main.js"></script>
 </body>
 </html>
