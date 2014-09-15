@@ -199,7 +199,7 @@ module.exports = function (grunt) {
                     src: [
                         'data/maps/*.{topojson,geojson}',
                         'data/translations/*.{json,po}',
-                        '*.{ico,txt}',
+                        '*.{ico,txt,png,xml}',
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
