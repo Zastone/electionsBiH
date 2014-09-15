@@ -30,8 +30,11 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         render: function (view) {
           this.view = view || 'country';
-          var that = this;
-          var parties,viewMandates;
+          this.parties = [];
+
+          var that = this,
+          parties,
+          viewMandates;
           if (this.view === 'country'){
             viewMandates = this.collection.models;
           }
@@ -43,21 +46,37 @@ Electionsbih.Views = Electionsbih.Views || {};
           parties = _.unique(_.flatten(_.map(viewMandates, function(d) {
             return _.pluck(d.get('mandates'),'abbreviation');
           })));
+          _.each(parties, function(x) {
+            that.parties.push({abbreviation: x, status: 'active'})
+          })
 
-          this.$el.html(this.template({parties: parties}));
+          this.$el.html(this.template({parties: this.parties}));
         },
 
         partyToggle: function (ev) {
-          $(ev.target).toggleClass('active')
+          var that = this;
+          var index = _.indexOf(_.pluck(that.parties,'abbreviation'),$(ev.target).attr('class').split(' ')[0].split('_').join(' '))
+          this.parties[index]['status'] = (this.parties[index]['status'] == 'active') ? 'inactive' : 'active'
+          $(ev.target).toggleClass('inactive');
+          Electionsbih.markerView.render(this.parties);
         },
 
-        selectAll: function () {
-          this.$('.party-select').children().toggleClass('active',true);
-
+        selectAll: function (ev) {
+          var that = this;
+          _.each(that.parties, function(x){
+            x['status'] = 'active'
+          });
+          this.$('.party-select').children().toggleClass('inactive',false);
+          Electionsbih.markerView.render(this.parties);
         },
 
-        unselectAll: function () {
-          this.$('.party-select').children().toggleClass('active',false);
+        unselectAll: function (ev) {
+          var that = this;
+          _.each(that.parties, function(x){
+            x['status'] = 'inactive'
+          });
+          this.$('.party-select').children().toggleClass('inactive',true);
+          Electionsbih.markerView.render(this.parties);
         }
 
     });

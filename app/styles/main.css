@@ -36,6 +36,7 @@ body {
     border-radius: 4px;
     width: 100%;
     margin-bottom: 2px;
+    overflow: hidden;
     }
 
 .party-select a {
@@ -46,14 +47,13 @@ body {
 .party-select .indicator {
     display: inline-block;
     width: 10px;
-    background-color: white;
     border-right: 1px solid #333;
     height: 2em;
     vertical-align: middle;
     }
 
-.party-select li.active .indicator{
-    /*background: #333;*/
+.party-select li.inactive .indicator{
+    background-color: white !important;
     }
 
 .party-select li:hover {

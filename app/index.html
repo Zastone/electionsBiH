@@ -103,13 +103,13 @@
 
         <script type="text/template" id="party-select-template">
             <h1><%= translate("Parties") %></h1>
-            <% var color = d3.scale.ordinal().domain(parties).range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]) %>
+            <% var color = d3.scale.ordinal().domain(_.pluck(parties,'abbreviation')).range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]) %>
             <ul class="party-select">
                 <% _.each(parties, function(party) { %>
-                <% var bck = color(party) %>
-                    <li class="active">
+                <% var bck = color(party['abbreviation']) %>
+                    <li class="<%= party['abbreviation'].split(' ').join('_') %>">
                     <span class="indicator" style="background-color:<%= bck %>"></span>
-                    <%= party %></li>
+                    <%= party['abbreviation'] %></li>
                 <%    }) %>
             </ul>
             <button class="btn btn-default sl-all" type="button">Select all</button>

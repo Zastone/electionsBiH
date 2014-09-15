@@ -21,8 +21,14 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         },
 
-        render: function () {
-            //this.$el.html(this.template(this.model.toJSON()));
+        render: function (ps) {
+
+            var partyStatus = ps || 0;
+
+            var activeParties = _.pluck(_.filter(partyStatus, function(x) {
+              return x['status'] === 'active';
+            }),'abbreviation');
+            
             if (this.layers.length) {
               _.each(this.layers, function(x) {
               Electionsbih.map.removeLayer(x);
@@ -63,14 +69,17 @@ Electionsbih.Views = Electionsbih.Views || {};
                 var jiggle = (Electionsbih.map.getBounds()._northEast.lat - Electionsbih.map.getBounds()._southWest.lat)/200
 
                 _.each(topThree, function(y,i){
-                 circles.push(L.circleMarker([coord[1]+jiggle*Math.sin((i*2*Math.PI)/3),coord[0]+jiggle*Math.cos((i*2*Math.PI)/3)], {
-                        radius: Math.sqrt(y['votes']) / 10,
-                        weight: 1.5,
-                        color: color(y['abbreviation']),
-                        opacity: 0.8,
-                        fillColor: color(y['abbreviation']),
-                        fillOpacity: 0.8,
-                    }))
+
+                   if (partyStatus === 0 || _.contains(activeParties,y['abbreviation'])) {
+                     circles.push(L.circleMarker([coord[1]+jiggle*Math.sin((i*2*Math.PI)/3),coord[0]+jiggle*Math.cos((i*2*Math.PI)/3)], {
+                            radius: Math.sqrt(y['votes']) / 10,
+                            weight: 1.5,
+                            color: color(y['abbreviation']),
+                            opacity: 0.8,
+                            fillColor: color(y['abbreviation']),
+                            fillOpacity: 0.8,
+                     }))
+                   }
                 })
 
               }
@@ -82,7 +91,7 @@ Electionsbih.Views = Electionsbih.Views || {};
         },
 
         load: function () {
-          this.loaded == 0 ? this.loaded += 1 : this.render();
+          this.loaded === 0 ? this.loaded += 1 : this.render();
         }
 
     });
