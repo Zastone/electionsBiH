@@ -18,7 +18,7 @@ To build: `grunt build`
 
 #### Deployment
 
-`build` branch contains production files. `gh-pages` mirrors the `dist/` folder. Branch from `build` to do development. Pull request into `build`. Then build and push new `/dist` folder to `build` before pushing to `gh-pages`.
+`build` branch contains production files. `gh-pages` mirrors the `dist/` folder. Branch from `build` to do development. Pull request into `build`. Then build and push new `dist/` folder to `build` before pushing to `gh-pages`.
 
 Workflow:
 
@@ -26,11 +26,11 @@ Workflow:
 
 2. If a new file is created, ensure it is captured in `Gruntfile.js`
 
-3. To run locally, run `grunt serve`. Site will run on `localhost:9000`.
+3. To serve locally, run `grunt serve`. Site will run on `localhost:9000`.
 
 4. To build the site, run `grunt build`. This will update the `dist/` folder. Ensure that Gruntfile.js has copied all site files.
 
-5. Push all changes to 'build' branch: both `app/` and `dist/`
+5. Push all changes to `build` branch: both `app/` and `dist/`
 
 6. Run `git subtree push --prefix dist origin gh-pages` to push `dist/` files to `gh-pages` branch.
  
