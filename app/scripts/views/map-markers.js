@@ -18,7 +18,21 @@ Electionsbih.Views = Electionsbih.Views || {};
             this.listenTo(this.collection.results, 'sync', this.load);
             this.listenTo(this.collection.mandates, 'sync', this.load);
 
+            // add info div for hover info
+            var info = L.control();
 
+            info.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+                this.update();
+                return this._div;
+            };
+
+            info.update = function (props) {
+                this._div.innerHTML = (props ? '<h4>Municipality: </h4>' + props.muni + '<br><h5>Party: </h5>' + props.party + ', Votes: ' + props.votes :
+                'hover for more info');
+            };
+
+            info.addTo(Electionsbih.map);
         },
 
         render: function (ps) {
@@ -36,13 +50,12 @@ Electionsbih.Views = Electionsbih.Views || {};
 
             var zp = function(n,c) { var s = String(n); if (s.length< c) { return zp("0" + n,c) } else { return s } }
 
-            var parties = _.unique(_.flatten(_.map(this.collection.mandates.models, function(d) {
-              return _.pluck(d.get('mandates'),'abbreviation');
-            })));
-
+            var partySeats = Electionsbih.router.partyCalc('country',this.collection.mandates,this.collection.results);
+            console.log(partySeats)
             var muni = this.centroids;
 
-            var circles = [];
+            var circles = [],
+            circleLayer;
 
             _.each(this.collection.results.models, function (x) {
 
@@ -51,6 +64,7 @@ Electionsbih.Views = Electionsbih.Views || {};
               var resultsSort = _.sortBy(results, function(y) {
                 return -y['votes']
               })
+
               var topThree = resultsSort.slice(0,3)
 
               // let's find the municipality centroid as a latLng
@@ -66,28 +80,50 @@ Electionsbih.Views = Electionsbih.Views || {};
 
                 _.each(topThree, function(y,i){
 
-                   if (partyStatus === 0 || _.contains(activeParties,y['abbreviation'])) {
+                   if ((partyStatus === 0 || _.contains(activeParties,y['abbreviation'])) && _.contains(_.pluck(partySeats,'abbreviation'),y['abbreviation'])) {
                      circles.push(L.circleMarker([coord[1]+jiggle*Math.sin((i*2*Math.PI)/3),coord[0]+jiggle*Math.cos((i*2*Math.PI)/3)], {
                             radius: Math.sqrt(y['votes']) / 10,
-                            weight: 1.5,
-                            color: color(y['abbreviation']),
-                            opacity: 0.8,
+                            weight: 0.5,
+                            color: 'white',
+                            opacity: 1,
                             fillColor: color(y['abbreviation']),
-                            fillOpacity: 0.8,
-                     }))
+                            fillOpacity: 1,
+                     }));
                    }
                 })
 
               }
             });
 
-            var circleLayer = new L.LayerGroup(circles).addTo(Electionsbih.map);
+            // add circle layer
 
+            circleLayer = new L.LayerGroup(circles, {onEachFeature: this.onEachFeature}).addTo(Electionsbih.map);
+            console.log(circleLayer)
             this.layers.push(circleLayer);
+
         },
 
         load: function () {
           this.loaded === 0 ? this.loaded += 1 : this.render();
+        },
+
+        onEachFeature: function (feature, layer) {
+          console.log(this)
+          layer.on({
+            mouseover: this.markerInfo,
+            mouseout: this.resetInfo
+          });
+        },
+
+        markerInfo: function (e) {
+          console.log("I'm hovering!")
+          var layer = e.target;
+          info.update(layer.feature.properties);
+        },
+
+        resetInfo: function (e) {
+          circleLayer.resetStyle(e.target);
+          info.update();
         }
 
     });

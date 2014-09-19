@@ -25,9 +25,10 @@ Electionsbih.Views = Electionsbih.Views || {};
         render: function (view) {
             this.view = view || 'country';
             this.loaded = 0;
-            
-            var partySeats = Electionsbih.router.partyCalc(this.view,this.collection.mandates,this.collection.results)
-            this.$el.html(this.template({partySeats : partySeats}));
+
+            var partySeats = Electionsbih.router.partyCalc(this.view,this.collection.mandates,this.collection.results);
+            var eu = this.view === 'country' ? 'all' : this.view;
+            this.$el.html(this.template({partySeats : partySeats, eu: eu}));
         },
 
         load: function () {
