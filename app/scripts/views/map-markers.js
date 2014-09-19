@@ -89,7 +89,7 @@ Electionsbih.Views = Electionsbih.Views || {};
                             opacity: 1,
                             fillColor: color(y['abbreviation']),
                             fillOpacity: 1,
-                            values: {party: y['abbreviation'], votes: y['votes'], municipality: x.get('name'), per: per}
+                            values: {party: y['abbreviation'], votes: that.numberWithCommas(y['votes']), municipality: x.get('name'), per: per}
                      })
                      .on('mouseover', function (e) {
                        var layer = e.target;
@@ -114,6 +114,10 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         load: function () {
           this.loaded === 0 ? this.loaded += 1 : this.render();
+        },
+
+        numberWithCommas: function (x) {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
     });
