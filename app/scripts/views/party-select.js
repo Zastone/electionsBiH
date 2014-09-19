@@ -24,32 +24,23 @@ Electionsbih.Views = Electionsbih.Views || {};
         },
 
         initialize: function () {
-          this.listenTo(this.collection, 'sync', function() {
-            this.render()});
+          this.loaded = 0
+          this.listenTo(this.collection.results, 'sync', this.load);
+          this.listenTo(this.collection.mandates, 'sync', this.load);
         },
 
         render: function (view) {
           this.view = view || 'country';
           this.parties = [];
+          var that = this;
+          
+          var partySeats = Electionsbih.router.partyCalc(this.view,this.collection.mandates,this.collection.results)
 
-          var that = this,
-          parties,
-          viewMandates;
-          if (this.view === 'country'){
-            viewMandates = this.collection.models;
-          }
-          else {
-            viewMandates = [_.find(this.collection.models, function(x){
-              return x.get('electoral_unit_id') == that.view;
-            })]
-          }
-          parties = _.unique(_.flatten(_.map(viewMandates, function(d) {
-            return _.pluck(d.get('mandates'),'abbreviation');
-          })));
-          _.each(parties, function(x) {
-            that.parties.push({abbreviation: x, status: 'active'})
+          _.each(partySeats, function(x) {
+            that.parties.push({abbreviation: x['abbreviation'], status: 'active'})
           })
 
+          console.log(this.parties)
           this.$el.html(this.template({parties: this.parties}));
         },
 
@@ -77,6 +68,10 @@ Electionsbih.Views = Electionsbih.Views || {};
           });
           this.$('.party-select').children().toggleClass('inactive',true);
           Electionsbih.markerView.render(this.parties);
+        },
+
+        load: function () {
+          this.loaded == 0 ? this.loaded += 1 : this.render();
         }
 
     });

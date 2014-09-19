@@ -61,7 +61,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
         });
 
         Electionsbih.partySelect = new Electionsbih.Views.PartySelect({
-            collection: Electionsbih.collections.mandates
+            collection: {mandates: Electionsbih.collections.mandates, results: Electionsbih.collections.results}
         });
         //Electionsbih.models = {};
 
@@ -150,8 +150,83 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             translate = createTranslation(language);
             this.navigate(state['lang'] +'/' + state['year'] + '/' + state['type'], {trigger: true});
 
-
         },
+
+        partyCalc: function(view, mandates, results) {
+            var partySeats = {},comps = [],compModel,viewMandates;
+
+            // all models for country view, only one at the electoral unit level
+            if (view === 'country'){
+              viewMandates = mandates.models;
+            }
+            else {
+              viewMandates = [_.find(mandates.models, function(x){
+                return x.get('electoral_unit_id') == that.view;
+              })]
+            }
+
+            // aggregate the mandates by party
+            _.each(viewMandates, function(d) {
+              _.each(d.get('mandates'), function (x){
+                if (!partySeats[x['abbreviation']]){
+                  partySeats[x['abbreviation']] = {name: x['name'], seats: x['seats'], abbreviation: x['abbreviation']};
+                }
+                else {
+                  partySeats[x['abbreviation']]['seats'] += x['seats'];
+                }
+              });
+            });
+
+            // add comps if we're at the country level
+            if (view === 'country'){
+              compModel = _.find(viewMandates, function (x){
+                return x.get('electoral_unit_id').toString().substring(1,3) === '00';
+              })
+
+              if (compModel) comps = compModel.get('mandates');
+
+              //store them as strings with parens around them for rendering purposes
+              _.each(comps,function(comp){
+                partySeats[comp['abbreviation']]['comp'] = '(' + String(comp['seats']) + ')';
+              })
+            }
+
+            var partyVotes = {},totalVotes;
+
+            _.each(results.models, function (d){
+              _.each(d.get('electoral_units'), function (x){
+                _.each(x['results'], function (y){
+                  if (view === 'country' || view == x['id']){
+                    if (!partyVotes[y['abbreviation']]){
+                      partyVotes[y['abbreviation']] = {name: y['name'], abbreviation: y['abbreviation'], votes: y['votes']};
+                    }
+                    else {
+                      partyVotes[y['abbreviation']]['votes'] += y['votes'];
+                    }
+                  }
+                })
+              })
+            })
+
+            totalVotes = _.reduce(partyVotes, function(a, b){ return a + b['votes']; }, 0);
+            _.each(partyVotes, function(x){
+              x['per'] = (x['votes']/totalVotes * 100).toFixed(2);
+            })
+
+            // join partyVotes to partySeats
+            _.each(partySeats, function(x){
+              x['per'] = partyVotes[x['abbreviation']]['per']
+            })
+
+            // sort
+            partySeats = _.sortBy(partySeats, function (x){
+              var v = Number(x['per'])/100;
+              var c = x['comp'] || '0';
+              return -(x['seats'] + Number(c.replace(/\(|\)/g,"")) + v);
+            })
+
+            return partySeats;
+        }
 
     });
 
