@@ -103,7 +103,6 @@
 
         <script type="text/template" id="party-select-template">
             <h1><%= translate("Parties") %></h1>
-            <% var color = d3.scale.ordinal().domain(_.pluck(parties,'abbreviation')).range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]) %>
             <ul class="party-select">
                 <% _.each(parties, function(party) { %>
                 <% var bck = color(party['abbreviation']) %>
@@ -141,6 +140,7 @@
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/translation.js"></script>
+        <script src="scripts/color.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/templates.js"></script>
         <script src="scripts/models/results.js"></script>

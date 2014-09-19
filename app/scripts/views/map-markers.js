@@ -28,7 +28,7 @@ Electionsbih.Views = Electionsbih.Views || {};
             var activeParties = _.pluck(_.filter(partyStatus, function(x) {
               return x['status'] === 'active';
             }),'abbreviation');
-            
+
             if (this.layers.length) {
               _.each(this.layers, function(x) {
               Electionsbih.map.removeLayer(x);
@@ -39,10 +39,6 @@ Electionsbih.Views = Electionsbih.Views || {};
             var parties = _.unique(_.flatten(_.map(this.collection.mandates.models, function(d) {
               return _.pluck(d.get('mandates'),'abbreviation');
             })));
-
-            var color = d3.scale.ordinal()
-                        .domain(parties)
-                        .range(["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"])
 
             var muni = this.centroids;
 

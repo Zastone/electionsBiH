@@ -161,7 +161,7 @@ Electionsbih.Routers = Electionsbih.Routers || {};
             }
             else {
               viewMandates = [_.find(mandates.models, function(x){
-                return x.get('electoral_unit_id') == that.view;
+                return x.get('electoral_unit_id') == view;
               })]
             }
 

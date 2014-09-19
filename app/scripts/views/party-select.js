@@ -33,14 +33,13 @@ Electionsbih.Views = Electionsbih.Views || {};
           this.view = view || 'country';
           this.parties = [];
           var that = this;
-          
+
           var partySeats = Electionsbih.router.partyCalc(this.view,this.collection.mandates,this.collection.results)
 
           _.each(partySeats, function(x) {
             that.parties.push({abbreviation: x['abbreviation'], status: 'active'})
           })
 
-          console.log(this.parties)
           this.$el.html(this.template({parties: this.parties}));
         },
 
