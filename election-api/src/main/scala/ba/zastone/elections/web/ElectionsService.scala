@@ -1,22 +1,17 @@
 package ba.zastone.elections.web
 
-import java.text.SimpleDateFormat
-import java.util.Locale
-
+import ba.zastone.elections.api.JsonFormats
 import ba.zastone.elections.cache.ElectionCache
 import ba.zastone.elections.model.{Election, ElectionTypes, MandatesResponse, ResultsResponse}
 import ba.zastone.elections.repos.{ElectionDataNotFound, MandatesService, MunicipalitiesRepo, ResultsRepo}
-import com.softwaremill.thegarden.json4s.serializers.UnderscorizeFieldNamesSerializer
 import com.softwaremill.thegarden.spray.directives.CorsSupport
 import com.typesafe.scalalogging.slf4j.LazyLogging
-import org.json4s.DefaultFormats
-import org.json4s.ext.{EnumNameSerializer, JodaTimeSerializers}
 import spray.caching.Cache
 import spray.http.StatusCodes
 import spray.httpx.Json4sJacksonSupport
 import spray.httpx.encoding.{Deflate, Gzip, NoEncoding}
-import spray.routing.{ExceptionHandler, HttpService}
 import spray.routing.directives.DetachMagnet
+import spray.routing.{ExceptionHandler, HttpService}
 
 trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLogging with CorsSupport {
 
@@ -26,12 +21,7 @@ trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLo
 
   protected val mandatesService: MandatesService
 
-  implicit def json4sJacksonFormats = new DefaultFormats {
-    override protected def dateFormatter =
-      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
-  } ++ JodaTimeSerializers.all +
-    UnderscorizeFieldNamesSerializer +
-    new EnumNameSerializer(ElectionTypes)
+  implicit def json4sJacksonFormats = JsonFormats
 
   val resultsCache: Cache[ResultsResponse] = ElectionCache()
   val mandatesCache: Cache[MandatesResponse] = ElectionCache()
