@@ -354,7 +354,7 @@
                 "type": "Polygon",
                 "properties": {
                     "OSM_ID": null,
-                    "NAME": "Bosanski Novi/Novi",
+                    "NAME": "Novi Grad",
                     "TYPE": null,
                     "ADMIN_LEVE": "7",
                     "BOUNDARY": "administrative",
@@ -1596,14 +1596,14 @@
                 "type": "Polygon",
                 "properties": {
                     "OSM_ID": null,
-                    "NAME": "Novi Grad",
+                    "NAME": "Novi Grad Sarajevo",
                     "TYPE": null,
                     "ADMIN_LEVE": "7",
                     "BOUNDARY": "administrative",
                     "OTHER_TAGS": null,
                     "CAT": 90,
                     "ID": 0,
-                    "MUNID": "007"
+                    "MUNID": "133"
                 },
                 "id": "007",
                 "arcs": [
