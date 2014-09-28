@@ -4,7 +4,7 @@ import ba.zastone.elections.repos.ResultsTuple
 
 
 case class ResultsResponse(request: Election, municipalityResults: List[MunicipalityResult]) {
-  def withMunicipalityResults(municipalityResult: MunicipalityResult) = {
+  def withMunicipalityResult(municipalityResult: MunicipalityResult) = {
     copy(municipalityResults = municipalityResult :: municipalityResults)
   }
 }

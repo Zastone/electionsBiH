@@ -44,7 +44,7 @@ class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
     }
   }
 
-  def results(election: Election) = {
+  def results(election: Election) : ResultsResponse = {
     val ed = findAll(election)
     ed match {
       case Nil => throw new ElectionDataNotFound(election)
@@ -53,16 +53,17 @@ class ResultsRepo(protected val database: SQLDatabase) extends Metrics {
           allResults.groupBy((tuple) => tuple.municipalityId)
 
         transformationTimer.time {
-          groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(election)) {
+          val unorderedResults = groupedByMunicipalityId.foldLeft(ResultsResponse.withoutResults(election)) {
             case (response, (municipalityId, resultsList)) =>
               val municipalityName = resultsList.head.municipalityName
               val municipalityResults = MunicipalityResult.withoutResults(municipalityId, municipalityName)
 
-              response.withMunicipalityResults(resultsList.foldLeft(municipalityResults) {
+              response.withMunicipalityResult(resultsList.foldLeft(municipalityResults) {
                 case (acc, tuple) =>
                   acc.add(tuple)
               })
           }
+          unorderedResults.copy(municipalityResults = unorderedResults.municipalityResults.sortBy(_.id))
         }
     }
   }
