@@ -4,16 +4,16 @@ import ba.zastone.elections.model.ElectionUnitId
 
 case class ElectionThreshold(percentage: Int) extends AnyVal
 
-case class PartyId(electionUnitId: ElectionUnitId, partyName: String)
+case class PartyKey(electionUnitId: ElectionUnitId, partyName: String)
 
-case class PartyElectionResult(id: PartyId, votes: Int) {
+case class PartyElectionResult(key: PartyKey, votes: Int) {
 
   def +(that: PartyElectionResult) = {
-    require(this.id == that.id)
+    require(this.key == that.key)
     copy(votes = this.votes + that.votes)
   }
 
-  def electionUnitIdUpdated(electionUnitId: ElectionUnitId) = copy(id = id.copy(electionUnitId = electionUnitId))
+  def electionUnitIdUpdated(electionUnitId: ElectionUnitId) = copy(key = key.copy(electionUnitId = electionUnitId))
 
 }
 

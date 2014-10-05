@@ -13,10 +13,11 @@ class MandatesServiceSpec extends FlatSpec with ShouldMatchers with SQLSupport {
 
   val mandatesService = beans.mandatesService
   val mandatesDao = beans.mandatesDao
+  val parliamentSeatsDao = beans.parliamentSeatsDao
 
   for (election <- Election.WithAvailableData) {
     val electoralUnitMandatesList = mandatesService.mandates(election).electoralUnitMandates
-    val availableSeats = mandatesDao.seatCountsByElectionUnitId(election)
+    val availableSeats = parliamentSeatsDao.seatCountsByElectionUnitId(election)
 
     for (electoralUnitMandates <- electoralUnitMandatesList) {
       val electoralUnitId = electoralUnitMandates.electoralUnitId

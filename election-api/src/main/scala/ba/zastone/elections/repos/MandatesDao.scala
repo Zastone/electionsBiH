@@ -21,9 +21,6 @@ class MandatesDao(protected val database: SQLDatabase, parliamentSeatsDao: Parli
     ElectoralResultsTuple(r.<<, r.<<, r.<<, ElectionUnitId(r.<<), r.<<)
   )
 
-  def seatCountsByElectionUnitId(election: Election) : Map[ElectionUnitId, ElectoralUnit] =
-    parliamentSeatsDao.forElection(election).map(e => (e.electionUnitId, e)).toMap
-
   def partyResultsPerElectoralUnit(request: Election): List[ElectoralResultsTuple] = {
     val query = sql"""
     SELECT r.party, r.party_abbrev, r.year, m.election_unit_id, sum(r.vote_count) AS count_votes

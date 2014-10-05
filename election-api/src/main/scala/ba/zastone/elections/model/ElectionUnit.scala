@@ -1,6 +1,5 @@
 package ba.zastone.elections.model
 
-import ba.zastone.elections.model.BiHEntities.BiHEntity
 import ba.zastone.elections.model.ElectionTypes.ElectionType
 
 object BiHEntities extends Enumeration {
@@ -15,10 +14,13 @@ case class ElectionUnitId(value: Int) extends AnyVal with Ordered[ElectionUnitId
 }
 
 case class ElectoralUnit(electionType: ElectionType, electionUnitId: ElectionUnitId, seats: Int,
-                         compensationUnitIdOpt: Option[ElectionUnitId], compensatory: Boolean) {
+                         compensatoryUnitIdOpt: Option[ElectionUnitId], compensatory: Boolean) {
 
-  val isCompensatory = compensatory && compensationUnitIdOpt.isEmpty
+  val isCompensatory = compensatory && compensatoryUnitIdOpt.isEmpty
 
-  val compensatoryElectionUnitId = ElectionUnitId(electionUnitId.value / 100 * 100) /* integer math */
+  def compensatoryElectionUnitId : ElectionUnitId = compensatoryUnitIdOpt match {
+    case None => ElectionUnitId(-1) /* fallback for old code */
+    case Some(compensatoryUnitId) => compensatoryUnitId
+  }
 
 }

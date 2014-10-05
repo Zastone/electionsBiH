@@ -25,4 +25,10 @@ class ParliamentSeatsDao(protected val database: SQLDatabase) {
     }
   }
 
+  /**
+   * @return map of compensatory [[ElectoralUnit]]s keyed by their [[ElectionUnitId]].
+   */
+  def seatCountsByElectionUnitId(election: Election) : Map[ElectionUnitId, ElectoralUnit] =
+    forElection(election).map(e => (e.electionUnitId, e)).toMap
+
 }
