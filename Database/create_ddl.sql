@@ -60,6 +60,8 @@ create table `parliament_seats` (
   election_unit_id int,
   count_seats int,
   race_name char(50),
+  compensatory_id int NULL,
+  compensatory boolean DEFAULT TRUE,
   PRIMARY KEY (election_unit_id)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
