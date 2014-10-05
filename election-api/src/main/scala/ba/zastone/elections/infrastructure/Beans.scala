@@ -4,7 +4,7 @@ import akka.actor.{ActorSystem, Props}
 import ba.zastone.elections.config.ElectionsConfig
 import ba.zastone.elections.db.SQLDatabase
 import ba.zastone.elections.metrics.MonitoringActivator
-import ba.zastone.elections.repos.ReposModule
+import ba.zastone.elections.repos.DaosModule
 import ba.zastone.elections.web.ElectionsWebService
 import com.softwaremill.macwire.Macwire
 import com.softwaremill.thegarden.lawn.shutdownables._
@@ -26,7 +26,7 @@ trait InfrastructureModule extends Macwire with ShutdownHandlerModule with Confi
 
 }
 
-trait ElectionsModule extends Macwire with ShutdownHandlerModule with InfrastructureModule with ReposModule {
+trait ElectionsModule extends Macwire with ShutdownHandlerModule with InfrastructureModule with DaosModule {
 
   lazy val webHandler = actorSystem.actorOf(Props(classOf[ElectionsWebService], this), "elections-service")
 

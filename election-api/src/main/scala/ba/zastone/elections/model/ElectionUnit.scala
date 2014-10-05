@@ -15,9 +15,9 @@ case class ElectionUnitId(value: Int) extends AnyVal with Ordered[ElectionUnitId
 }
 
 case class ElectoralUnit(electionType: ElectionType, electionUnitId: ElectionUnitId, seats: Int,
-                         auxiliaryEntity: Option[BiHEntity]) {
+                         compensationUnitIdOpt: Option[ElectionUnitId], compensatory: Boolean) {
 
-  val isCompensatory = electionUnitId.value % 100 == 0
+  val isCompensatory = compensatory && compensationUnitIdOpt.isEmpty
 
   val compensatoryElectionUnitId = ElectionUnitId(electionUnitId.value / 100 * 100) /* integer math */
 

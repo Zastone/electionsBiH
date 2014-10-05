@@ -13,28 +13,16 @@ case class ElectoralResultsTuple(party: String, abbreviation: String,
 
 }
 
-class MandatesDao(protected val database: SQLDatabase) {
+class MandatesDao(protected val database: SQLDatabase, parliamentSeatsDao: ParliamentSeatsDao) {
 
   import database._
-
-  implicit val electoralUnitSeatsTransformer = GetResult(r =>
-    ElectoralUnit(ElectionTypes.withName(r.nextString()), ElectionUnitId(r.nextInt()), r.nextInt(), None)
-  )
 
   implicit val electoralResultsTupleTransformer = GetResult(r =>
     ElectoralResultsTuple(r.<<, r.<<, r.<<, ElectionUnitId(r.<<), r.<<)
   )
 
-  def seatCounts(request: Election): List[ElectoralUnit] = {
-    val query = sql"SELECT race_name, election_unit_id, count_seats FROM parliament_seats".as[ElectoralUnit]
-
-    db.withSession { implicit session =>
-      query.list.filter(_.electionType == request.electionType)
-    }
-  }
-
   def seatCountsByElectionUnitId(election: Election) : Map[ElectionUnitId, ElectoralUnit] =
-    seatCounts(election).map(e => (e.electionUnitId, e)).toMap
+    parliamentSeatsDao.forElection(election).map(e => (e.electionUnitId, e)).toMap
 
   def partyResultsPerElectoralUnit(request: Election): List[ElectoralResultsTuple] = {
     val query = sql"""
