@@ -25,6 +25,9 @@ Database/create_db.sql
 # Pid files
 *.pid
 
+# Logs
+logs
+
 # Front-end
 node_modules
 test/temp

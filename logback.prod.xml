@@ -1,0 +1,42 @@
+<configuration>
+  <!-- see http://logback.qos.ch/manual/configuration.html#LevelChangePropagator; this is for the jul bridge -->
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+    <resetJUL>true</resetJUL>
+  </contextListener>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{dd/MMM/yy HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/api.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- monthly rollover -->
+      <fileNamePattern>logs/api.%d{yyyy-MM}.log.gz</fileNamePattern>
+      <!-- keep 12 months' worth of history -->
+      <maxHistory>12</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%d{YYYY-MM-dd'T'HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+  <logger name="ba.zastone" level="DEBUG"/>
+
+  <logger name="spray" level="INFO"/>
+
+  <logger name="scala.slick" level="INFO"/>
+
+  <logger name="akka.actor" level="DEBUG"/>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="FILE" />
+  </root>
+
+</configuration>
