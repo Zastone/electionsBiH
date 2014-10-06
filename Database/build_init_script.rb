@@ -4,9 +4,9 @@ base_path = File.realpath(File.dirname(__FILE__))
 
 cleaned_data_path = File.realpath(File.join(base_path, '..', 'Cleaned Data'))
 
-ddl = File.read('create_ddl.sql')
+ddl = File.read(File.join(base_path, 'create_ddl.sql'))
 
-etl = File.readlines('import_csv.sql')
+etl = File.readlines(File.join(base_path, 'import_csv.sql'))
 
 etl_placeholder_replacements = [
     ['/data_in/m/', 'Municipality IDs'],
