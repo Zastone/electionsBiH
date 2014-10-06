@@ -24,7 +24,7 @@ set :deploy_to, "/home/mbilas/apps/#{fetch(:application)}"
 
 set :_production_conf, 'prod.conf'
 # Default value for :linked_files is []
-set :linked_files, [fetch(:_production_conf)]
+set :linked_files, [fetch(:_production_conf), 'db-pass']
 
 
 # Default value for linked_dirs is []
@@ -48,6 +48,35 @@ namespace :sbt do
       end
     end
   end
+
+end
+
+namespace :bundler do
+
+  desc 'Bundler: install required gems'
+  task :install do
+    on roles(:all) do
+      within release_path do
+        execute 'bundle', 'install'
+      end
+    end
+  end
+
+end
+
+namespace :db do
+
+  desc 'Initialize the DB with fresh schema and data. Overwrites old data.'
+  task :init do
+    on roles(:db) do
+      within release_path do
+        execute 'ruby', 'Database/build_init_script.rb'
+        execute 'mysql', '-u', 'root', '-p`cat db-pass`', '<', 'Database/create_db.sql'
+      end
+    end
+  end
+
+  before :init, 'deploy:updating', 'deploy:updated', 'bundler:install'
 
 end
 
