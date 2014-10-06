@@ -16,7 +16,7 @@
 # used to set extended properties on the server.
 
 server 'kdp-ztm.epf.p2.tiktalik.com',
-       user: 'mbilas', roles: %w{web app db}
+       user: 'mbilas', roles: %w{app db}
 
 
 # Custom SSH Options
