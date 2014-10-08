@@ -96,7 +96,7 @@
 { "type": "Feature", "properties": { "id": "017", "name": "Odžak" }, "geometry": { "type": "Point", "coordinates": [ 18.323383524318192, 45.070272242892266 ] } },
 { "type": "Feature", "properties": { "id": "137", "name": "Stari Grad" }, "geometry": { "type": "Point", "coordinates": [ 18.462203825318138, 43.899904167909177 ] } },
 { "type": "Feature", "properties": { "id": "096", "name": "Olovo" }, "geometry": { "type": "Point", "coordinates": [ 18.562374429256284, 44.184962058203894 ] } },
-{ "type": "Feature", "properties": { "id": "136", "name": "Orašje" }, "geometry": { "type": "Point", "coordinates": [ 18.678143682625695, 45.011213122704184 ] } },
+{ "type": "Feature", "properties": { "id": "023", "name": "Orašje" }, "geometry": { "type": "Point", "coordinates": [ 18.678143682625695, 45.011213122704184 ] } },
 { "type": "Feature", "properties": { "id": "081", "name": "Osmaci" }, "geometry": { "type": "Point", "coordinates": [ 18.938562600461061, 44.388167636443043 ] } },
 { "type": "Feature", "properties": { "id": "033", "name": "Oštra Luka" }, "geometry": { "type": "Point", "coordinates": [ 16.653598356173511, 44.813668439256894 ] } },
 { "type": "Feature", "properties": { "id": "144", "name": "Pale" }, "geometry": { "type": "Point", "coordinates": [ 18.637035931102226, 43.805410300277273 ] } },
