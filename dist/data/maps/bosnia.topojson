@@ -30,16 +30,16 @@
                 "type": "Polygon",
                 "properties": {
                     "OSM_ID": null,
-                    "NAME": "Vukosavlje",
+                    "NAME": "Bratunac",
                     "TYPE": null,
                     "ADMIN_LEVE": "7",
                     "BOUNDARY": "administrative",
                     "OTHER_TAGS": null,
                     "CAT": 1,
                     "ID": 1,
-                    "MUNID": "018"
+                    "MUNID": "104"
                 },
-                "id": "018",
+                "id": "104",
                 "arcs": [
                     [9, 10, 11, 12]
                 ]
@@ -2532,16 +2532,16 @@
                 "type": "Polygon",
                 "properties": {
                     "OSM_ID": null,
-                    "NAME": "Bratunac",
+                    "NAME": "Vukosavlje",
                     "TYPE": null,
                     "ADMIN_LEVE": "7",
                     "BOUNDARY": "administrative",
                     "OTHER_TAGS": null,
                     "CAT": 143,
                     "ID": 1,
-                    "MUNID": "104"
+                    "MUNID": "018"
                 },
-                "id": "104",
+                "id": "018",
                 "arcs": [
                     [-124, -339, -110, -354]
                 ]
