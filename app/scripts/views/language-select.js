@@ -30,12 +30,8 @@ Electionsbih.Views = Electionsbih.Views || {};
 
         select: function(e) {
             e.preventDefault();
-            
-            e = e.toElement;
-            //e = e.toElement;
-            e = e.target;
-            console.log(e)
 
+            e = e.toElement;
             this.$selected.text(e.innerHTML);
             this.$dropdown.toggleClass('open');
             Electionsbih.router.setLang(e.className);
