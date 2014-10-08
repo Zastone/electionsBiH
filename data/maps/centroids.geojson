@@ -4,7 +4,7 @@
                                                                                 
 "features": [
 { "type": "Feature", "properties": { "id": "200", "name": "Brčko distrikt Bosne i Hercegovine" }, "geometry": { "type": "Point", "coordinates": [ 18.732303798422706, 44.824170875781974 ] } },
-{ "type": "Feature", "properties": { "id": "018", "name": "Vukosavlje" }, "geometry": { "type": "Point", "coordinates": [ 19.323437464182433, 44.17552363046984 ] } },
+{ "type": "Feature", "properties": { "id": "104", "name": "Bratunac" }, "geometry": { "type": "Point", "coordinates": [ 19.323437464182433, 44.17552363046984 ] } },
 { "type": "Feature", "properties": { "id": "034", "name": "Banja Luka" }, "geometry": { "type": "Point", "coordinates": [ 17.07267217045651, 44.736166297969795 ] } },
 { "type": "Feature", "properties": { "id": "003", "name": "Bihac" }, "geometry": { "type": "Point", "coordinates": [ 16.027308910618085, 44.671017795531554 ] } },
 { "type": "Feature", "properties": { "id": "029", "name": "Bijeljina" }, "geometry": { "type": "Point", "coordinates": [ 19.167933501177565, 44.771486442112817 ] } },
@@ -143,7 +143,7 @@
 { "type": "Feature", "properties": { "id": "075", "name": "Žepče" }, "geometry": { "type": "Point", "coordinates": [ 18.009695943117801, 44.407999275866082 ] } },
 { "type": "Feature", "properties": { "id": "079", "name": "Živinice" }, "geometry": { "type": "Point", "coordinates": [ 18.662118481863512, 44.414432021050374 ] } },
 { "type": "Feature", "properties": { "id": "083", "name": "Zvornik" }, "geometry": { "type": "Point", "coordinates": [ 19.082299908149718, 44.436157291665772 ] } },
-{ "type": "Feature", "properties": { "id": "104", "name": "Bratunac" }, "geometry": { "type": "Point", "coordinates": [ 18.258947808140327, 45.01110249123365 ] } },
+{ "type": "Feature", "properties": { "id": "018", "name": "Vukosavlje" }, "geometry": { "type": "Point", "coordinates": [ 18.258947808140327, 45.01110249123365 ] } },
 { "type": "Feature", "properties": { "id": "142", "name": "Trnovo (RS)" }, "geometry": { "type": "Point", "coordinates": [ 18.439756383608088, 43.695547526896625 ] } }
 ]
 }
