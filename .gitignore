@@ -15,6 +15,7 @@ target
 # Python
 *.pyc
 *.pyo
+.ipynb_checkpoints
 
 # Excel temporary files
 ~$*.xlsx
