@@ -13,13 +13,19 @@ object MonitoringActivator {
     .convertDurationsTo(TimeUnit.MILLISECONDS)
     .build()
 
+  // Oh, this is so ugly... fix it!
+  private def runningOnDevBox() : Boolean = sys.props("user.name") == "maciejb"
 
   def activate(): Unit = {
-    logReporter.start(10, TimeUnit.SECONDS)
+    if (!runningOnDevBox()) {
+      logReporter.start(10, TimeUnit.SECONDS)
+    }
   }
 
   def deactivate(): Unit = {
-    logReporter.stop()
+    if (!runningOnDevBox()) {
+      logReporter.stop()
+    }
   }
 
 }
