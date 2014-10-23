@@ -2,9 +2,10 @@ import sbt.Keys._
 import sbt._
 
 // https://github.com/sbt/sbt-assembly
+
 import sbtassembly.Plugin._
 import AssemblyKeys._
-
+import spray.revolver.RevolverPlugin._
 
 object Resolvers {
   val customResolvers = Seq(
@@ -106,13 +107,15 @@ object ElectionApiBuild extends Build {
   // Removed Project.defaultSettings as compared to prior boilerplate versions
   // see the thread why it got deprecated: https://groups.google.com/forum/#!topic/scala-tools/uuFsGN1DhNs
 
+  lazy val mainClassDef = Seq(assembly, Revolver.reStart) map {
+    mainClass in _ := Some("ba.zastone.elections.web.ElectionsWeb")
+  }
+
+  /* mainClassDef must go after Revolver.settings, as the second defines a default mainClass key */
   lazy val commonSettings = Seq(isSnapshot <<= isSnapshot or version(_ endsWith "-SNAPSHOT")) ++ slf4jExclusionHack ++
     Seq(
       resolvers ++= Resolvers.customResolvers
-    ) ++
-    Seq(
-      mainClass in assembly := Some("ba.zastone.elections.web.ElectionsApiWeb")
-    ) ++ assemblySettings
+    ) ++ assemblySettings ++ Revolver.settings ++ mainClassDef
 
   lazy val root = Project(
     id = "elections-api",
