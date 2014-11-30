@@ -8,7 +8,7 @@ INTO TABLE muni
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
 
--- municipalities - handle nulls in CSVs 
+-- municipalities - handle nulls in CSVs
 truncate table municipalities;
 load data infile '/data_in/m/municipality-ids-election-units-pivot.csv' INTO TABLE muni_temp
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
@@ -40,6 +40,12 @@ load data infile '/data_in/r/General-Election-Results-2010.csv' INTO TABLE resul
 CHARACTER SET UTF8
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES;
+
+load data infile '/data_in/r/post_absent_confirmed_2010.csv' INTO TABLE results
+CHARACTER SET UTF8
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+IGNORE 1 LINES
+SET candidate_name = '';
 
 truncate table muni_for_results;
 load data infile '/data_in/m/municipality-ids-election-units.csv' INTO TABLE muni_for_results
