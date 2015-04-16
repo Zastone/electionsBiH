@@ -24,13 +24,13 @@ object Dependencies {
     "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2"
   )
 
-  val macwireVersion = "0.7"
+  val macwireVersion = "1.0.1"
   val macwire = Seq(
     "com.softwaremill.macwire" %% "macros" % macwireVersion,
     "com.softwaremill.macwire" %% "runtime" % macwireVersion
   )
 
-  val sprayVersion = "1.3.1"
+  val sprayVersion = "1.3.2"
   val spray = Seq(
     "io.spray" %% "spray-can" % sprayVersion,
     "io.spray" %% "spray-routing" % sprayVersion,
@@ -52,7 +52,7 @@ object Dependencies {
   val garden = "com.softwaremill.thegarden" %% "shrubs" % gardenVersion % "test" ::
     List("garden-spray", "lawn", "garden-json4s").map("com.softwaremill.thegarden" %% _ % gardenVersion)
 
-  val akkaVersion = "2.3.5"
+  val akkaVersion = "2.3.9"
   val akkaActors = "com.typesafe.akka" %% "akka-actor" % akkaVersion
   val akkaTestKit = "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test"
   val akkaSlf4j = "com.typesafe.akka" %% "akka-slf4j" % akkaVersion
@@ -65,7 +65,7 @@ object Dependencies {
 
   val dbStack = Seq(mysqlDriver, c3p0, slick)
 
-  val scalaTest = "org.scalatest" % "scalatest_2.11" % "2.2.0" % "test"
+  val scalaTest = "org.scalatest" %% "scalatest" % "2.2.4" % "test"
   val mockito = "org.mockito" % "mockito-all" % "1.9.5" % "test"
 
   val testingStack = Seq(scalaTest, mockito)
@@ -90,7 +90,7 @@ object ElectionApiBuild extends Build {
   override val settings = super.settings ++ Seq(
     name := "elections-api",
     version := "1.0",
-    scalaVersion := "2.11.2",
+    scalaVersion := "2.11.6",
     scalacOptions in GlobalScope in Compile := Seq("-unchecked", "-deprecation", "-feature"),
     scalacOptions in GlobalScope in Test := Seq("-unchecked", "-deprecation", "-feature"),
     organization := "ba.zastone.elections"
