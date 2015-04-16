@@ -6,7 +6,7 @@ Electionsbih.Collections = Electionsbih.Collections || {};
     'use strict';
 
     Electionsbih.Collections.Mandates = Backbone.Collection.extend({
-        urlRoot: 'http://kdp-ztm.epf.p2.tiktalik.com:8090/v1/mandates/',
+        urlRoot: 'http://82.113.148.174:8090/v1/mandates/',
         model: Electionsbih.Models.Mandates,
 
         url: function() {
