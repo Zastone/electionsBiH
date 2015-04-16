@@ -14,7 +14,7 @@ object MonitoringActivator {
     .build()
 
   // Oh, this is so ugly... fix it!
-  private def runningOnDevBox() : Boolean = sys.props("user.name") == "maciejb"
+  private def runningOnDevBox() = sys.props("user.name") == "maciejb"
 
   def activate(): Unit = {
     if (!runningOnDevBox()) {

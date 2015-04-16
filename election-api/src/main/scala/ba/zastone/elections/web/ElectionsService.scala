@@ -6,6 +6,7 @@ import ba.zastone.elections.model.{Election, ElectionTypes, MandatesResponse, Re
 import ba.zastone.elections.repos.{ElectionDataNotFound, MandatesService, MunicipalitiesRepo, ResultsRepo}
 import com.softwaremill.thegarden.spray.directives.CorsSupport
 import com.typesafe.scalalogging.slf4j.LazyLogging
+import org.json4s.Formats
 import spray.caching.Cache
 import spray.http.StatusCodes
 import spray.httpx.Json4sJacksonSupport
@@ -14,14 +15,11 @@ import spray.routing.directives.DetachMagnet
 import spray.routing.{ExceptionHandler, HttpService}
 
 trait ElectionsService extends HttpService with Json4sJacksonSupport with LazyLogging with CorsSupport {
+  implicit def json4sJacksonFormats: Formats = JsonFormats
 
   protected val municipalityRepo: MunicipalitiesRepo
-
   protected val resultsRepo: ResultsRepo
-
   protected val mandatesService: MandatesService
-
-  implicit def json4sJacksonFormats = JsonFormats
 
   val resultsCache: Cache[ResultsResponse] = ElectionCache()
   val mandatesCache: Cache[MandatesResponse] = ElectionCache()
