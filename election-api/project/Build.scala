@@ -30,7 +30,7 @@ object Dependencies {
     "com.softwaremill.macwire" %% "runtime" % macwireVersion
   )
 
-  val sprayVersion = "1.3.2"
+  val sprayVersion = "1.3.1"
   val spray = Seq(
     "io.spray" %% "spray-can" % sprayVersion,
     "io.spray" %% "spray-routing" % sprayVersion,
